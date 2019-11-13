@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "navigation": "/components/navigation/navigation",
-    "v-banner": "/components/banner/index"
+    "v-banner": "/components/banner/index",
+    "v-good-footer": "/components/goodFooter/index"
   }
 }

@@ -17,13 +17,17 @@ Page({
     const id = this.data.id;
     goodModel.getGoodDetail({ id })
       .then(res => {
-        let banners = res.data.pics.map(item => {
+        let data = res.data;
+        let banners = data.pics.map(item => {
           item.picUrl = item.pic;
           return item
         });
-        console.log(banners)
+        let { name, characteristic, minPrice, originalPrice, numberOrders } = data.basicInfo;
+        let goodsDetail = {
+          name, characteristic, minPrice, originalPrice, numberOrders
+        }
         this.setData({
-          goodsDetail: res.data,
+          goodsDetail,
           banners
         });
       })

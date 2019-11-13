@@ -1,0 +1,70 @@
+@import "../../common/common.wxss";
+
+.footer-box {
+  width: 100%;
+  height: 100rpx;
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0rpx 15rpx 15rpx 10rpx;
+  z-index: 99999;
+  display: flex;
+}
+
+.box-list {
+  width: 18%;
+  border-right: 1px solid #f2f2f2;
+  position: relative;
+  display: flex;
+  height: 100rpx;
+  align-items: center;
+}
+
+.box-list image {
+  width: 50rpx;
+  height: 50rpx;
+  display: block;
+  margin: 0 auto;
+}
+
+.box-list button {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.box-list .shop-num {
+  font-size: 22rpx;
+  background-color: #b5272d;
+  color: #fff;
+  width: 36rpx;
+  height: 36rpx;
+  line-height: 34rpx;
+  text-align: center;
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  border-radius: 20rpx;
+}
+
+.box-title {
+  width:32%;
+  line-height: 44rpx;
+  text-align: center;
+}
+
+.box-title .npx {
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.buy-now {
+  background-color: #b5272d;
+ 
+}
+.box-now-buy{
+  color: #fff;
+}

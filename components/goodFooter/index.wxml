@@ -1,0 +1,16 @@
+<view class="footer-box">
+  <view class="box-list">
+    <image src="../../images/goods_service.png"></image>
+    <button open-type="contact" session-from="weapp"></button>
+  </view>
+  <view class="box-list" catchtap="goShopCar">
+    <image src="../../images/shopping_cart.png"></image>
+    <view class="shop-num">{{shopNum}}</view>
+  </view>
+  <view class="box-title">
+    <view class="box-shop-cart npx" catchtap="tobuy">立即购买</view>
+  </view>
+  <view class="box-title buy-now">
+    <view class="box-now-buy npx" catchtap="toAddShopCar">加入购物车</view>
+  </view>
+</view>

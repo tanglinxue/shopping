@@ -64,21 +64,24 @@ Component({
   },
 
   methods: {
+    // 回退
     headerBack() {
       wx.navigateBack({
         delta: 1,
         fail(e) {
           wx.switchTab({
-            url: '/pages/grouponList/main'
+            url: '/pages/index/index'
           })
         }
       })
     },
+    // 去首页
     headerHome() {
       wx.switchTab({
         url: '/pages/index/index'
       })
     },
+    //去搜索
 		headerSearch(){
 			wx.navigateTo({
 				url:'/pages/search/search'

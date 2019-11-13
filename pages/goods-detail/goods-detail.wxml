@@ -1,5 +1,21 @@
 <navigation id='Navigation' show-icon="{{true}}" title="商品详情" show-title="{{true}}" class=""></navigation>
-<view class='column-center'>
+<view class='column-center container'>
    <!-- banner -->
   <v-banner banners='{{banners}}' border='{{true}}'/>
+  <!-- 商品信息 -->
+  <view class='goods-info'>
+      <view class='goods-title'>{{goodsDetail.name}}</view>
+      <view class='goods-characteristic'>{{goodsDetail.characteristic}}</view>
+      <view class='row-between'>
+        <view class='row-start'>
+          <text class='goods-price'>Ұ {{goodsDetail.minPrice}}</text>
+          <text class='goods-originalPrice'>Ұ {{goodsDetail.originalPrice}}</text>
+        </view>
+        <view class='piangjia'>已售 {{goodsDetail.numberOrders}}</view>
+      </view>
+  </view>
+  <!-- 商品详情 -->
+  <view></view>
+  <!-- 底部 -->
+  <v-good-footer/>
 </view>
