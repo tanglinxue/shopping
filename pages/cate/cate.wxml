@@ -1,2 +1,1 @@
-<!--pages/cate/cate.wxml-->
-<text>pages/cate/cate.wxml</text>
+<navigation id='Navigation' show-search='{{true}}'></navigation>

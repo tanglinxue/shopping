@@ -15,7 +15,13 @@
       </view>
   </view>
   <!-- 商品详情 -->
-  <view></view>
+  <view class='goods-detail'>
+      <view class='goods-detail-title'>商品介绍</view>
+      <view class='goods-detail-con'>
+        <view class='goods-detail-text'>注意：测试支付专用，不发货，不退款测试支付专用，不发货，不退款测试支付专用，不发货，不退款</view>
+        <image src='https://cdn.it120.cc/apifactory/2019/05/21/22fd86b2-d6f5-4edf-9365-597fda0cebe7.jpg' mode="widthFix" class="goods-detail-image"></image>
+      </view>
+  </view>
   <!-- 底部 -->
   <v-good-footer/>
 </view>
