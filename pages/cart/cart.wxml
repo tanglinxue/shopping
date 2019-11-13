@@ -1,0 +1,7 @@
+<navigation id='Navigation' show-title='true' title="购物车"></navigation>
+<view class='column-center'>
+  <view class="noGoods">
+    <image class="box-none" src="../../images/none/cart_empty.png"></image>
+    去添加点什么吧
+  </view>
+</view>

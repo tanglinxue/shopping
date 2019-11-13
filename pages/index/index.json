@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "v-homeItem": "/components/homeItem/index",
+    "v-banner":"/components/banner/index"
+  }
+}

@@ -1,0 +1,16 @@
+@import "../../common/common.wxss";
+
+/* 没有商品 */
+
+.noGoods {
+  margin-top: 30%;
+  text-align: center;
+  color: #999;
+}
+
+.box-none {
+  width: 200rpx;
+  height: 200rpx;
+  display: block;
+  margin: 0 auto;
+}

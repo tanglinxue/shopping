@@ -1,0 +1,5 @@
+<navigation id='Navigation' show-icon="{{true}}" title="商品详情" show-title="{{true}}" class=""></navigation>
+<view class='column-center'>
+   <!-- banner -->
+  <v-banner banners='{{banners}}' border='{{true}}'/>
+</view>

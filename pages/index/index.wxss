@@ -1,0 +1,63 @@
+@import "../../common/common.wxss";
+page{
+		background: #f2f2f2;
+}
+
+/* 首页menu */
+.index-menu{
+  width:710rpx;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+  margin-top:-50rpx;
+  z-index:99
+}
+.menu-item{
+  text-align: center;
+  padding: 20rpx 0;
+  width:33.3%;
+}
+.menu-item .image{
+  width:80rpx;
+  height:80rpx;
+}
+.menu-item .text{
+  font-size: 28rpx
+}
+/* 首页内容 */
+
+.home-container {
+  width: 100%;
+  margin-bottom: 20rpx;
+  background: #fff;
+}
+
+.home-title {
+  text-align: center;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 32rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.home-title .text {
+  display: inline-block;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+}
+
+.home-title .line {
+  width: 20rpx;
+  border-top: 1rpx solid #b4282d;
+  margin-top: 45rpx;
+  height: 1rpx;
+}
+
+.home-con-inner{
+  box-sizing: border-box;
+  width: 100%;
+  padding:0 20rpx;
+  flex-wrap: wrap;
+}
