@@ -1,4 +1,5 @@
 @import "../../common/common.wxss";
+@import "../../templates/jiajian/index.wxss";
 
 .show-popup {
   position: fixed;

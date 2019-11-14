@@ -1,3 +1,4 @@
+<import src="../../templates/jiajian/index.wxml" />
 <view class="show-popup" hidden="{{!showPopup}}">
 	<view class="popup-mask" catchtap="closePopupTap"></view>
 	<view class="popup-contents">
@@ -13,13 +14,15 @@
 		</view>
 		<view class="buy-num-box row-between">
 			<view class="num-label">购买数量</view>
-			<v-jiajian buyNumber='{{buyNumber}}' buyNumMax='{{goodsDetail.stores}}' />
+      <template is="jiajian" 
+      data='{{...goodsDetail}}'
+      />
 		</view>
 		<block wx:if='{{showType===1}}'>
 			<view class="popup-join-btn" catchtap='toBuyTap'>立即购买</view>
 		</block>
 		<block wx:if='{{showType===2}}'>
-			<view class="popup-join-btn" catchtap='toAddShopCar'>加入购物车</view>
+			<view class="popup-join-btn" catchtap='addShopCar'>加入购物车</view>
 		</block>
 	</view>
 </view>

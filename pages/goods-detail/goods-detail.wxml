@@ -29,6 +29,6 @@
   <!-- 底部 -->
   <v-good-footer catchtobuy='controlPopup'/>
   <!-- 购物底部悬浮 -->
-  <v-detail-popup showPopup='{{showPopup}}' catchclosePopup='controlPopup' goodsDetail='{{goodsDetail}}'
-  showType='{{showType}}'/>
+  <v-detail-popup showPopup='{{showPopup}}' goodsDetail='{{goodsDetail}}'
+  showType='{{showType}}' catchclosePopup='controlPopup' catchchangeNum='changeNum'/>
 </view>

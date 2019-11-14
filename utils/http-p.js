@@ -1,10 +1,11 @@
 import { config } from '../config.js'
+import Methods from './Methods'
 
 const tips = {
   1: '抱歉，出现了一个错误'
 }
 
-class HTTP{
+class HTTP extends Methods{
   request({url,data={},method='GET'}){
     return new Promise((resolve,reject)=>{
       this._request(url, resolve, reject, data, method)

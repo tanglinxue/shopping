@@ -1,5 +1,4 @@
 
-@import "../../common/common.wxss";
 .num-jian, .num-jia, .num-input {
   width: 80rpx;
   height: 64rpx;

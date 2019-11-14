@@ -5,8 +5,8 @@ Page({
     id: 0,
     goodsDetail: {},
     banners: [],
-    showPopup:false,//是否显示底部弹窗
-	showType:1
+    showPopup: false,//是否显示底部弹窗
+    showType: 1
   },
   onLoad: function (options) {
     this.setData({
@@ -24,10 +24,21 @@ Page({
           item.picUrl = item.pic;
           return item
         });
-        let { name, characteristic, minPrice, originalPrice, numberOrders, stores,pic } = data.basicInfo;
-        let goodsDetail = {
-          name, characteristic, minPrice, originalPrice, numberOrders, stores, pic
+        let { name, characteristic, minPrice, originalPrice, numberOrders, stores, pic } = data.basicInfo;
+        let buyNumber = 0;
+        let buyNumMin = 0;
+        let buyNumMax = 0
+        if (stores) {
+          buyNumber = 1;
+          buyNumMax = stores;
+          buyNumMin = 1
         }
+
+        let goodsDetail = {
+          name, characteristic, minPrice, originalPrice, numberOrders, pic, buyNumber, buyNumMin, buyNumMax, id
+        }
+        console.log(goodsDetail)
+
         this.setData({
           goodsDetail,
           banners
@@ -35,16 +46,22 @@ Page({
       })
   },
   // 控制底部弹窗
-  controlPopup(e){
+  controlPopup(e) {
     let showPopup = e.detail.showPopup;
-	let showType = 1;
-	if(showPopup){
-		showType = e.detail.type*1;
-	}
-	console.log(typeof showType)
+    let showType = 1;
+    if (showPopup) {
+      showType = e.detail.type * 1;
+    }
     this.setData({
       showPopup,
-	  showType
+      showType
+    })
+  },
+  // 改变购买数
+  changeNum(e){
+    let buyNumber = e.detail.buyNumber;
+    this.setData({
+      'goodsDetail.buyNumber': buyNumber
     })
   }
 })
