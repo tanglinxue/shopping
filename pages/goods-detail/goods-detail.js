@@ -4,7 +4,9 @@ Page({
   data: {
     id: 0,
     goodsDetail: {},
-    banners: []
+    banners: [],
+    showPopup:false,//是否显示底部弹窗
+	showType:1
   },
   onLoad: function (options) {
     this.setData({
@@ -22,14 +24,27 @@ Page({
           item.picUrl = item.pic;
           return item
         });
-        let { name, characteristic, minPrice, originalPrice, numberOrders } = data.basicInfo;
+        let { name, characteristic, minPrice, originalPrice, numberOrders, stores,pic } = data.basicInfo;
         let goodsDetail = {
-          name, characteristic, minPrice, originalPrice, numberOrders
+          name, characteristic, minPrice, originalPrice, numberOrders, stores, pic
         }
         this.setData({
           goodsDetail,
           banners
         });
       })
+  },
+  // 控制底部弹窗
+  controlPopup(e){
+    let showPopup = e.detail.showPopup;
+	let showType = 1;
+	if(showPopup){
+		showType = e.detail.type*1;
+	}
+	console.log(typeof showType)
+    this.setData({
+      showPopup,
+	  showType
+    })
   }
 })

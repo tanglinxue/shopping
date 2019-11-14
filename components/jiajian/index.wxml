@@ -1,0 +1,7 @@
+<view class="num-box row-center">
+  <view class="num-jian  {{buyNumber == buyNumMin ? 'hui': ''}}" catchtap="numJianTap">-</view>
+  <view class="num-input">
+    <input type="number" value="{{buyNumber}}" disabled/>
+  </view>
+  <view class="num-jia {{buyNumber== buyNumMax ? 'hui': ''}}" catchtap="numJiaTap">+</view>
+</view>

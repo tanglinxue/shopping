@@ -49,26 +49,52 @@ page {
 }
 
 /* 商品详情 */
-.goods-detail{
-  width:100%
+
+.goods-detail {
+  width: 100%;
 }
-.goods-detail-title{
-  color:#999;
+
+.goods-detail-title {
+  color: #999;
   border-bottom: 1px solid #f5f5f5;
-width:100%;
-text-align: center;
-height: 90rpx;
-line-height:90rpx;
+  width: 100%;
+  text-align: center;
+  height: 90rpx;
+  line-height: 90rpx;
 }
-.goods-detail-con{
-  padding:30rpx 10rpx;
-  width:100%;
-  box-sizing: border-box
+
+.goods-detail-con {
+  padding: 30rpx 10rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
-.goods-detail-text{
-  padding-bottom:10rpx;
-  line-height:40rpx;
+
+.goods-detail-text {
+  padding-bottom: 10rpx;
+  line-height: 40rpx;
 }
-.goods-detail-image{
-  width:100%
+
+.goods-detail-image {
+  width: 100%;
+}
+
+/* 悬浮按钮 */
+
+.goods-button {
+  position: fixed;
+  bottom: 200rpx;
+  right: 30rpx;
+  width: 90rpx;
+  height: 90rpx;
+}
+
+.goods-button image {
+  width: 70rpx;
+  height: 70rpx;
+  box-shadow: 0 0 20rpx #eee;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  margin-top: 10rpx;
+  position: relative;
 }

@@ -1,0 +1,20 @@
+
+@import "../../common/common.wxss";
+.num-jian, .num-jia, .num-input {
+  width: 80rpx;
+  height: 64rpx;
+  line-height: 62rpx;
+  text-align: center;
+  border: 1px solid #eee;
+}
+.hui{
+  background-color: #f5f5f9;
+}
+
+.num-input {
+  font-size: 28rpx;
+}
+
+.num-input input {
+  height: 100%;
+}

@@ -21,6 +21,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    // 唤起底部弹窗
+    tobuy(e){
+	  let type = e.currentTarget.dataset.type*1
+      this.triggerEvent('tobuy', {showPopup:true,type})
+    }
   }
 })

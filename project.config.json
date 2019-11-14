@@ -67,6 +67,12 @@
 					"pathName": "pages/goods-detail/goods-detail",
 					"query": "id=115289",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "购物车",
+					"pathName": "pages/cart/cart",
+					"scene": null
 				}
 			]
 		}

@@ -1,7 +1,35 @@
 <navigation id='Navigation' show-title='true' title="购物车"></navigation>
 <view class='column-center'>
-  <view class="noGoods">
+  <view class='container column-center'>
+	  <!-- 商品 -->
+	  <view class='goodsList'>
+		  <view class='goods-cont'>
+			  <view class='row-between goods-info'>
+				  <view class='row-between goods-info-left'>
+				  <image class='goods-icon' src='https://cdn.it120.cc/apifactory/2018/03/07/d14e39b0a699114fe29c1a8614f6dbec.png'></image>
+				  <image class='goods-img'></image>
+				  </view>
+				  <view class='text-box'>
+					  <view class='goods-title'></view>
+					  <view class='goods-content'><text class='goods-price'></text></view>
+				  </view>
+			  </view>
+		  </view>
+	  </view>
+	  <!-- 操作 -->
+	  <view class='jiesuan-box row-between'>
+		  <view class='row-start jiesuan-rightleft'>
+			<image class='goods-icon' src='https://cdn.it120.cc/apifactory/2018/03/07/d14e39b0a699114fe29c1a8614f6dbec.png'></image>
+			<text class='all-selected'>全选</text>
+		  </view>
+		  <view class='jiesuan-right row-start'>
+			  <view class='total'>合计：Ұ 5664.02</view>
+			  <view class='to-pay-btn'>下单</view>
+		  </view>
+	  </view>
+  </view>
+ <!-- <view class="noGoods">
     <image class="box-none" src="../../images/none/cart_empty.png"></image>
     去添加点什么吧
-  </view>
+  </view> -->
 </view>

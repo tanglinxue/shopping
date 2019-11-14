@@ -2,6 +2,7 @@
   "usingComponents": {
     "navigation": "/components/navigation/navigation",
     "v-banner": "/components/banner/index",
-    "v-good-footer": "/components/goodFooter/index"
+    "v-good-footer": "/components/goodFooter/index",
+    "v-detail-popup":"/components/detailPopup/index"
   }
 }
