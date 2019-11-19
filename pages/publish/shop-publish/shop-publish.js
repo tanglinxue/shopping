@@ -1,7 +1,5 @@
-import {
-	HTTP
-} from '../../../utils/http-p.js'
-const http = new HTTP()
+import PublishModel from '../../../models/Publish.js'
+const publishModel = new PublishModel();
 import {
 	config
 } from '../../../config.js'
@@ -98,13 +96,13 @@ Page({
 					let tempFiles = res.tempFiles
 					for (let i = 0; i < tempFiles.length; i++) {
 						let src = tempFiles[i].path;
-						http.showLoading('插入图片中。。。')
+						publishModel.showLoading('插入图片中。。。')
 						this.uploadNet(src)
 					}
 				}
 			})
 		} else {
-			http.showToast('图片最多插入九张')
+			publishModel.showToast('图片最多插入九张')
 		}
 	},
 	//上传图片到网络
@@ -121,7 +119,7 @@ Page({
 		})
 		this.pageScrollToBottom()
 		let uploadTask = wx.uploadFile({
-			url: config.api_base_url2 + 'upload',
+			url: config.api_base_url + 'upload',
 			filePath: src,
 			name: 'image',
 			formData: {
@@ -142,11 +140,11 @@ Page({
 					})
 					wx.hideLoading()
 				} else {
-					http.showToast(data.msg, 'none')
+					publishModel.showToast(data.msg, 'none')
 				}
 			},
 			fail: (err) => {
-				http.showToast(err)
+				publishModel.showToast(err)
 			}
 		})
 		uploadTask.onProgressUpdate((res) => {
@@ -212,7 +210,7 @@ Page({
 				}
 			})
 			app.globalData.detailData = newArr;
-			http.navBack();
+			publishModel.navBack();
 		}
 	}
 })

@@ -1,3 +1,4 @@
+<!-- 启动页 -->
 <view id="loading" >
   <view id="loading-center">
     <view id="loading-center-absolute">

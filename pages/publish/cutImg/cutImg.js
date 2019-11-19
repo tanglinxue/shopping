@@ -1,9 +1,7 @@
 import weCropper from '../../../dist/weCropper.js'
-import {
-  HTTP
-} from '../../../utils/http-p.js'
-const http = new HTTP()
-var app = getApp();
+import PublishModel from '../../../models/Publish.js'
+const publishModel = new PublishModel();
+const app = getApp();
 const device = wx.getSystemInfoSync()
 const width = device.windowWidth;
 const height = device.screenHeight - 144 - device.statusBarHeight
@@ -33,16 +31,16 @@ Page({
 		this.wecropper.touchEnd(e)
 	},
 	getCropperImage() {
-		http.showLoading('裁剪图片中')
+		publishModel.showLoading('裁剪图片中')
 		this.wecropper.getCropperImage((src) => src && this.cutImg(src))
 	},
 
 	cutImg(src) {
-		http.uploadFile(src).then(
+		publishModel.uploadFile(src).then(
 			res=>{
 				wx.hideLoading();
 				app.globalData.backCutImg = res;
-				http.navBack()
+				publishModel.navBack()
 			}
 		)
 	},

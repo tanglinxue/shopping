@@ -1,24 +1,16 @@
-import { HTTP } from '../utils/http-p.js'
-// 启动页接口
-class StartModel extends HTTP {
-  data = {}
+import PublicModel from './Public.js'
+// 启动页接口类
+class StartModel extends PublicModel {
   //获取登录信息
-  login(data) {
-    return this.request2({
+  login(data={}) {
+    return this.request({
       url: 'login',
       data
     })
   }
-  // 授权接口
-  getUserUpdate(data){
-    return this.request2({
-      url: 'get_userinfo',
-      data
-    })
-  }
-  // 配置信息
+  //获取配置信息
   getconfig(data={}){
-	  return this.request2({
+	  return this.request({
 	    url: 'getconfig',
 	    data
 	  })
@@ -26,6 +18,4 @@ class StartModel extends HTTP {
 
 }
 
-export {
-  StartModel
-}
+export default StartModel

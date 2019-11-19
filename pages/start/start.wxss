@@ -1,4 +1,4 @@
-/* 加载 */
+/* 启动页样式 */
 #loading {
   background-color: #fff;
   height: 100%;
@@ -14,7 +14,6 @@
   height: 100%;
   position: relative;
 }
-
 
 #loading-center-absolute {
   position: absolute;

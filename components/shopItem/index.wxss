@@ -1,12 +1,10 @@
 @import "../../common/common.wxss";
-@import "../../templates/jiajian/index.wxss";
 .goods-cont {
 	padding: 30rpx;
 	width: 100%;
 	box-sizing: border-box;
 	border-bottom: 1px solid #fbfbfb;
 	position: relative;
-	transition: margin-left 0.2s ease-in-out;
 }
 
 .goods-info-left {
@@ -37,18 +35,3 @@
 	color: #b5272d;
 }
 
-.goods-icon {
-	width: 30rpx;
-	height: 30rpx;
-}
-.deleteItem{
-	width: 120rpx;
-	line-height: 220rpx;
-	text-align: center;
-	background: #b5272d;
-	font-size: 24rpx;
-	color: #fff;
-	position: absolute;
-	right:-120rpx;
-	bottom:0
-}

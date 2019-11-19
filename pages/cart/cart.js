@@ -1,7 +1,4 @@
-import {
-	GoodModel
-} from '../../models/good.js'
-const goodModel = new GoodModel()
+
 Page({
 
 

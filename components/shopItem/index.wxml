@@ -1,13 +1,16 @@
-<import src="../../templates/jiajian/index.wxml" />
-<view class='goods-cont'  >
-	<view class='row-between goods-info' >
+<!-- 单个商品 -->
+<view class='goods-cont' catchtap='jumptap' data-id='{{shopItem.good_id}}'>
+	<view class='row-between goods-info'>
 		<view class='row-between goods-info-left'>
 			<image class='goods-img' src='{{shopItem.head_pic}}'></image>
 		</view>
 		<view class='text-box'>
 			<view class='goods-title'>{{shopItem.good_name}}</view>
-			<view class='goods-content row-between'><text class='goods-price'>{{shopItem.sell_price}}</text></view>
+			<view class='goods-kinds'>{{shopItem.kinds}}</view>
+			<view class='goods-content row-between'>
+				<view class='goods-price'>{{shopItem.sell_price}}</view>
+				<view class='goods-time'>{{shopItem.update_time}}</view>
+			</view>
 		</view>
-		
 	</view>
 </view>

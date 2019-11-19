@@ -1,26 +1,27 @@
 <view class='column-center'>
-  <!-- banner -->
-  <v-banner banners='{{banners}}'/>
-  <!-- 首页menu -->
-  <view class='index-menu row-between'>
-    <block wx:for="{{indexMenus}}" wx:for-item="item" wx:key="property" wx:for-index='index'>
-      <view class='menu-item' catchtap='jumptap' data-index='{{index}}'>
-        <image class='image' src='{{item.src}}'></image>
-        <view class='text'>{{item.name}}</view>
-      </view>
-    </block>
-  </view>
-  <!-- 产品列表 -->
-  <view class='home-container'>
-    <view class='home-title'>
-      <view class='line'></view>
-      <view class='text'>人气推荐</view>
-      <view class='line'></view>
-    </view>
-    <view class='home-con-inner row-between'>
-      <block wx:for="{{lists}}" wx:for-item="list" wx:key="property">
-        <v-homeItem list='{{list}}' />
-      </block>
-    </view>
-  </view>
+	<!-- banner -->
+	<v-banner banners='{{banners}}' />
+	<!-- 首页menu -->
+	<view class='index-menu row-between'>
+		<block wx:for="{{indexMenus}}" wx:for-item="item" wx:key="property" wx:for-index='index'>
+			<view class='menu-item' catchtap='jumptap' data-index='{{index}}'>
+				<image class='image' src='{{item.src}}'></image>
+				<view class='text'>{{item.name}}</view>
+			</view>
+		</block>
+	</view>
+	<!-- 产品列表 -->
+	<view class='home-container'>
+		<view class='home-title'>
+			<view class='line'></view>
+			<view class='text'>人气推荐</view>
+			<view class='line'></view>
+		</view>
+		<view class='home-con-inner row-between'>
+			<block wx:for="{{lists}}" wx:for-item="list" wx:key="property">
+				<!-- 商品 -->
+				<v-homeItem list='{{list}}' />
+			</block>
+		</view>
+	</view>
 </view>

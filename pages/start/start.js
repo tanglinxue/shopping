@@ -1,35 +1,31 @@
-import {
-	StartModel
-} from '../../models/start.js'
+import StartModel from '../../models/Start.js'
 const startModel = new StartModel();
 const app = getApp();
 Page({
-
-	data: {
-
-	},
-
 	onLoad: function(options) {
+		this.render()
+	},
+	render(){
 		startModel.wxLogin().then(
 			res => {
+				// 获取code
 				let params = {
 					code: res.code
 				}
 				return startModel.login(params)
 			}
 		).then(res => {
-			console.log(res)
+			// 将用户信息存入全局
 			app.globalData.userInfo = res;
 			return startModel.getconfig()
 		}).then(res => {
-			
-			let category_info= res.category_info;
-			app.globalData.category_info = category_info
+			// 将配置信息存入全局
+			app.globalData.category_info = res.category_info;
+			// 进入首页
 			wx.switchTab({
 				url: '/pages/index/index',
 			})
 		})
-
-	},
+	}
 
 })

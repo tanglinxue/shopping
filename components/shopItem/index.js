@@ -1,5 +1,4 @@
-import Methods from '../../utils/Methods.js'
-const methods = new Methods()
+
 Component({
 	properties: {
 		shopItem: {
@@ -7,8 +6,13 @@ Component({
 			value: {}
 		}
 	},
-
-	methods: {
-	
+	methods:{
+		jumptap(e){
+			// 跳转到发布页
+			let id = e.currentTarget.dataset.id;
+			wx.navigateTo({
+				url:`/pages/publish/publish?good_id=${id}`
+			})
+		}
 	}
 })

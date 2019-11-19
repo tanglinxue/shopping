@@ -1,4 +1,5 @@
-<navigation id='Navigation' show-icon="{{true}}" title="发起商品" show-title="{{true}}"></navigation>
+<navigation id='Navigation' show-icon="{{true}}" title="商品列表" show-title="{{true}}"></navigation>
+<!-- 商品列表 -->
 <block wx:for="{{shopList}}" wx:for-item="shopItem" wx:key="property">
-<v-shop-item shopItem='{{shopItem}}'/>
+	<v-shop-item shopItem='{{shopItem}}' />
 </block>

@@ -1,6 +1,5 @@
 
 Component({
-
   properties: {
     banners:Array,
     border:{
@@ -11,9 +10,8 @@ Component({
   data: {
     swiperCurrent: 0,//滑动索引
   },
-
   methods: {
-    // banner滑动
+    //banner滑动
     swiperchange: function (e) {
       this.setData({
         swiperCurrent: e.detail.current
