@@ -6,9 +6,9 @@ Component({
   methods: {
     // 跳到详情页
     jumpTap() {
-      const id = this.properties.list.id
+      const good_id = this.properties.list.good_id
       wx.navigateTo({
-        url: `/pages/goods-detail/goods-detail?id=${id}`
+        url: `/pages/goods-detail/goods-detail?good_id=${good_id}`
       })
     }
   }

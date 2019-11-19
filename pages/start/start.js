@@ -15,10 +15,12 @@ Page({
 				return startModel.login(params)
 			}
 		).then(res => {
+      if(!res) return
 			// 将用户信息存入全局
 			app.globalData.userInfo = res;
 			return startModel.getconfig()
 		}).then(res => {
+      if (!res) return
 			// 将配置信息存入全局
 			app.globalData.category_info = res.category_info;
 			// 进入首页

@@ -1,7 +1,5 @@
 
 Page({
-
-
 	data: {
 		shopList: {}, //购物车列表
 		allPrice: 0, //总价
@@ -13,7 +11,6 @@ Page({
 	onLoad: function(options) {
 
 	},
-
 	onShow: function() {
 		this.updateShopInfo()
 	},

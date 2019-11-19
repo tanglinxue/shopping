@@ -50,10 +50,13 @@ Page({
 		}
 		homeModel.getGoodsList(params)
 			.then(res => {
-				let lists = res.data;
-				this.setData({
-					lists
-				})
+        if(res){
+          let { data:lists } = res.goods_list;
+          this.setData({
+            lists
+          })
+        }
+				
 				wx.hideLoading()
 			})
 	},

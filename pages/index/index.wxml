@@ -4,7 +4,7 @@
 	<!-- 首页menu -->
 	<view class='index-menu row-between'>
 		<block wx:for="{{indexMenus}}" wx:for-item="item" wx:key="property" wx:for-index='index'>
-			<view class='menu-item' catchtap='jumptap' data-index='{{index}}'>
+			<view class='menu-item column-center' catchtap='jumptap' data-index='{{index}}'>
 				<image class='image' src='{{item.src}}'></image>
 				<view class='text'>{{item.name}}</view>
 			</view>
