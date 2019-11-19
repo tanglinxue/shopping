@@ -1,0 +1,35 @@
+<navigation id='Navigation' show-icon="{{true}}" title="商品介绍" show-title="{{true}}" edit='{{first}}'></navigation>
+<view class='container' id="j_page">
+  <block wx:for="{{insertArr}}" wx:for-item="item" wx:key="property" wx:for-index='index'>
+    <view class='insert-list'>
+      <view class="insert-text-box" wx:if='{{item.type=="text"}}'>
+        <textarea bindblur="bindTextArea" bindconfirm='bindTextArea' class='insert-text' maxlength='2000' auto-height value='{{item.textAreaCon}}' data-index='{{index}}' bindfocus='focus' />
+      </view>
+      <view class='insertImg-box' wx:if='{{item.type=="img"}}'>
+        <image src='{{item.img}}' mode="widthFix" class='insertImg' wx:if='{{item.percent==100}}'></image>
+        <view class='gray-bg row-center' wx:if='{{item.percent!=100}}'>
+          <progress percent="{{item.percent}}" />
+        </view>
+      </view>
+      <view class="topimgBox">
+        <image class="img" src="/images/a63.png" wx:if='{{index>0}}' catchtap='upTap' data-index='{{index}}'></image>
+        <image class="img" src="/images/a64.png" wx:if='{{index<insertArr.length-1}}' catchtap='bottomTap' data-index='{{index}}'></image>
+        <image class="img" src="/images/a54.png" catchtap='deleteTap' data-index='{{index}}'></image>
+      </view>
+    </view>
+  </block>
+</view>
+<view class='insert-box'>
+  <image src='/images/insert.png' class='close-insert' style='{{insertState?"":"transform:rotate(-135deg);"}}' catchtap='changeInsert'></image>
+  <view class="insert-icon-box row-between" wx:if='{{insertState}}'>
+    <view class="row-start insert-item" hover-class='black-hover' catchtap='insertTextTap'>
+      <image class="insert-icon" src="/images/a50.png"></image>
+      插入文字
+    </view>
+    <view class="row-start insert-item" hover-class='black-hover' catchtap='uploadTap'>
+      <image class="insert-icon" src="/images/a51.png"></image>
+      插入图片
+    </view>
+  </view>
+</view>
+<view class='oBtn' catchtap='completeTap'>完成</view>

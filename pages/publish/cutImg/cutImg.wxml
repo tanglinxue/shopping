@@ -1,0 +1,11 @@
+<import src="../../../dist/weCropper.wxml" />
+<navigation id='Navigation' show-icon="{{true}}" title="图片裁剪" show-title="{{true}}"></navigation>
+<view class="cropper-wrapper">
+	<template is="weCropper" data="{{...cropperOpt}}" />
+	<view class='bottom-text'>裁剪后像素为：900*500px</view>
+	<view class="cropper-buttons">
+		<view class="getCropperImage" bindtap="getCropperImage">
+			确定
+		</view>
+	</view>
+</view>

@@ -1,5 +1,19 @@
 @import "../../common/common.wxss";
 
+page{
+	background-color: #f5f5f5;
+	border-top: 1px solid #f5f5f5;
+
+}
+/* 顶部按钮 */
+.top-edit-btn{
+	position: fixed;
+	top: 70rpx;
+	z-index: 9999999;
+	left: 20rpx;
+	font-size: 30rpx;
+	color: #b5272d;
+}
 /* 没有商品 */
 
 .noGoods {
@@ -17,7 +31,7 @@
 
 /* 商品 */
 .container {
-	background-color: #f5f5f5;
+	width:100%;
 	margin-top: 20rpx;
 	padding-bottom: 100rpx;
 }
@@ -25,34 +39,7 @@
 	width: 100%;
 	background-color: #fff;
 }
-.goods-cont{
-	padding:30rpx;
-	width:100%;
-	box-sizing: border-box;
-}
-.goods-info-left{
-	width:230rpx
-}
-.goods-img{
-	width: 160rpx;
-	height: 160rpx;
-}
 
-.text-box{
-	width:440rpx;
-}
-.text-box .goods-title{
-	font-size: 28rpx;
-	color: #000;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	overflow: hidden;
-	padding-top:10rpx
-}
-.text-box  .goods-price{
-	font-size: 26rpx;
-	color: #b5272d;
-}
 /* 底部操作 */
 .jiesuan-box{
 	width: 100%;
@@ -86,4 +73,7 @@
 	background-color: #b5272d;
 	font-size: 32rpx;
 	color: #fff;
+}
+.to-pay-btn.no-select{
+	background-color: #ccc;
 }

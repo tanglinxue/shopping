@@ -23,12 +23,14 @@
     </view>
   </view>
   <!-- 悬浮 -->
-  <view catchtap="getShareBox" class="goods-button">
+  <view catchtap="getShareBox" class="goods-button" >
     <image src="../../images/share.png" />
   </view>
   <!-- 底部 -->
-  <v-good-footer catchtobuy='controlPopup'/>
+  <v-good-footer catchtobuy='controlPopup' allShopNum='{{allShopNum}}'/>
   <!-- 购物底部悬浮 -->
   <v-detail-popup showPopup='{{showPopup}}' goodsDetail='{{goodsDetail}}'
   showType='{{showType}}' catchclosePopup='controlPopup' catchchangeNum='changeNum'/>
+  <!-- 分享弹窗 -->
+  <v-share-poupu sharePopup='{{sharePopup}}' catchcloseShare='getShareBox'/>
 </view>

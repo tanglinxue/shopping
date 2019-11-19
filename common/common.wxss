@@ -1,36 +1,74 @@
 /* 横向 */
+
 .row-center {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	/*垂直居中*/
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /*垂直居中*/
 }
 
 .row-between {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	/*垂直居中*/
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /*垂直居中*/
 }
 
 .row-start {
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
-	align-items: center;
-	/*垂直居中*/
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  /*垂直居中*/
 }
 
 /* 竖向居中 */
+
 .column-center {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.column-center-a{
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+    justify-content: center;
 }
 
 .hover1 {
-	background-color: rgba(0, 0, 0, 0.1);
-	opacity: 0.7;
+  background-color: rgba(0, 0, 0, 0.1);
+  opacity: 0.7;
+}
+.black-hover{
+  background: #353535 !important;
+}
+/* 距离 */
+.mgb30{
+  margin-bottom: 30rpx
+}
+/* 颜色色值 */
+.gray-bg {
+  background: #959595 !important;
+}
+
+/* 按钮 */
+
+.oBtn {
+  width: 100%;
+  height: 90rpx;
+  text-align: center;
+  line-height: 90rpx;
+  font-size: 34rpx;
+  color: #fff;
+  background-color: #b5272d;
+}
+.user-btn{
+	position: absolute;
+	width: 100% !important;
+	height: 100%;
+	top: 0;
+	opacity: 0;
 }

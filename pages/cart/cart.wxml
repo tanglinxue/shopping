@@ -1,35 +1,37 @@
 <navigation id='Navigation' show-title='true' title="购物车"></navigation>
 <view class='column-center'>
-  <view class='container column-center'>
-	  <!-- 商品 -->
-	  <view class='goodsList'>
-		  <view class='goods-cont'>
-			  <view class='row-between goods-info'>
-				  <view class='row-between goods-info-left'>
-				  <image class='goods-icon' src='https://cdn.it120.cc/apifactory/2018/03/07/d14e39b0a699114fe29c1a8614f6dbec.png'></image>
-				  <image class='goods-img'></image>
-				  </view>
-				  <view class='text-box'>
-					  <view class='goods-title'></view>
-					  <view class='goods-content'><text class='goods-price'></text></view>
-				  </view>
-			  </view>
-		  </view>
-	  </view>
-	  <!-- 操作 -->
-	  <view class='jiesuan-box row-between'>
-		  <view class='row-start jiesuan-rightleft'>
-			<image class='goods-icon' src='https://cdn.it120.cc/apifactory/2018/03/07/d14e39b0a699114fe29c1a8614f6dbec.png'></image>
-			<text class='all-selected'>全选</text>
-		  </view>
-		  <view class='jiesuan-right row-start'>
-			  <view class='total'>合计：Ұ 5664.02</view>
-			  <view class='to-pay-btn'>下单</view>
-		  </view>
-	  </view>
-  </view>
- <!-- <view class="noGoods">
-    <image class="box-none" src="../../images/none/cart_empty.png"></image>
-    去添加点什么吧
-  </view> -->
+	<block wx:if='{{haveData}}'>
+		<view catchtap="finishTap" class="top-edit-btn" wx:if='{{editStatus}}'>完成</view>
+		<view catchtap="editTap" class="top-edit-btn" wx:else>编辑</view>
+	</block>
+	<block wx:if='{{haveData}}'>
+		<view class='container column-center'>
+			<!-- 商品 -->
+			<view class='goodsList'>
+				<block wx:for="{{shopList}}" wx:for-item="shopItem" wx:key="property">
+					<v-cart-item shopItem='{{shopItem}}' catchupdateShopInfo='updateShopInfo' />
+				</block>
+			</view>
+			<!-- 操作 -->
+			<view class='jiesuan-box row-between'>
+				<view class='row-start jiesuan-rightleft' catchtap='allSelect'>
+					<image class='goods-icon' src='{{isAllSelect?"https://cdn.it120.cc/apifactory/2018/03/07/d14e39b0a699114fe29c1a8614f6dbec.png":"https://cdn.it120.cc/apifactory/2018/03/07/8ecdab31cfc3ccda44edd7bebfbdd45f.png"}}'></image>
+					<text class='all-selected'>全选</text>
+				</view>
+				<view class='jiesuan-right row-start'>
+					<view class='total' wx:if='{{isAllSelect}}'>合计：Ұ {{allPrice}}</view>
+					<block wx:if='{{editStatus}}'>
+						<view class='to-pay-btn {{!isAllSelect?"no-select":"" }}'>删除</view>
+					</block>
+					<block wx:else>
+						<view class='to-pay-btn {{!isAllSelect?"no-select":"" }}'>下单</view>
+					</block>
+				</view>
+			</view>
+		</view>
+	</block>
+	<view class="noGoods" wx:else>
+		<image class="box-none" src="../../images/none/cart_empty.png"></image>
+		去添加点什么吧
+	</view>
 </view>

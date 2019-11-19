@@ -1,3 +1,6 @@
 {
-  "navigation": "/components/navigation/navigation"
+  "usingComponents": {
+    "navigation": "/components/navigation/navigation"
+  },
+  "disableScroll":true
 }

@@ -1,66 +1,95 @@
-// pages/cart/cart.js
+import {
+	GoodModel
+} from '../../models/good.js'
+const goodModel = new GoodModel()
 Page({
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
 
-  },
+	data: {
+		shopList: {}, //购物车列表
+		allPrice: 0, //总价
+		isAllSelect: false,
+		haveData: false,
+		editStatus: false
+	},
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+	onLoad: function(options) {
 
-  },
+	},
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+	onShow: function() {
+		this.updateShopInfo()
+	},
+	// 更新购物车
+	updateShopInfo() {
+		let shopInfo = goodModel.getStorage('shopInfo');
+		if (shopInfo) {
+			let shopList = shopInfo.shopList;
+			let haveData = Object.keys(shopList).length ? true : false
+			// 计算总价格
+			let allPrice = Object.keys(shopList).reduce((prev, next) => {
+				if (!shopList[next].active) {
+					return prev
+				}
+				return prev + shopList[next].minPrice * shopList[next].buyNumber
+			}, 0)
+			// 是否全选
+			let isAllSelect = true
+			Object.keys(shopList).forEach(item => {
+				if (!shopList[item].active) {
+					isAllSelect = false
+				}
+			})
+			console.log(shopInfo.shopNum)
+			wx.setTabBarBadge({
+				index: 2,
+				text: shopInfo.shopNum + ''
+			})
+			this.setData({
+				shopList,
+				allPrice,
+				isAllSelect,
+				haveData
+			})
+		}
+	},
+	// 全选
+	allSelect() {
+		console.log('aa')
+		let isAllSelect = this.data.isAllSelect;
+		isAllSelect = !isAllSelect;
+		let shopInfo = goodModel.getStorage('shopInfo');
+		if (shopInfo) {
+			let shopList = shopInfo.shopList;
+			for (let key in shopList) {
+				shopList[key].active = isAllSelect
+			}
+			shopInfo.shopList = shopList
+			goodModel.setStorage('shopInfo', shopInfo);
+			this.updateShopInfo()
+		}
+	},
+	// 编辑
+	editTap() {
+		this.setEdit(true)
+	},
+	//完成
+	finishTap() {
+		this.setEdit(false)
+	},
+	// 设置编辑状态
+	setEdit(status){
+		let shopInfo = goodModel.getStorage('shopInfo');
+		if (shopInfo) {
+			for(let key in shopInfo.shopList){
+				 shopInfo.shopList[key].active=!status
+			}
+			goodModel.setStorage('shopInfo', shopInfo);
+			this.updateShopInfo()
+		}
+		this.setData({
+			editStatus: status
+		})
+	}
 
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

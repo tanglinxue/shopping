@@ -1,6 +1,6 @@
 
 page {
-    font-family: "microsoft yahei ui";
+    font-family: "PingFangSC-Regular";
 }
 view,
 input,

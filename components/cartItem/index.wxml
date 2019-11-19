@@ -1,0 +1,17 @@
+<import src="../../templates/jiajian/index.wxml" />
+<view class='goods-cont' catchtap='changeSelect' bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" style='{{left}}'>
+	<view class='row-between goods-info' >
+		<view class='row-between goods-info-left'>
+			<image class='goods-icon' src='{{shopItem.active?"https://cdn.it120.cc/apifactory/2018/03/07/d14e39b0a699114fe29c1a8614f6dbec.png":"https://cdn.it120.cc/apifactory/2018/03/07/8ecdab31cfc3ccda44edd7bebfbdd45f.png"}}' ></image>
+			<image class='goods-img' src='{{shopItem.pic}}'></image>
+		</view>
+		<view class='text-box'>
+			<view class='goods-title'>{{shopItem.name}}</view>
+			<view class='goods-content row-between'><text class='goods-price'>{{shopItem.minPrice}}</text><template is="jiajian"
+			data='{{...shopItem,size:"small"}}'
+			/></view>
+			
+		</view>
+		<view class='deleteItem' catchtap='deleteItem'>删除</view>
+	</view>
+</view>

@@ -1,0 +1,21 @@
+<navigation id='Navigation' show-icon="{{true}}" title="订单列表" show-title="{{true}}"></navigation>
+<view class='container'>
+  <view class="status-box row-center">
+    <view class="status-label active" data-index="0">
+      待付款
+      <view></view>
+    </view>
+    <view class="status-label" data-index="1">
+      待付款
+      <view></view>
+    </view>
+    <view class="status-label" data-index="2">
+      待付款
+      <view></view>
+    </view>
+  </view>
+  <view class="no-order">
+    <image class="no-order-img" src="/images/empty_order.png"></image>
+    <view class="text">还没有订单呢</view>
+  </view>
+</view>

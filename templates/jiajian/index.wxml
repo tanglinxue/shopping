@@ -1,9 +1,9 @@
 <template name="jiajian">
   <view class="num-box row-center">
-    <view class="num-jian  {{buyNumber == buyNumMin ? 'hui': ''}}" catchtap="numJianTap">-</view>
-    <view class="num-input">
+    <view class="num-jian  {{buyNumber == buyNumMin ? 'hui': ''}} {{size?'small':''}}" catchtap="numJianTap">-</view>
+    <view class="num-input {{size?'small':''}}">
       <input type="number" value="{{buyNumber}}" disabled/>
     </view>
-    <view class="num-jia {{buyNumber== buyNumMax ? 'hui': ''}}" catchtap="numJiaTap">+</view>
+    <view class="num-jia {{buyNumber== buyNumMax ? 'hui': ''}} {{size?'small':''}}" catchtap="numJiaTap">+</view>
   </view>
 </template>

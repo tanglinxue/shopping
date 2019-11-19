@@ -6,6 +6,17 @@
   text-align: center;
   border: 1px solid #eee;
 }
+.num-jian.small, .num-jia.small{
+	width:48rpx;
+	height:48rpx;
+	line-height:46rpx;
+}
+.num-input.small{
+	width:68rpx;
+	height:48rpx;
+	line-height:46rpx;
+	font-size: 24rpx;
+}
 .hui{
   background-color: #f5f5f9;
 }

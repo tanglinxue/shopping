@@ -1,10 +1,19 @@
 {
   "pages": [
+    "pages/start/start",
     "pages/index/index",
     "pages/cart/cart",
     "pages/my/my",
     "pages/cate/cate",
-    "pages/goods-detail/goods-detail"
+    "pages/goods-detail/goods-detail",
+    "pages/order-list/order-list",
+    "pages/search/search",
+    "pages/address-add/address-add",
+    "pages/pay-order/pay-order",
+    "pages/publish/publish",
+    "pages/publish/publishList/publishList",
+    "pages/publish/shop-publish/shop-publish",
+    "pages/publish/cutImg/cutImg"
   ],
   "window": {
     "navigationStyle": "custom",

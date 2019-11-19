@@ -1,1 +1,609 @@
 <navigation id='Navigation' show-search='{{true}}'></navigation>
+<view class='container'>
+	<view class='type-container-boxx'>
+		<view class='type-container'>
+			<view class="type-box">
+				<view class="type-navbar-item type-item-on">智能家庭</view>
+				<view class="type-navbar-item">智能家庭</view>
+				<view class="type-navbar-item">智能家庭</view>
+				<view class="type-navbar-item">智能家庭</view>
+				<view class="type-navbar-item">智能家庭</view>
+				<view class="type-navbar-item">智能家庭</view>
+				<view class="type-navbar-item">智能家庭</view>
+				<view class="type-navbar-item">智能家庭</view>
+				<view class="type-navbar-item">智能家庭</view>
+				<view class="type-navbar-item">智能家庭</view>
+				<view class="type-navbar-item">智能家庭</view>
+				<view class="type-navbar-item">智能家庭</view>
+				<view class="type-navbar-item">智能家庭</view>
+				<view class="type-navbar-item">智能家庭</view>
+				<view class="type-navbar-item">智能家庭</view>
+				<view class="type-navbar-item">智能家庭</view>
+				<view class="type-navbar-item">智能家庭</view>
+				<view class="type-navbar-item">智能家庭</view>
+				<view class="type-navbar-item">智能家庭</view>
+				<view class="type-navbar-item">智能家庭</view>
+				<view class="type-navbar-item">智能家庭</view>
+				<view class="type-navbar-item">智能家庭</view>
+				<view class="type-navbar-item">智能家庭</view>
+				<view class="type-navbar-item">智能家庭</view>
+				<view class="type-navbar-item">智能家庭</view>
+			</view>
+		</view>
+		<view class='type-list'>
+			<view class='row-start type-menu'>
+
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+				<view class='type-level-item column-center'>
+					<image src='https://cdn.it120.cc/apifactory/2019/01/26/8fe77acb4d09ab1e101b97158adbba3e.jpg'></image>
+					<text>安防</text>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+<view class="top-line"></view>
+<view class="bottom-lin"></view>

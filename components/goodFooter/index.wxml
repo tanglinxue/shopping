@@ -5,7 +5,7 @@
   </view>
   <view class="box-list" catchtap="goShopCar">
     <image src="../../images/shopping_cart.png"></image>
-    <view class="shop-num">{{shopNum}}</view>
+    <view class="shop-num">{{allShopNum}}</view>
   </view>
   <view class="box-title">
     <view class="box-shop-cart npx" catchtap="tobuy" data-type='1'>立即购买</view>

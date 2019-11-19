@@ -1,0 +1,114 @@
+@import "../../../common/common.wxss";
+
+/* 商品发布详情 */
+
+.container {
+  width: 100%;
+  padding: 50rpx 40rpx 430rpx;
+  box-sizing: border-box;
+}
+
+.insert-list {
+  position: relative;
+  width: 670rpx;
+}
+
+.insert-text-box {
+  width: 670rpx;
+  box-sizing: border-box;
+  padding: 40rpx 20rpx;
+  background: #f5f3f3;
+  position: relative;
+  margin-bottom: 40rpx;
+}
+.insert-text {
+  width: 580rpx;
+  height: 176rpx;
+  line-height: 40rpx
+}
+.insertImg-box {
+  position: relative;
+}
+.insertImg {
+  width: 670rpx;
+  margin-bottom: 40rpx;
+}
+.gray-bg {
+  width: 670rpx;
+  height: 400rpx;
+  margin-bottom: 40rpx;
+}
+progress {
+  width: 500rpx;
+}
+
+.topimgBox {
+  position: absolute;
+  right: -19rpx;
+  top: -19rpx;
+}
+
+.topimgBox .img {
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 30rpx;
+  display: inline-block;
+}
+.delete-box{
+	padding: 30rpx 25rpx;
+	height: 60rpx;
+	line-height: 60rpx;
+	background: #fff;
+	position: relative;
+}
+.delete-box text{
+	color: #586c94;
+	font-size:28rpx
+}
+/* 发布 */
+
+.insert-box {
+  position: fixed;
+  width: 80rpx;
+  height: 80rpx;
+  right: 30rpx;
+  bottom: 160rpx;
+  z-index: 999;
+}
+
+.close-insert {
+  width: 80rpx;
+  height: 80rpx;
+  transition: All 0.3s ease-in-out;
+}
+
+.insert-icon-box {
+  width: 700rpx;
+  position: absolute;
+  top: -100rpx;
+  right: 0;
+}
+
+.insert-item {
+  width: 280rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #555;
+  border-radius: 40rpx;
+  margin-bottom: 25rpx;
+  padding-left: 48rpx;
+  font-size: 28rpx;
+  color: #fff;
+}
+
+.insert-icon {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 13rpx;
+}
+
+.oBtn {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}

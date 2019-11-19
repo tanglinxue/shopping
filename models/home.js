@@ -9,6 +9,13 @@ class HomeModel extends HTTP{
       data
     })
   }
+  //获取产品数据2
+  getGoodsList2(data) {
+    return this.request2({
+      url: 'prizes_list',
+      data
+    })
+  }
   //获取banner数据
   getHomeBanner(data){
     return this.request({
