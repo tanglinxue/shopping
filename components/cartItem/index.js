@@ -1,5 +1,5 @@
-import Methods from '../../utils/Methods.js'
-const methods = new Methods()
+import CartModel from '../../models/Cart.js'
+const cartModel = new CartModel()
 Component({
 	properties: {
 		shopItem: {
@@ -9,10 +9,12 @@ Component({
 	},
 	data:{
 		startX:0,
-		delBtnWidth: 0
+		delBtnWidth: 0,
+		selectImg:'https://cdn.it120.cc/apifactory/2018/03/07/d14e39b0a699114fe29c1a8614f6dbec.png',
+		noSelectImg:'https://cdn.it120.cc/apifactory/2018/03/07/8ecdab31cfc3ccda44edd7bebfbdd45f.png'
 	},
 	attached(){
-		let delBtnWidth = methods.getEleWidth(120);
+		let delBtnWidth = cartModel.getEleWidth(120);
 		this.setData({
 			delBtnWidth
 		})
@@ -22,65 +24,61 @@ Component({
 		// 改变是否选择
 		changeSelect() {
 			let {
-				id
+				good_id,
+				active
 			} = this.properties.shopItem
-			let shopInfo = methods.getStorage('shopInfo');
-			shopInfo.shopList[id].active = !shopInfo.shopList[id].active;
-			methods.setStorage('shopInfo', shopInfo);
-			this.triggerEvent('updateShopInfo', {})
+			this.setData({
+				'shopItem.active':!active
+			})
+
+			this.triggerEvent('updateShopInfo', {type:'activeChange',good_id})
 		},
 		// 减法
 		numJianTap() {
 			let {
 				buyNumMin,
-				buyNumber
+				buyNumber,
+				good_id
 			} = this.properties.shopItem;
 			if (buyNumber > buyNumMin) {
 				buyNumber--;
-				this.changeShopInfo(buyNumber)
+				this.setData({
+					'shopItem.buyNumber':buyNumber
+				})
+				this.triggerEvent('updateShopInfo', {type:'numberChange',buyNumber,good_id})
 			}
 		},
 		// 加法
 		numJiaTap() {
 			let {
 				buyNumber,
-				buyNumMax
+				buyNumMax,
+				good_id
 			} = this.properties.shopItem;
 			if (buyNumber < buyNumMax) {
 				buyNumber++;
-				this.changeShopInfo(buyNumber)
+				this.setData({
+					'shopItem.buyNumber':buyNumber
+				})
+				this.triggerEvent('updateShopInfo', {type:'numberChange',buyNumber,good_id})
 			}
 		},
 		//删除该商品
 		deleteItem(){
 			let {
-				id
+				good_id
 			} = this.properties.shopItem
-			let shopInfo = methods.getStorage('shopInfo');
-			if(shopInfo.shopList[id]){
-				delete shopInfo.shopList[id]
-			}
-			shopInfo.shopNum = this.total(shopInfo.shopList)
-			methods.setStorage('shopInfo', shopInfo);
-			this.triggerEvent('updateShopInfo', {})
-		},
-		// 改变缓存里的购物车
-		changeShopInfo(buyNumber) {
-			let {
-				id
-			} = this.properties.shopItem
-			let shopInfo = methods.getStorage('shopInfo');
-			shopInfo.shopList[id].buyNumber = buyNumber;
-			shopInfo.shopNum = this.total(shopInfo.shopList)
-			methods.setStorage('shopInfo', shopInfo);
-			this.triggerEvent('updateShopInfo', {})
-		},
-		// 计算总数量
-		total(obj){
-			let num = Object.keys(obj).reduce((prev,next)=>{
-				return prev+obj[next].buyNumber
-			},0)
-			return num
+			cartModel.showModal('确定要移除该商品吗?','温馨提示',true,()=>{
+				cartModel.showLoading('移除商品中...');
+				cartModel.removeShopCart({good_id:[good_id]})
+					.then(res=>{
+						wx.hideLoading()
+						if(res){
+							this.triggerEvent('updateShopInfo', {type:'delete',good_id});
+							cartModel.showToast('移除成功')
+						}						
+					})
+			})
 		},
 		// 移动相关开始
 		touchS: function(e) {

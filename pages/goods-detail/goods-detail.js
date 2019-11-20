@@ -3,13 +3,11 @@ const publishModel = new PublishModel();
 const app = getApp();
 Page({
   data: {
-    id: 0,
+    good_id: '',
     goodsDetail: {},
-    banners: [],
     showPopup: false, //是否显示底部弹窗
     sharePopup: false, //是否显示分享弹窗
-    showType: 1,
-    allShopNum: 0 //全部购物数量
+    showType: 1,//弹窗类型
   },
   onLoad: function(options) {
     this.setData({
@@ -34,8 +32,20 @@ Page({
             } else if (key == 'detail' && data[key]) {
               newData.detailData = JSON.parse(data[key])
             } else {
+			  if (!data.stock_num || data.is_shelf == 2) {
+			  	// 没有库存或者下线
+			  	data.buyNumber = 0;
+			  	data.buyNumMax = 0;
+			  	data.buyNumMin = 0
+			  } else {
+			  	//有库存并上线
+			  	data.buyNumber = 1;
+			  	data.buyNumMax = data.stock_num;
+			  	data.buyNumMin = 1
+			  }
               newData[key] = data[key]
             }
+				
           }
 
           this.setData({
@@ -61,16 +71,13 @@ Page({
   // 改变购买数
   changeNum(e) {
     let buyNumber = e.detail.buyNumber;
-    if (e.detail.type && e.detail.type == 1) {
-      this.updateAllShopNum()
-    }
     this.setData({
       'goodsDetail.buyNumber': buyNumber
     })
   },
+  // 分享
   getShareBox() {
     let sharePopup = !this.data.sharePopup;
-    console.log(sharePopup)
     this.setData({
       sharePopup
     })

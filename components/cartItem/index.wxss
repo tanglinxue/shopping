@@ -29,7 +29,7 @@
 	white-space: nowrap;
 	overflow: hidden;
 	padding-top: 15rpx;
-	margin-bottom: 50rpx;
+	margin-bottom: 30rpx;
 }
 
 .text-box .goods-price {
@@ -51,4 +51,7 @@
 	position: absolute;
 	right:-120rpx;
 	bottom:0
+}
+.goods-kinds{
+	margin-bottom:10rpx;
 }

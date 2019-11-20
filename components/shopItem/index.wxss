@@ -20,18 +20,24 @@
 	width: 500rpx;
 }
 
-.text-box .goods-title {
+.goods-title {
 	font-size: 28rpx;
 	color: #000;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
-	padding-top: 15rpx;
-	margin-bottom: 50rpx;
+	padding-top: 5rpx;
+	margin-bottom: 30rpx;
+}
+.goods-kinds{
+	margin-bottom: 10rpx;
 }
 
-.text-box .goods-price {
+.goods-price {
 	font-size: 26rpx;
 	color: #b5272d;
 }
-
+.goods-time{
+	font-size: 24rpx;
+	color: #666;
+}

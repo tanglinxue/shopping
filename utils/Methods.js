@@ -1,18 +1,18 @@
 const app = getApp();
 import Utils from './Utils'
 // 基础方法类
-class Methods extends Utils{
+class Methods extends Utils {
 	//toast提示
-	showToast(title = '温馨提示', icon = 'none', duration = 2000,cb) {
+	showToast(title = '温馨提示', icon = 'none', duration = 2000, cb) {
 		wx.showToast({
 			title,
 			icon,
 			duration: 2000,
-			success:res=>{
-				if(cb){
-					setTimeout(()=>{
+			success: res => {
+				if (cb) {
+					setTimeout(() => {
 						cb()
-					},1000)
+					}, 1000)
 				}
 			}
 		})
@@ -24,11 +24,16 @@ class Methods extends Utils{
 		})
 	}
 	//modal提示
-	showModal(title, content) {
+	showModal(content,title='温馨提示',bol=false, cb) {
 		wx.showModal({
 			title,
 			content,
-			showCancel: false
+			showCancel: bol,
+			success(res) {
+				if (res.confirm) {
+					cb && cb()
+				}
+			}
 		})
 	}
 	//获取元素自适应后的实际宽度

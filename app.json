@@ -9,7 +9,7 @@
 		"pages/order-list/order-list",
 		"pages/search/search",
 		"pages/pay-order/pay-order",
-		"pages/address-add/address-add",
+		"pages/cart/address-add/address-add",
 		"pages/publish/publish",
 		"pages/publish/publishList/publishList",
 		"pages/publish/shop-publish/shop-publish",

@@ -37,7 +37,7 @@ Page({
 
 	cutImg(src) {
 		publishModel.uploadFile(src).then(
-			res=>{
+			res => {
 				wx.hideLoading();
 				app.globalData.backCutImg = res;
 				publishModel.navBack()
@@ -64,7 +64,6 @@ Page({
 				})
 			})
 			.on('imageLoad', (ctx) => {
-
 				wx.hideToast()
 			})
 			.on('beforeDraw', (ctx, instance) => {

@@ -1,19 +1,22 @@
 // 商品底部弹窗
-import Methods from '../../utils/Methods.js'
-const methods = new Methods()
+import CartModel from '../../models/Cart.js'
+const cartModel = new CartModel()
 Component({
 	/**
 	 * 组件的属性列表
 	 */
 	properties: {
+		// 是否显示弹窗
 		showPopup: {
 			type: Boolean,
 			value: false
 		},
+		// 商品详情
 		goodsDetail: {
 			type: Object,
 			value: {}
 		},
+		// 展示类型
 		showType: {
 			type: Number,
 			value: 1
@@ -60,40 +63,29 @@ Component({
 		 * 加入购物车
 		 */
 		addShopCar: function() {
-			let goodsDetail = this.properties.goodsDetail;
-			let {id,buyNumber }= goodsDetail;
+			let {
+				good_id,
+				buyNumber
+			} = this.properties.goodsDetail;
 			if (buyNumber < 1) {
-				methods.showModal('温馨提示', '购买数量不能为0！')
+				cartModel.showModal('加入购物车数量不能为0！')
 				return;
 			}
-			let shopInfo = methods.getStorage('shopInfo');
-			if (!shopInfo) {
-				shopInfo = {
-					shopList: {},
-					shopNum: 0
-				}
-			}
+			cartModel.showLoading('加入购物车中...');
+			cartModel.removeShopCart({
+					good_id
+				})
+				.then(res => {
+					wx.hideLoading()
+					this.closePopupTap();
+					if(res){
+						this.triggerEvent('changeNum', {
+							buyNumber:0
+						})
+						cartModel.showToast('加入购物车成功')
+					}	
 
-			if (shopInfo.shopList[id]) {
-				shopInfo.shopList[id].buyNumber += buyNumber;
-			} else {
-				shopInfo.shopList[id] = {
-					...goodsDetail,
-					active: true,
-				}
-			}
-			shopInfo.shopNum += buyNumber;
-			wx.setTabBarBadge({
-				index: 2,
-				text:shopInfo.shopNum+''
-			})
-			methods.setStorage('shopInfo', shopInfo)
-			this.triggerEvent('changeNum', {
-				buyNumber: 1,
-				type:1
-			})
-			this.closePopupTap();
-			methods.showToast('加入购物车成功')
+				})
 		},
 	}
 })

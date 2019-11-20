@@ -1,10 +1,10 @@
 <navigation id='Navigation' show-title='true' title="购物车"></navigation>
 <view class='column-center'>
-	<block wx:if='{{haveData}}'>
+	<block wx:if='{{shopList.length}}'>
 		<view catchtap="finishTap" class="top-edit-btn" wx:if='{{editStatus}}'>完成</view>
 		<view catchtap="editTap" class="top-edit-btn" wx:else>编辑</view>
 	</block>
-	<block wx:if='{{haveData}}'>
+	<block wx:if='{{shopList.length}}'>
 		<view class='container column-center'>
 			<!-- 商品 -->
 			<view class='goodsList'>
@@ -21,7 +21,7 @@
 				<view class='jiesuan-right row-start'>
 					<view class='total' wx:if='{{isAllSelect}}'>合计：Ұ {{allPrice}}</view>
 					<block wx:if='{{editStatus}}'>
-						<view class='to-pay-btn {{!isAllSelect?"no-select":"" }}'>删除</view>
+						<view class='to-pay-btn {{!isAllSelect?"no-select":"" }}' catchtap='deleteTap'>删除</view>
 					</block>
 					<block wx:else>
 						<view class='to-pay-btn {{!isAllSelect?"no-select":"" }}'>下单</view>
@@ -30,7 +30,7 @@
 			</view>
 		</view>
 	</block>
-	<view class="noGoods" wx:else>
+	<view class="noGoods" wx:if='{{!shopList.length}}'>
 		<image class="box-none" src="../../images/none/cart_empty.png"></image>
 		去添加点什么吧
 	</view>

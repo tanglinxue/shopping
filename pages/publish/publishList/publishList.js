@@ -6,12 +6,12 @@ Page({
 		shopList: [], //商品列表
 		page: 1
 	},
-	onLoad: function(options) {
+	onShow(options) {
 		this.render()
 	},
 	render() {
 		// 加载商品数据
-		publishModel.showLoading()
+		publishModel.showLoading('加载商品列表中')
 		let page = this.data.page;
 		let params = {
 			page: 1

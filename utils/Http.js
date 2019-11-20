@@ -23,7 +23,7 @@ class HTTP extends Methods {
 			// body公参
 			data.user_id = userInfo.user_id
 		}
-    data.user_id ='osoT25ewNV82cww5F43JYQgbJwqw'
+		data.user_id = 'osoT25ewNV82cww5F43JYQgbJwqw'
 		let header = {
 			'content-type': 'application/json',
 		}
@@ -31,7 +31,7 @@ class HTTP extends Methods {
 			// header公参
 			header.token = userInfo.user_token
 		}
-    header.token ='4a88e57c8bb3b8961b6cc7fc44672127'
+		header.token = '4a88e57c8bb3b8961b6cc7fc44672127'
 		wx.request({
 			url: config.api_base_url + url,
 			method,
@@ -97,7 +97,7 @@ class HTTP extends Methods {
 				resolve(false)
 			}
 		})
-	} 
+	}
 	//查询是否登录
 	wxLogin() {
 		return new Promise((resolve) => {

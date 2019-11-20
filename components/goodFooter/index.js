@@ -1,15 +1,5 @@
 // components/goodFooter/index.js
 Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
-    allShopNum:{
-      type:Number,
-      value:0
-    }
-  },
-
   methods: {
     // 唤起底部弹窗
     tobuy(e){
