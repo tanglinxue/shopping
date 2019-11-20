@@ -12,7 +12,7 @@
 			<view class='row-start type-menu'>
 				<block wx:for="{{goods_list}}" wx:for-item="item" wx:key="property" wx:for-index='index'>
 					<view class='type-level-item column-center' catchtap='jumptap' data-id='{{item.good_id}}'>
-						<image src='{{item.head_pic}}'></image>
+						<image src='{{item.head_pic}}' mode='aspectFill'></image>
 						<text>{{item.good_name}}</text>
 					</view>
 				</block>
