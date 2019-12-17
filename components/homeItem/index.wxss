@@ -2,7 +2,6 @@
 
 .list {
   width: 340rpx;
-  height: 480rpx;
   margin-bottom: 20rpx;
 }
 
@@ -11,7 +10,7 @@ image {
   height: 340rpx;
   border-radius: 6rpx;
   display: block;
-  margin-bottom: 5rpx
+  margin-bottom: 15rpx
 }
 
 .name {
@@ -27,9 +26,17 @@ image {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  margin-bottom: 5rpx
+  margin:15rpx 0;
+  margin-bottom: 5rpx;
+  height:40rpx;
+  line-height:40rpx
 }
 
 .price {
   color: #ab2b2b;
+}
+.stock{
+  font-size: 24rpx;
+color: #999;
+
 }

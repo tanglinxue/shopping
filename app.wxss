@@ -1,24 +1,27 @@
-
 page {
-    font-family: "PingFangSC-Regular";
+  font-family: "PingFangSC-Regular";
 }
-view,
-input,
-button,
-text,
-textarea {
-    font-size: 30rpx;
-    color: #333;
-    word-break: break-all;
+
+view, input, button, text, textarea {
+  font-size: 30rpx;
+  color: #333;
+  word-break: break-all;
 }
-button,
-input {
-    background: transparent;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
-    padding: 0;
-    margin-left: 0;
-    margin-right: 0;
-    overflow: visible;
-    border-radius: 0;
-    border: none;
+
+button, input {
+  background: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  padding: 0 !important;
+  margin-left: 0;
+  margin-right: 0;
+  overflow: visible;
+  border-radius: 0;
+  line-height: 1;
+  border: none;
+  font-weight: normal;
+  min-height: 1;
+}
+
+button::after {
+  border: none !important;
 }

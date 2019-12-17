@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "navigation": "/components/navigation/navigation",
+	"v-homeItem": "/components/homeItem/index",
+	"v-dataStatus": "/components/dataStatus/index"
+  }
+}

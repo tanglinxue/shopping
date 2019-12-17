@@ -15,9 +15,9 @@ Page({
 			zoom: 8,
 			cut: {
 				x: (width - 360) / 2,
-				y: (height - 200) / 2,
+				y: (height - 360) / 2,
 				width: 360,
-				height: 200
+				height: 360
 			}
 		}
 	},
@@ -36,10 +36,17 @@ Page({
 	},
 
 	cutImg(src) {
+		let that=this;
 		publishModel.uploadFile(src).then(
 			res => {
 				wx.hideLoading();
-				app.globalData.backCutImg = res;
+				let type=that.data.type;
+				if(type==1){
+					app.globalData.backCutImg = res;
+				}else if(type==2){
+					app.globalData.cateCutImg = res;
+				}
+				
 				publishModel.navBack()
 			}
 		)
@@ -48,6 +55,9 @@ Page({
 
 	onLoad(options) {
 		var that = this;
+		this.setData({
+			type:options.type
+		})
 		const {
 			cropperOpt
 		} = this.data;
@@ -70,6 +80,7 @@ Page({
 
 			})
 			.updateCanvas()
+			
 		this.wecropper.pushOrign(app.globalData.cutImg)
 
 	}

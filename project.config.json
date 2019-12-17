@@ -21,7 +21,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.8.3",
+	"libVersion": "2.9.4",
 	"appid": "wx94d716aaa0923f7f",
 	"projectname": "%E5%95%86%E5%9F%8E%E7%B1%BB%E5%B0%8F%E7%A8%8B%E5%BA%8F",
 	"debugOptions": {
@@ -62,10 +62,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 1,
 					"name": "商品详情",
 					"pathName": "pages/goods-detail/goods-detail",
-					"query": "id=115289",
+					"query": "good_id=DqRRbNaE//vnlQ",
 					"scene": null
 				},
 				{
@@ -105,13 +105,6 @@
 				},
 				{
 					"id": -1,
-					"name": "收货地址添加",
-					"pathName": "pages/address-add/address-add",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
 					"name": "支付",
 					"pathName": "pages/pay-order/pay-order",
 					"query": "",
@@ -142,6 +135,84 @@
 					"id": -1,
 					"name": "发布列表",
 					"pathName": "pages/publish/publishList/publishList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "收货地址列表",
+					"pathName": "pages/address/address",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 13,
+					"name": "收货地址修改",
+					"pathName": "pages/address/address-add/address-add",
+					"query": "rec_id= WPQBOoeEqK/j",
+					"scene": null
+				},
+				{
+					"id": 14,
+					"name": "收货列表",
+					"pathName": "pages/order-list/order-list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "支付列表",
+					"pathName": "pages/cart/pay-order/pay-order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "成功",
+					"pathName": "pages/cart/success/success",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 17,
+					"name": "启动",
+					"pathName": "pages/start/start",
+					"query": "rct=1&rcj=%7B%22good_id%22%3A%22C6pRbIbQqfrn%22%7D",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单列表",
+					"pathName": "pages/order-list/order-list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "搜索",
+					"pathName": "pages/index/search/search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "去往首页",
+					"pathName": "pages/start/start",
+					"query": "rct=2",
+					"scene": null
+				},
+				{
+					"id": 21,
+					"name": "去往详情页",
+					"pathName": "pages/start/start",
+					"query": "scene=3%241%24C6QHPoHf%2Fqri",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "去往待收货",
+					"pathName": "pages/start/start",
+					"query": "rct=4",
 					"scene": null
 				}
 			]

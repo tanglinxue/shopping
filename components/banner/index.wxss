@@ -6,14 +6,7 @@
 .swiper-container .swiper_box {
 	width: 750rpx;
 	height: 750rpx;
-	border-bottom-right-radius: 20rpx;
-	border-bottom-left-radius: 20rpx;
 	overflow: hidden;
-}
-
-.swiper-container .noRadius {
-	border-bottom-right-radius: 0;
-	border-bottom-left-radius: 0;
 }
 
 .swiper-container .slide-image {

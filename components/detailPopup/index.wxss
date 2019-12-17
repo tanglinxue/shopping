@@ -96,3 +96,13 @@
   color: #fff;
   background-color: #b5272d;
 }
+.popup-join-btn.black-btn{
+	color: #333;
+	background:none
+}
+.popup-join-btn.half-btn{
+	width:50%
+}
+.btn-box{
+	box-shadow: 0rpx 15rpx 15rpx 10rpx;
+}

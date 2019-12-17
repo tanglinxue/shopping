@@ -1,0 +1,7 @@
+<view class='popup-bg' catchtap='closeTap' wx:if='{{showErocode}}'>
+	<view class='ecrode-popup column-center' catchtap='cancel'>
+		<image src='{{codeImg}}' mode='aspectFit' class='ecrode-img' catchtap='ecrodenewPrev'></image>
+		<view class='ecrode-text'>您的专属海报图片，已成功保存到相册</view>
+		<view class='ecrode-btn' catchtap='closeTap' >我知道了</view>
+	</view>
+</view>

@@ -1,23 +1,29 @@
 <navigation id='Navigation' show-search='{{true}}'></navigation>
-<view class='container'>
+<view class='container' >
 	<view class='type-container-boxx'>
-		<view class='type-container'>
+		<!-- 分类左侧 -->
+		<view class='type-container' style='padding-top:{{statusBarHeight+titleBarHeight}}px'>
 			<view class="type-box">
 				<block wx:for="{{category_list}}" wx:for-item="item" wx:key="property" wx:for-index='index'>
 					<view class="type-navbar-item {{selectCategory==index?'type-item-on':''}}" data-index='{{index}}' catchtap='selectCateTap'>{{item.category_name}}</view>
 				</block>
 			</view>
 		</view>
+		<!-- 分类右侧 -->
 		<view class='type-list'>
 			<view class='row-start type-menu'>
 				<block wx:for="{{goods_list}}" wx:for-item="item" wx:key="property" wx:for-index='index'>
 					<view class='type-level-item column-center' catchtap='jumptap' data-id='{{item.good_id}}'>
 						<image src='{{item.head_pic}}' mode='aspectFill'></image>
-						<text>{{item.good_name}}</text>
+						<view class='textElis name'>{{item.good_name}}</view>
 					</view>
 				</block>
 			</view>
+			<block wx:if='{{loadingEnd}}'>
+				<v-dataStatus haveData='{{goods_list.length}}' loadEnd='{{last_page==page}}' />
+			</block>
 		</view>
+		
 	</view>
 </view>
 <view class="top-line"></view>

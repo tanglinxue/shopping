@@ -22,6 +22,14 @@ class PublishModel extends PublicModel {
       data
     })
   }
+
+  // 生成海报图
+  drawPoster(data={}) {
+    return this.request({
+      url: 'draw_poster',
+      data
+    })
+  }
   
 }
 

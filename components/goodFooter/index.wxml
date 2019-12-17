@@ -5,11 +5,12 @@
 	</view>
 	<view class="box-list" catchtap="goShopCar">
 		<image src="../../images/shopping_cart.png"></image>
-	</view>
-	<view class="box-title">
-		<view class="box-shop-cart npx" catchtap="tobuy" data-type='1'>立即购买</view>
+		<view class="shop-num" wx:if='{{shopcart_count}}'>{{shopcart_count}}</view>
 	</view>
 	<view class="box-title buy-now">
-		<view class="box-now-buy npx" catchtap="tobuy" data-type='2'>加入购物车</view>
+		<view class=" npx box-now-buy" catchtap="tobuy" data-type='1'>立即购买</view>
+	</view>
+	<view class="box-title">
+		<view class=" npx" catchtap='tobuy' data-type='2'>加入购物车</view>
 	</view>
 </view>

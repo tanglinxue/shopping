@@ -1,0 +1,71 @@
+@import "../../common/common.wxss";
+
+.a-goods {
+	width: 720rpx;
+	display: flex;
+	border-top: 1px solid #eee;
+	padding: 30rpx 30rpx 30rpx 0;
+}
+
+.a-goods .img-box {
+	width: 160rpx;
+	height: 160rpx;
+	overflow: hidden;
+	margin-right: 20rpx;
+	margin-left: 30rpx;
+	background-color: #d8d8d8;
+}
+
+.a-goods .text-box {
+	width: 510rpx;
+	box-sizing: border-box;
+	padding-top: 10rpx;
+}
+
+.a-goods .img-box .img {
+	width: 160rpx;
+	height: 160rpx;
+}
+
+.a-goods .text-box {
+	width: 510rpx;
+	box-sizing: border-box;
+	padding-top: 10rpx;
+}
+
+.a-goods .text-box .arow {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.a-goods .text-box .arow .goods-name {
+	width: 360rpx;
+	font-size: 26rpx;
+	height: 74rpx;
+	color: #000;
+	line-height: 1.6;
+	overflow: hidden;
+}
+
+.a-goods .text-box .arow01 {
+	margin-bottom: 30rpx;
+}
+
+.a-goods .text-box .arow .goods-price {
+	font-size: 26rpx;
+	color: #000;
+	align-self: flex-start;
+}
+
+.a-goods .text-box .arow .goods-label {
+	font-size: 26rpx;
+	color: #999;
+  width: 360rpx;
+
+}
+
+.a-goods .text-box .arow .goods-num {
+	font-size: 26rpx;
+	color: #999;
+}

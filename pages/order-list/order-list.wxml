@@ -1,21 +1,26 @@
 <navigation id='Navigation' show-icon="{{true}}" title="订单列表" show-title="{{true}}"></navigation>
 <view class='container'>
-  <view class="status-box row-center">
-    <view class="status-label active" data-index="0">
-      待付款
-      <view></view>
-    </view>
-    <view class="status-label" data-index="1">
-      待付款
-      <view></view>
-    </view>
-    <view class="status-label" data-index="2">
-      待付款
-      <view></view>
-    </view>
-  </view>
-  <view class="no-order">
-    <image class="no-order-img" src="/images/empty_order.png"></image>
-    <view class="text">还没有订单呢</view>
-  </view>
+	<view class="status-box row-center">
+		<block wx:for="{{selectArr}}" wx:for-item="item" wx:key="property" wx:for-index='index'>
+			<view class="status-label {{index==type?'active':''}}" data-index="{{index}}" catchtap='selectOrder'>
+				{{item}}
+				<view></view>
+			</view>
+		</block>
+	</view>
+	<view class='orderList column-center'>
+		<block wx:for="{{orderList}}" wx:for-item="orderItem" wx:key="property" wx:for-index='index'>
+			<view class='orderItem' catchtap='goBuy' data-index='{{index}}'>
+				<block wx:for="{{orderItem.good_detail}}" wx:for-item="item" wx:key="property">
+					<v-good-item item='{{item}}'/>
+				</block>
+				<view class='total'>共{{orderItem.total_num}}件商品 合计￥:{{orderItem.amount}}</view>
+				<view class='total' wx:if='{{type==2||type==3}}'>{{orderItem.express_company}} {{orderItem.deliver_order}}</view>
+			</view>
+		</block>
+	</view>
+	<block wx:if='{{loadingEnd}}'>
+		<v-dataStatus haveData='{{orderList.length}}' loadEnd='{{total_pages==page}}' title3='暂无订单数据'
+		title1='↓ 下拉加载更多订单 ↓' title2='订单已加载完毕'/>
+	</block>
 </view>

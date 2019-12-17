@@ -1,0 +1,39 @@
+<!--pages/search/search.wxml-->
+<navigation id='Navigation' show-icon="{{true}}" title="搜索" show-title="{{true}}" class=""></navigation>
+<view class="container column-center">
+	<!-- 搜索头部 -->
+	<view class="type-header-menu">
+		<view class="type-search">
+			<image src="/images/search.png" />
+			<input class="input {{searchInput == true ? 'active':''}}" type="text" confirm-type="search" placeholder="搜索商品"
+			 bindfocus="searchFocus" bindconfirm="search" focus="{{true}}"></input>
+			<view hidden="{{search}}" bindtap="searchClose" class="header-search-btn">取消</view>
+		</view>
+	</view>
+	<!-- 搜索记录 -->
+	<view class="search-cont-box" wx:if="{{recentSearch.length && recentShow}}">
+		<view class="title-and-btn">
+			<view class="title">最近搜索</view>
+			<view class="btn" bindtap="clearHistory">
+				<image src="/images/del.png" />
+			</view>
+		</view>
+		<view class="keywords-li">
+			<block wx:for="{{recentSearch}}" wx:key="recent">
+				<view bindtap="goSearch" class="item" data-text="{{item}}">{{item}}</view>
+			</block>
+		</view>
+	</view>
+
+	<!-- 搜索内容 -->
+	<view class='home-con-inner row-between' wx:if='{{lists.length>0}}'>
+		<block wx:for="{{lists}}" wx:for-item="list" wx:key="property">
+			<!-- 商品 -->
+			<v-homeItem list='{{list}}' />
+		</block>
+
+	</view>
+	<block wx:if='{{loadingEnd}}'>
+		<v-dataStatus haveData='{{lists.length}}' loadEnd='{{last_page==page}}' />
+	</block>
+</view>

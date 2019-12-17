@@ -1,0 +1,6 @@
+<navigation id='Navigation' show-icon="{{true}}" title="支付成功" show-title="{{true}}"></navigation>
+<view class='container column-center'>
+    <image src='/images/success.jpg' class='success-img' />
+    <view class='success-text'>支付成功</view>
+    <view class='oBtn' catchtap='toOrderList'>查看我的订单</view>
+</view>

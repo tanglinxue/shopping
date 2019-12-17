@@ -23,5 +23,8 @@
 				<v-homeItem list='{{list}}' />
 			</block>
 		</view>
+		<block wx:if='{{loadingEnd}}'>
+			<v-dataStatus haveData='{{lists.length}}' loadEnd='{{last_page==page}}' />
+		</block>
 	</view>
 </view>

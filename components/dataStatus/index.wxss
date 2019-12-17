@@ -1,0 +1,21 @@
+@import "../../common/common.wxss";
+
+/* 数据状态 */
+.main {
+	padding: 10rpx 0;
+	width: 100%;
+}
+
+.main .text {
+	color: #b5b5b5;
+	font-size: 24rpx;
+}
+
+.main .no-Data {
+	padding-top: 60rpx;
+}
+
+.main .no-Data image {
+	width: 300rpx;
+	height: 300rpx;
+}

@@ -1,5 +1,13 @@
 <navigation id='Navigation' show-icon="{{true}}" title="商品列表" show-title="{{true}}"></navigation>
 <!-- 商品列表 -->
-<block wx:for="{{shopList}}" wx:for-item="shopItem" wx:key="property">
-	<v-shop-item shopItem='{{shopItem}}' />
-</block>
+<view class='container'>
+	<view class='menu'>
+		<block wx:for="{{shopList}}" wx:for-item="shopItem" wx:key="property">
+			<v-shop-item shopItem='{{shopItem}}' />
+		</block>
+	</view>
+	<block wx:if='{{loadingEnd}}'>
+		<v-dataStatus haveData='{{shopList.length}}' loadEnd='{{last_page==page}}' />
+	</block>
+	<view class='oBtn' catchtap='addShop'>添加商品</view>
+</view>

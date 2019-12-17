@@ -23,15 +23,19 @@ class HTTP extends Methods {
 			// body公参
 			data.user_id = userInfo.user_id
 		}
-		data.user_id = 'osoT25ewNV82cww5F43JYQgbJwqw'
+	
 		let header = {
 			'content-type': 'application/json',
 		}
+		
 		if (userInfo && userInfo.user_token) {
 			// header公参
 			header.token = userInfo.user_token
 		}
+		// 测试
+		data.user_id='osoT25ewNV82cww5F43JYQgbJwqw';
 		header.token = '4a88e57c8bb3b8961b6cc7fc44672127'
+		// 测试
 		wx.request({
 			url: config.api_base_url + url,
 			method,
@@ -44,16 +48,26 @@ class HTTP extends Methods {
 				} = res;
 				if (statusCode == 200 && data.status == 0) {
 					// 成功处理
-					resolve(data.data)
+					if(data.data){
+						resolve(data.data)
+					}else{
+						resolve(true)
+					}
+					
 				} else {
 					// 错误处理
 					this.showToast(data.msg)
-					resolve(false)
+          setTimeout(()=>{
+            resolve(false)
+          },2000)
+					
 				}
 			},
 			fail: (err) => {
 				this.showToast('网络错误,请重试')
-				resolve(false)
+        setTimeout(() => {
+          resolve(false)
+        }, 2000)
 			},
 			complete: res => {
 				console.log(JSON.stringify(data))
@@ -115,11 +129,13 @@ class HTTP extends Methods {
 		})
 	}
 	// 查询是否授权
-	getUserStatus() {
+	getUserStatus(name) {
+		let textcon = `scope.${name}`;
+		console.log(textcon)
 		return new Promise((resolve) => {
 			wx.getSetting({
 				success: res => {
-					if (res.authSetting['scope.userInfo']) {
+					if (res.authSetting[textcon]) {
 						// 成功处理
 						resolve(true)
 					} else {

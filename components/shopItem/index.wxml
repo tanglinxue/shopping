@@ -6,7 +6,7 @@
 		</view>
 		<view class='text-box'>
 			<view class='goods-title'>{{shopItem.good_name}}</view>
-			<view class='goods-kinds'>{{shopItem.kinds}}</view>
+			<view class='goods-kinds textElis'>{{shopItem.kinds}}</view>
 			<view class='goods-content row-between'>
 				<view class='goods-price'>{{shopItem.sell_price}}</view>
 				<view class='goods-time'>{{shopItem.update_time}}</view>

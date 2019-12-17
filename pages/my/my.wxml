@@ -2,53 +2,78 @@
 <view class="container column-center">
 	<!-- 头像昵称 -->
 	<view class="userinfo column-center">
-		<open-data class="userinfo-avatar" type="userAvatarUrl"></open-data>
+		<block wx:if='{{head_pic}}'>
+			<image src='{{head_pic}}' class="userinfo-avatar" />
+		</block>
+		<block wx:else>
+			<open-data class="userinfo-avatar" type="userAvatarUrl"></open-data>
+		</block>
+
 		<view class="iser-info-box">
-			<open-data class="userinfo-nickname" type="userNickName"></open-data>
+			<block wx:if='{{nick_name}}'>
+				<view class="userinfo-nickname">{{nick_name}}</view>
+			</block>
+
+			<block wx:else>
+				<open-data class="userinfo-nickname" type="userNickName"></open-data>
+			</block>
 		</view>
 		<button bindgetuserinfo="bindGetUserInfo" open-type="getUserInfo" class='user-btn' wx:if='{{!userStatus}}'></button>
 	</view>
 	<!-- 我的订单 -->
-	<view class="userinfo-item">
-		<image src="../../images/profile_dfunding.png"></image>
+	<view class="userinfo-item" data-type='1' catchtap='jumptap' data-index='0'>
+		<image src="../../images/profile_dfunding.png" class='image'></image>
 		<view>我的订单</view>
 	</view>
 	<view class="user-cart-list">
-		<view class="cart-list">
-			<image src="../../images/order-details/orderform_ship.png"></image>
-			已付款
+		<view class="cart-list" data-type='1' catchtap='jumptap' data-index='0'>
+			<image src="/images/my/daipay.png"></image>
+			待支付
 		</view>
-		<view class="cart-list">
-			<image src="../../images/order-details/delivering.png"></image>
+		<view class="cart-list" data-type='1' catchtap='jumptap' data-index='1'>
+			<image src="/images/my/havePay.png"></image>
+			已支付
+		</view>
+		<view class="cart-list" data-type='1' catchtap='jumptap' data-index='2'>
+			<image src="/images/my/daifahuo.png"></image>
 			待收货
 		</view>
-		<view class="cart-list">
-			<image src="../../images/order-details/orderform.png"></image>
-			待评价
+		<view class="cart-list" data-type='1' catchtap='jumptap' data-index='3'>
+			<image src="/images/my/finish.png"></image>
+			已完成
 		</view>
 	</view>
 	<!-- list列表 -->
 	<view class="userinfo-item-box">
-		<view class="userinfo-item">
-			<image src="../../images/profile_address.png"></image>
+		<view class="userinfo-item row-start" data-type='2' catchtap='jumptap'>
+			<image src="/images/my/dizhi.png" class='image'></image>
 			<view>我的地址</view>
+			<image src='/images/my/right-img.png' class='right-img'></image>
 		</view>
-		<view class="userinfo-item">
-			<image src="../../images/profile_tegral.png"></image>
+		<view class="userinfo-item row-start">
+			<image src="/images/my/fenxiang.png" class='image'></image>
 			<view>我要分享</view>
+			<image src='/images/my/right-img.png' class='right-img'></image>
+			<button open-type="share"></button>
 		</view>
-		<view class="userinfo-item" data-type='4' catchtap='jumptap'>
-			<image src="../../images/jifen.png"></image>
-			<view>发起商品</view>
-		</view>
-		<view class="userinfo-item">
-			<image src="../../images/profile_service.png"></image>
+	
+		<view class="userinfo-item row-start">
+			<image src="/images/my/custom.png" class='image'></image>
+			<image src='/images/my/right-img.png' class='right-img'></image>
 			<view>联系客服</view>
 			<button open-type="contact"></button>
 		</view>
-		<view class="userinfo-item" data-type='5' catchtap='jumptap'>
-			<image src="../../images/jifen.png"></image>
+    <block wx:if='{{is_own==1}}'>
+    	<view class="userinfo-item row-start" data-type='3' catchtap='jumptap'>
+			<image src="../../images/jifen.png" class='image'></image>
+			<view>发起商品</view>
+			<image src='/images/my/right-img.png' class='right-img'></image>
+		</view>
+		<view class="userinfo-item row-start" data-type='4' catchtap='jumptap'>
+			<image src='/images/my/right-img.png' class='right-img'></image>
+			<image src="../../images/jifen.png" class='image'></image>
 			<view>查看商品</view>
 		</view>
+    </block>
 	</view>
 </view>

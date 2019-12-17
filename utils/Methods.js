@@ -24,7 +24,7 @@ class Methods extends Utils {
 		})
 	}
 	//modal提示
-	showModal(content,title='温馨提示',bol=false, cb) {
+	showModal(content, title = '温馨提示', bol = false, cb) {
 		wx.showModal({
 			title,
 			content,
@@ -48,6 +48,30 @@ class Methods extends Utils {
 			return false;
 		}
 	}
+	// 获取状态栏高度等其他设备信息
+	getSystemInfo() {
+		try {
+			let res = wx.getSystemInfoSync();
+      console.log(res)
+      let { statusBarHeight,windowHeight} =res;
+      let titleBarHeight = 0;
+			if (res.model.indexOf('iPhone') !== -1) {
+        titleBarHeight = 44
+			} else {
+				titleBarHeight = 48
+			}
+			  app.globalData.titleBarHeight = titleBarHeight;
+			  console.log(res)
+			  app.globalData.bodyHeight = windowHeight - statusBarHeight - titleBarHeight;
+			app.globalData.statusBarHeight = statusBarHeight;
+      app.globalData.SDKVersion = res.SDKVersion
+			return real;
+		} catch (e) {
+			return false;
+		}
+	}
+
+
 	// 返回
 	navBack() {
 		if (getCurrentPages().length != 1) {
@@ -68,6 +92,15 @@ class Methods extends Utils {
 			return wx.getStorageSync(key)
 		}
 		return false
+	}
+	// 判断是否在数组中
+	isStrInArray(item, arr) {
+		for (let i = 0; i < arr.length; i++) {
+			if (arr[i] == item) {
+				return true;
+			}
+		}
+		return false;
 	}
 }
 export default Methods

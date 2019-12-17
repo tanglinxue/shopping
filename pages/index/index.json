@@ -1,6 +1,8 @@
 {
-  "usingComponents": {
-    "v-homeItem": "/components/homeItem/index",
-    "v-banner":"/components/banner/index"
-  }
+	"enablePullDownRefresh": true,
+	"usingComponents": {
+		"v-homeItem": "/components/homeItem/index",
+		"v-banner": "/components/banner/index",
+		"v-dataStatus": "/components/dataStatus/index"
+	}
 }

@@ -1,6 +1,10 @@
 <view catchtap="jumpTap" class="list" hover-class="hover1">
-    <image src='{{list.head_pic}}' mode='aspectFill'/>
-    <view class='name'>{{list.good_name}}</view>
-    <view class='des'>{{list.kinds}}</view>
-    <view class='price'>Ұ{{list.sell_price}}</view>
+  <image src='{{list.head_pic}}' mode='aspectFill' />
+  <view class='name textElis'>{{list.good_name}}</view>
+  <view class='des'>{{list.kinds}}</view>
+  <view class='row-between'>
+    <view class='price'>￥{{list.sell_price}}</view>
+    <view class='stock'>库存: {{list.stock_num}}</view>
+  </view>
+
 </view>

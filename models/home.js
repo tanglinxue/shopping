@@ -11,11 +11,12 @@ class HomeModel extends PublicModel{
 
   //获取banner数据
   getHomeBanner(data={}){
-    return this.otherRequest({
-      url: 'banner/list',
+    return this.request({
+      url: 'prizes_list',
       data
     })
   }
+
 }
 
 export default HomeModel

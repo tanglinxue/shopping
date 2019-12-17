@@ -1,0 +1,10 @@
+<!-- 数据状态 -->
+<view class='main column-center'>
+	<block wx:if='{{haveData}}'>
+		<view class='text'>{{loadEnd?title2:title1}}</view>
+	</block>
+    <view class='no-Data column-center' wx:else>
+        <image src='/images/none/cart_empty.png' />
+        <view class='text'>{{title3}}</view>
+    </view>
+</view>

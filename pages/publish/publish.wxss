@@ -18,7 +18,7 @@ page {
 
 .shopItem-img {
 	width: 750rpx;
-	height: 416rpx;
+	height: 750rpx;
 	display: block;
 }
 
@@ -30,7 +30,7 @@ page {
 	font-size: 26rpx;
 	color: #888;
 	position: absolute;
-	top: 320rpx;
+	top: 650rpx;
 	right: 30rpx;
 	border: 1px solid #888;
 	background: #fff;
@@ -65,8 +65,7 @@ page {
 	background: #fff;
 	position: relative;
 	text-align: right;
-  border-top: 1rpx solid #ededed;
-
+	border-top: 1rpx solid #ededed;
 }
 
 .delete-box text {
@@ -210,7 +209,121 @@ page {
 	bottom: 0;
 	z-index: 99;
 }
-.btn-con{
+
+.btn-con {
 	font-size: 34rpx;
 	color: #fff;
+}
+
+/* 分类模块 */
+.nav-box {
+	margin: 0 auto;
+	border-left: 1px solid green;
+	box-sizing: border-box;
+	width: 100%;
+	margin-bottom: 30rpx
+}
+
+.nav-item {
+	height: 60rpx;
+	line-height: 60rpx;
+	border-color: green;
+	font-size: 28rpx;
+	color: green;
+	border: 1px solid green;
+	border-left: none;
+	width: 33.3%;
+	text-align: center;
+}
+
+.nav-item.active {
+	color: #fff;
+	background: green
+}
+.cateItem{
+	margin-bottom: 30rpx;
+}
+.cateInfo{
+	border-bottom: 3rpx solid #ededed;
+}
+
+.cate-img {
+	width: 180rpx;
+	height: 180rpx;
+	padding-right:20rpx;
+}
+
+.cate-write {
+	flex: 1
+}
+
+.cate-list {
+	width: 100%;
+	height: 80rpx;
+	line-height: 80rpx;
+	background: #fff;
+	position: relative;
+	box-sizing: border-box;
+	border-bottom: 1rpx solid #ededed;
+}
+
+.cate-list .left-text {
+	width: 200rpx;
+}
+
+.cate-list .right-part {
+	flex: 1;
+	color: #353535;
+	text-align: right;
+	line-height: 80rpx;
+	height: 80rpx;
+}
+
+.cate-list .right-part .right-input {
+	flex: 1;
+	color: #353535;
+	text-align: right;
+	line-height: 80rpx;
+	height: 80rpx;
+}
+
+.cate-list .right-part .unit {
+	color: #353535;
+	margin-left: 10rpx;
+	line-height: 80rpx;
+	height: 80rpx;
+}
+
+/* 类别添加 */
+.add-cate-box {
+	width: 200rpx;
+	margin: 0 auto;
+	position: relative;
+}
+
+.add-cate-box .add-pic {
+	width: 150rpx;
+	height: 50rpx;
+	margin-bottom: 10rpx;
+	background: url('https://tp.datikeji.com/a/15471216753325/CZq0wWPAIp5sEKyQu6zjCxDDW7bwVbS3eVADUM32.png');
+	background-size: 100% 100%;
+}
+
+.add-cate-box .add-text {
+	font-size: 28rpx;
+	letter-spacing: 1px;
+	color: #888;
+}
+/* 类别删除 */
+.delete-cate {
+	padding: 15rpx 25rpx;
+	height: 60rpx;
+	line-height: 60rpx;
+	background: #fff;
+	position: relative;
+	text-align: right;
+}
+.delete-cate text {
+	color: #586c94;
+	font-size: 28rpx
 }

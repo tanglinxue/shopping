@@ -16,23 +16,53 @@ Page({
 		specifications: '', //规格
 		kinds: '', //种类
 		sales_volume: '', //销售数量
+		decimal: 0, //运费
 		weight: '', //权重
 		is_shelf: 1, //是否上线
+		is_banner: 1, //是否首页展示
 		userStatus: false, //是否授权
 		category_index: 0, //类别索引
-		category_info: [] //类别集合
+		category_info: [], //类别集合
+		classic1: [{
+			'classic_name': '',
+			'classic_sell_prize': '',
+			'classic_original_prize': '0',
+			'classic_img': 'https://tp.datikeji.com/shop_mall/15740778471281/RQbfyJ5ypETYa5TDbfZwdBJ4HOPqSCHFGuY1qlva.jpeg',
+			'classic_stock_num': ''
+		}], //类别1
+		classic2: [{
+			'classic_name': '',
+			'classic_sell_prize': '',
+			'classic_original_prize': '0',
+			'classic_img': 'https://tp.datikeji.com/shop_mall/15740778471281/RQbfyJ5ypETYa5TDbfZwdBJ4HOPqSCHFGuY1qlva.jpeg',
+			'classic_stock_num': '',
+			'colour':''
+		}], //类别2
+		classic3: [{
+			'classic_name': '',
+			'classic_sell_prize': '',
+			'classic_original_prize': '0',
+			'classic_img': 'https://tp.datikeji.com/shop_mall/15740778471281/RQbfyJ5ypETYa5TDbfZwdBJ4HOPqSCHFGuY1qlva.jpeg',
+			'classic_stock_num': '',
+			'size':''
+		}], //类别3
+		classic:[],
+		classic_type: 1,
+		classicItemIndex: 0
 	},
 	onLoad(options) {
 		app.globalData.backCutImg = null;
+		app.globalData.cateCutImg = null;
 		app.globalData.detailData = null;
 		this.setData({
-			category_info: app.globalData.category_info
+			category_info: app.globalData.category_info,
+			classic:this.data.classic1
 		})
 		this.getUserStatus()
 		//假如是编辑
 		if (options.good_id) {
 			this.setData({
-				good_id:options.good_id
+				good_id: options.good_id
 			})
 			this.render()
 		}
@@ -41,34 +71,48 @@ Page({
 	render() {
 		publishModel.showLoading('加载商品中')
 		// 获取商品详情
-		let good_id = this.data.good_id;
+		let {
+			good_id,
+			category_info
+		} = this.data;
 		publishModel.getGoodDetail({
-			good_id
-		})
-		.then(res=>{
-			if(res){
-				let data = res.good_info;
-				let newData = {}
-				for(let key in data){
-					if(key=='pic' && data[key]){
-						newData.bannerPics = JSON.parse(data[key])
-					}else if(key=='detail' && data[key]){
-						newData.detailData = JSON.parse(data[key])
-					}else{
-						newData[key] = data[key]
+				good_id
+			})
+			.then(res => {
+				if (res) {
+					let data = res.good_info;
+					let newData = {}
+					for (let key in data) {
+						if (key == 'pic' && data[key]) {
+							newData.bannerPics = JSON.parse(data[key])
+						} else if (key == 'detail' && data[key]) {
+							newData.detailData = JSON.parse(data[key])
+						} else if (key == 'classic' && data[key]) {
+							newData.classic = JSON.parse(data[key])
+						} else if (key == 'category_id') {
+							category_info.forEach((item, index) => {
+								if (data[key] == item.category_id) {
+									newData['category_index'] = index
+								}
+							})
+						} else {
+							newData[key] = data[key]
+						}
 					}
+					if (newData.detailData) {
+						app.globalData.detailData = newData.detailData
+					}
+					this.setData({
+						...newData
+					})
+					this.renderClassic()
+					wx.hideLoading()
 				}
-				
-				this.setData({
-					...newData
-				})
-				wx.hideLoading()
-			}
-		})
+			})
 	},
 	// 获取用户授权状态
 	getUserStatus() {
-		publishModel.getUserStatus().
+		publishModel.getUserStatus('userInfo').
 		then(res => this.setData({
 			userStatus: res
 		}))
@@ -108,14 +152,15 @@ Page({
 					return publishModel.authorUser(params)
 				})
 				.then(res => {
-					console.log(res)
+					this.publish()
 				})
 		}
 	},
 	onShow() {
 		let {
 			backCutImg,
-			detailData
+			detailData,
+			cateCutImg
 		} = app.globalData;
 		// 设置banner图片
 		if (backCutImg) {
@@ -129,6 +174,19 @@ Page({
 				bannerPics
 			})
 			app.globalData.backCutImg = null;
+		}
+		// 设置类别图片
+		if (cateCutImg) {
+			let {
+				classic,
+				classicItemIndex
+			} = this.data;
+			classic[classicItemIndex].classic_img = cateCutImg;
+			this.setData({
+				classic
+			})
+			this.renderClassic()
+			app.globalData.cateCutImg = null;
 		}
 		//设置详情
 		if (detailData) {
@@ -146,6 +204,7 @@ Page({
 	// 页面隐藏
 	onHide() {
 		app.globalData.backCutImg = null;
+		app.globalData.cateCutImg = null;
 		if (app.globalData.detailData) {
 			app.globalData.detailData.forEach((item) => {
 				if (item.type == 'text' && typeof(item.textAreaCon) != 'string') {
@@ -188,12 +247,12 @@ Page({
 				})
 				app.globalData.cutImg = src;
 				wx.navigateTo({
-					url: './cutImg/cutImg'
+					url: './cutImg/cutImg?type=1'
 				})
-	
+
 			}
 		})
-	
+
 	},
 	// 输入框事件
 	inputEvent(e) {
@@ -208,6 +267,13 @@ Page({
 		let bol = e.detail.value;
 		this.setData({
 			is_shelf: bol ? 1 : 2
+		})
+	},
+	// 是否设置
+	onHomeChange(e) {
+		let bol = e.detail.value;
+		this.setData({
+			is_banner: bol ? 1 : 2
 		})
 	},
 	// 选择类别
@@ -237,7 +303,11 @@ Page({
 			detailData,
 			category_index,
 			category_info,
-			is_shelf
+			is_shelf,
+			is_banner,
+			decimal,
+			classic,
+			classic_type
 		} = this.data;
 		let category_id = category_info[category_index].category_id;
 		let params = {
@@ -250,7 +320,10 @@ Page({
 			sales_volume,
 			weight,
 			category_id,
-			is_shelf
+			is_shelf,
+			is_banner,
+			decimal,
+			classic_type
 		}
 		bannerPics = bannerPics.filter(item => {
 			return item.active
@@ -270,55 +343,185 @@ Page({
 		} else if (!stock_num) {
 			publishModel.showToast('请输入库存数量');
 			return false
-		} else if (!specifications) {
-			publishModel.showToast('请输入规格');
-			return false
-		} else if (!kinds) {
-			publishModel.showToast('请输入种类');
-			return false
-		} else if (!sales_volume) {
-			publishModel.showToast('请输入销售数量');
-			return false
 		} else if (!weight) {
 			publishModel.showToast('请输入权重');
 			return false
 		}
+		let catePass = true
+		// 分类处理
+		classic.forEach((item, index) => {
+			//名称
+			if (!item.classic_name) {
+				publishModel.showToast(`请输入分类${index+1}商品名称`);
+				catePass = false
+			}
+			//价格
+			if (item.classic_sell_prize == '') {
+				publishModel.showToast(`请输入分类${index+1}商品价格`);
+				catePass = false
+			}
+			//原价
+			if (item.classic_original_prize == '') {
+				publishModel.showToast(`请输入分类${index+1}商品原价`);
+				catePass = false
+			}
+			//库存
+			if (item.classic_stock_num == '') {
+				publishModel.showToast(`请输入分类${index+1}商品库存数量`);
+				catePass = false
+			}
+			// 第二类
+			//颜色
+			if (classic_type == 2) {
+				if (!item.colour) {
+					publishModel.showToast(`请输入分类${index+1}商品颜色`);
+					catePass = false
+				}
+			}
+			// 第三类
+			//尺寸
+			if (classic_type == 3) {
+				if (!item.size) {
+					publishModel.showToast(`请输入分类${index+1}商品尺寸`);
+					catePass = false
+				}
+			}
+		})
+		if (!catePass) {
+			return
+		}
+		params.classic = JSON.stringify(classic)
 		params.pic = JSON.stringify(bannerPics);
 		params.head_pic = bannerPics[0].prizeImg;
 		if (detailData && detailData.length) {
 			params.detail = JSON.stringify(detailData);
 		}
-		
-		if(this.data.good_id){
+
+		if (this.data.good_id) {
 			params.good_id = this.data.good_id
 			publishModel.showLoading('修改商品中')
 			publishModel.editPublish(params).then(
 				res => {
-					wx.hideLoading()
-					let good_id = res.good_id;
-					publishModel.showToast('修改成功','success',2000,()=>{
-						wx.redirectTo({
-							url:`/pages/goods-detail/goods-detail?good_id=${good_id}`
+					if (res) {
+						wx.hideLoading()
+						let good_id = res.good_id;
+						publishModel.showToast('修改成功', 'success', 2000, () => {
+							wx.redirectTo({
+								url: `/pages/goods-detail/goods-detail?good_id=${good_id}`
+							})
 						})
-					})
+					}
 				}
 			)
-		}else{
+		} else {
 			publishModel.showLoading('发布商品中')
 			publishModel.publish(params).then(
 				res => {
-					wx.hideLoading()
-					let good_id = res.good_id;
-					publishModel.showToast('发布成功','success',2000,()=>{
-						wx.redirectTo({
-							url:`/pages/goods-detail/goods-detail?good_id=${good_id}`
+					if (res) {
+						wx.hideLoading()
+						let good_id = res.good_id;
+						publishModel.showToast('发布成功', 'success', 2000, () => {
+							wx.redirectTo({
+								url: `/pages/goods-detail/goods-detail?good_id=${good_id}`
+							})
 						})
-					})
+					}
+
 				}
 			)
 		}
-		
+
+	},
+	// 选择分类
+	selectCate(e) {
+		let index = e.currentTarget.dataset.index;
+		let {classic_type,classic1,classic2,classic3,classic} = this.data;
+		if (index != classic_type) {
+			if (index == 1) {
+				classic = classic1
+			}
+			if (index == 2) {
+				classic = classic2
+			}
+			if (index == 3) {
+				classic = classic3
+			}
+			this.setData({
+				classic_type:index,
+				classic
+			})
+		}
+	},
+	// 添加分类
+	addCate() {
+		let {classic_type,classic} = this.data;
+		let classItem = {
+			'classic_name': '',
+			'classic_sell_prize': '',
+			'classic_original_prize': '0',
+			'classic_img': 'https://tp.datikeji.com/shop_mall/15740778471281/RQbfyJ5ypETYa5TDbfZwdBJ4HOPqSCHFGuY1qlva.jpeg',
+			'classic_stock_num': ''
+		}
+		if (classic_type == 2) {
+			classItem.colour = ''
+		}
+		if (classic_type == 3) {
+			classItem.size = ''
+		}
+		classic.push(classItem);
+		this.setData({
+			classic
+		})
+		this.renderClassic()
+	},
+	// 删除分类
+	deleteCate(e) {
+		let index = e.currentTarget.dataset.index;
+		let classic = this.data.classic;
+		classic.splice(index, 1);
+		this.setData({
+			classic,
+		})
+		this.renderClassic()
+	},
+	// 输入
+	navInputEvent(e) {
+		let name = e.target.dataset.name;
+		let value = e.detail.value.trim();
+		let index = e.currentTarget.dataset.index;
+		let classic = this.data.classic;
+		classic[index][name] = value
+		this.setData({
+			classic
+		})
+		this.renderClassic()
+	},
+	// 类别图片上传
+	uploadImgCateTap(e) {
+		let index = e.currentTarget.dataset.index;
+		wx.chooseImage({
+			count: 1, // 默认9
+			sizeType: ['original'], // 可以指定是原图还是压缩图，默认二者都有
+			sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+			success: (res) => {
+				const src = res.tempFilePaths[0];
+				this.setData({
+					classicItemIndex: index,
+				})
+				app.globalData.cutImg = src;
+				wx.navigateTo({
+					url: './cutImg/cutImg?type=2'
+				})
+			}
+		})
+	},
+	// 渲染三个数组
+	renderClassic(){
+		let {classic_type,classic} = this.data;
+		let name = `classic${classic_type}`;
+		console.log(classic,name)
+		this.setData({
+			[name]:classic
+		})	
 	}
-
-
 })

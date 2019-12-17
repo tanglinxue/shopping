@@ -4,7 +4,7 @@
 	<view class="popup-contents">
 		<view class="pop-goods-info row-center">
 			<view class="pop-img-box">
-				<image src="{{goodsDetail.head_pic}}" class="goods-thumbnail" />
+				<image src="{{goodsDetail.head_pic}}" class="goods-thumbnail" mode='aspectFill' />
 			</view>
 			<view class="pop-goods-des">
 				<view class="pop-goods-title">{{goodsDetail.good_name}}</view>
@@ -12,15 +12,38 @@
 			</view>
 			<view class="pop-goods-close" catchtap="closePopupTap"></view>
 		</view>
-		<view class="buy-num-box row-between">
-			<view class="num-label">购买数量</view>
-			<template is="jiajian" data='{{...goodsDetail}}' />
+		<view>
+			<view>
+				<view>分类</view>
+				<view>
+					<block wx:for='{{classic}}' wx:for-item="item" wx:key="property" wx:for-index='index'>
+						<view>
+							<image mode='aspectFill' src='{{item.classic_img}}'></image>
+							<text>{{item.classic_name}}</text>
+						</view>
+					</block>
+				</view>
+			</view>
+			<view>
+				<view>颜色</view>
+				<view>
+					<view  wx:for='{{classic_name}}' wx:for-item="item" wx:key="property" wx:for-index='index'>
+						{{item}}
+					</view>
+				</view>
+			</view>
+			<view class="buy-num-box row-between">
+				<view class="num-label">购买数量</view>
+				<template is="jiajian" data='{{...goodsDetail}}' />
+			</view>
 		</view>
-		<block wx:if='{{showType===1}}'>
-			<view class="popup-join-btn" catchtap='toBuyTap'>立即购买</view>
-		</block>
-		<block wx:if='{{showType===2}}'>
-			<view class="popup-join-btn" catchtap='addShopCar'>加入购物车</view>
-		</block>
+		<view class='row-between btn-box'>
+			<block wx:if='{{showPopupType==3}}'>
+				<view class="popup-join-btn half-btn" catchtap='toBuyTap'>立即购买</view>
+				<view class="popup-join-btn half-btn black-btn" catchtap='toBuyTap'>加入购物车</view>
+			</block>
+			<view class="popup-join-btn" catchtap='toBuyTap' wx:else>{{showPopupType==1?"立即购买":"加入购物车"}}</view>
+		</view>
+
 	</view>
 </view>

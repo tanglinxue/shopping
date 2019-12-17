@@ -1,36 +1,61 @@
 <navigation id='Navigation' show-icon="{{true}}" title="商品详情" show-title="{{true}}" class=""></navigation>
-<view class='column-center container'>
-  <!-- banner -->
-  <v-banner banners='{{bannerPics}}' border='{{true}}' />
-  <!-- 商品信息 -->
-  <view class='goods-info'>
-    <view class='goods-title'>{{good_name}}</view>
-    <view class='goods-characteristic'>{{kinds}}</view>
-    <view class='row-between'>
-      <view class='row-start'>
-        <text class='goods-price'>Ұ {{sell_price}}</text>
-        <text class='goods-originalPrice'>Ұ {{original_price}}</text>
-      </view>
-      <view class='piangjia'>已售 {{sales_volume}}</view>
-    </view>
-  </view>
-  <!-- 商品详情 -->
-  <view class='goods-detail'>
-    <view class='goods-detail-title'>商品介绍</view>
-    <view class='goods-detail-con'>
-      <view class='goods-detail-text'>注意：测试支付专用，不发货，不退款测试支付专用，不发货，不退款测试支付专用，不发货，不退款</view>
-      <image src='https://cdn.it120.cc/apifactory/2019/05/21/22fd86b2-d6f5-4edf-9365-597fda0cebe7.jpg' mode="widthFix" class="goods-detail-image"></image>
-    </view>
-  </view>
-  <!-- 悬浮 -->
-  <view catchtap="getShareBox" class="goods-button" >
-    <image src="../../images/share.png" />
-  </view>
-  <!-- 底部 -->
-  <v-good-footer catchtobuy='controlPopup' allShopNum='{{allShopNum}}'/>
-  <!-- 购物底部悬浮 -->
-  <v-detail-popup showPopup='{{showPopup}}' goodsDetail='{{goodsDetail}}'
-  showType='{{showType}}' catchclosePopup='controlPopup' catchchangeNum='changeNum'/>
-  <!-- 分享弹窗 -->
-  <v-share-poupu sharePopup='{{sharePopup}}' catchcloseShare='getShareBox'/>
+<view class='column-center container' wx:if='{{loadingEnd}}'>
+	<!-- banner -->
+	<v-banner banners='{{goodsDetail.bannerPics}}' fromDetail='{{true}}' />
+	<!-- 商品信息 -->
+	<view class='goods-info'>
+		<view class='goods-title'>{{goodsDetail.good_name}}</view>
+		<view class='row-between goods-con'>
+			<view class='left-text'>销售价:
+				<text class='price'>￥{{goodsDetail.sell_price}}</text><text class='origin-price'>{{goodsDetail.original_price}}</text>
+			</view>
+			<view class='right-text'>库存: {{goodsDetail.stock_num}}</view>
+		</view>
+		<view class='row-between goods-con'>
+			<view class='left-text textElis'>规格: {{goodsDetail.specifications}}</view>
+			<view class='right-text'>销量: {{goodsDetail.sales_volume}}</view>
+		</view>
+		<view class='goods-characteristic'>种类: {{goodsDetail.kinds}}</view>
+	</view>
+	<!-- 类别信息 -->
+	<view class='goods-cate-box' catchtap='openDetailPopup'>
+		<view class='goods-cate-title row-start'>
+			<view class='text1'>选择</view>
+			<view class='text2'><text>请选择</text><text>{{classic_type==1?"分类":classic_type==2?"分类颜色":"分类尺寸"}}</text></view>
+		</view>
+		<view class='goods-cate-con row-start'>
+			<view class='goods-cate-image row-start'>
+				<block wx:for='{{classic}}' wx:for-item="item" wx:key="property" wx:for-index='index'>
+					<image mode='aspectFill' src='{{item.classic_img}}'></image>
+				</block>
+			</view>
+			<view class='goods-cate-des'>共{{classic.length}}种分类可选</view>
+		</view>
+	</view>
+	<!-- 商品详情 -->
+	<view class='goods-detail' wx:if='{{goodsDetail.detailData}}'>
+		<view class='goods-detail-title'>商品介绍</view>
+		<view class='goods-detail-con'>
+			<block wx:for="{{goodsDetail.detailData}}" wx:for-item="item" wx:key="property">
+				<view class='goods-detail-text' wx:if='{{item.type=="text"}}'>
+					<block wx:for="{{item.textAreaCon}}" wx:for-item="itemNext" wx:key="property">
+						<text class='insert-text' selectable>{{!itemNext?"":itemNext}}</text>
+					</block>
+				</view>
+				<image src='{{item.img}}' mode="widthFix" class="goods-detail-image" wx:if='{{item.type=="img"}}'></image>
+			</block>
+		</view>
+	</view>
+	<!-- 悬浮 -->
+	<view catchtap="getShareBox" class="goods-button">
+		<image src="/images/share.png" />
+	</view>
+	<!-- 底部 -->
+	<v-good-footer catchtobuy='controlPopup' goodsDetail='{{goodsDetail}}' shopcart_count='{{shopcart_count}}' catchaddNum='addNum' />
+	<!-- 购物底部悬浮 -->
+	<v-detail-popup showPopup='{{showPopup}}' goodsDetail='{{goodsDetail}}' catchclosePopup='controlPopup' catchchangeNum='changeNum'
+	 showPopupType='{{showPopupType}}' classic='{{classic}}' classic_type='{{classic_type}}' />
+	<!-- 分享弹窗 -->
+	<v-share-poupu sharePopup='{{sharePopup}}' catchcloseShare='getShareBox' catchgetCode='getCode' photoState='{{photoState}}' />
+	<v-ecrode-popup showErocode='{{showErocode}}' catchcloseCode='closeCode' codeImg='{{codeImg}}' />
 </view>

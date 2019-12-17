@@ -1,0 +1,25 @@
+<navigation id='Navigation' show-icon="{{true}}" title="地址管理" show-title="{{true}}"></navigation>
+<view class="container">
+	<view class="address-list" wx:if='{{addressList.length}}'>
+		<view class="a-address" wx:for="{{addressList}}" wx:for-item="item" wx:key="property" wx:for-index='index'>
+			<view class="left-text {{item.is_default? 'active':''}}" catchtap="selectTap" data-index='{{index}}'>
+				<view class="name-tel">
+					{{item.consignee}} {{item.phone}}
+				</view>
+				<view class="address-box">
+					{{item.province}}{{item.city}}{{item.area}}{{item.detail_address}}
+				</view>
+			</view>
+			<view class="right-edit" catchtap="editAddess" data-index='{{index}}'></view>
+		</view>
+	</view>
+	<block wx:if='{{loadingEnd}}'>
+		<v-dataStatus haveData='{{addressList.length}}' loadEnd='{{total_pages==page}}' title1='↓ 下拉加载更多地址 ↓' title2='地址已加载完毕' title3='暂无地址'/>
+	</block>
+
+	<view class="bottom-box" catchtap="addAddess">
+		<image src="../../images/address_add.png"></image>
+		新增地址
+	</view>
+
+</view>

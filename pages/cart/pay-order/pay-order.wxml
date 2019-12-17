@@ -1,0 +1,65 @@
+<navigation id='Navigation' show-icon="{{true}}" title="确认订单" show-title="{{true}}"></navigation>
+<view class="container">
+  <!-- 地址 -->
+  <view class="address-box">
+    <view class="show-address" catchtap="selectAddress" wx:if='{{curAddressData}}'>
+      <view class="name-tel">{{curAddressData.consignee}} {{curAddressData.phone}}</view>
+      <view class="addr-text">{{curAddressData.province}}{{curAddressData.city}}{{curAddressData.area}}{{curAddressData.detail_address}}</view>
+    </view>
+    <view class="add-address" wx:else>
+      <view class="title" catchtap="addAddress">{{haveAddress?"选择收货地址":"新增收货地址"}}</view>
+    </view>
+  </view>
+  <!-- 商品列表 -->
+  <view class="goods-list">
+    <view class="list-title">商品列表</view>
+    <block wx:for="{{goodsList}}" wx:for-item="item" wx:key="property">
+      <v-good-item item='{{item}}' />
+    </block>
+  </view>
+  <view class="peisong-way">
+    <view class="row-box">
+      <view class="row-label">配送方式</view>
+      <view class="right-text" wx:if="{{yunPrice > 0}}">快递</view>
+      <view class="right-text" wx:if="{{yunPrice == 0}}">包邮</view>
+    </view>
+    <view class="row-box" wx:if='{{endStatus&&remarks}}'>
+      <view class="row-label">备注</view>
+      <view class="right-text">
+        <view class="liuyan">{{remarks}}</view>
+      </view>
+    </view>
+    <view class="row-box" wx:if='{{!endStatus}}'>
+      <view class="row-label">备注</view>
+      <view class="right-text">
+        <input type="text" class="liuyan" placeholder="如需备注请输入" value='{{remarks}}' bindinput="remarkEvent" />
+      </view>
+    </view>
+  </view>
+
+  <view class="goods-info">
+    <view class="row-box">
+      <view class="row-label">商品金额</view>
+      <view class="right-text">¥ {{allGoodsPrice}}</view>
+    </view>
+    <view class="row-box">
+      <view class="row-label">运费</view>
+      <view class="right-text">+ ¥ {{yunPrice}}</view>
+    </view>
+    <view class="row-box" wx:if='{{express_company}}'>
+      <view class="row-label">{{express_company}}</view>
+      <view class="right-text">{{deliver_order}}</view>
+    </view>
+  </view>
+  <view class="jiesuan-box">
+    <view class="left-price">
+      <view class="total">合计：¥ {{allGoodsAndYunPrice}}</view>
+    </view>
+    <block wx:if='{{!endStatus}}'>
+      <!-- <form bindsubmit="createOrder" report-submit='true'>
+        <button class="to-pay-btn" form-type="submit">提交订单</button>
+      </form> -->
+      <view class="to-pay-btn" catchtap="createOrder">提交订单</view>
+    </block>
+  </view>
+</view>

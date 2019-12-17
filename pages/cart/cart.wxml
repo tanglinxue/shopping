@@ -19,18 +19,19 @@
 					<text class='all-selected'>全选</text>
 				</view>
 				<view class='jiesuan-right row-start'>
-					<view class='total' wx:if='{{isAllSelect}}'>合计：Ұ {{allPrice}}</view>
+					
 					<block wx:if='{{editStatus}}'>
-						<view class='to-pay-btn {{!isAllSelect?"no-select":"" }}' catchtap='deleteTap'>删除</view>
+						<view class='to-pay-btn {{!havaActive?"no-select":"" }}' catchtap='deleteTap'>删除</view>
 					</block>
 					<block wx:else>
-						<view class='to-pay-btn {{!isAllSelect?"no-select":"" }}'>下单</view>
+						<view class='total' wx:if='{{havaActive}}'>合计：Ұ {{allPrice}}</view>
+						<view class='to-pay-btn {{!havaActive?"no-select":"" }}' catchtap='toPay'>下单</view>
 					</block>
 				</view>
 			</view>
 		</view>
 	</block>
-	<view class="noGoods" wx:if='{{!shopList.length}}'>
+	<view class="noGoods" wx:if='{{!shopList.length&&loadingEnd}}'>
 		<image class="box-none" src="../../images/none/cart_empty.png"></image>
 		去添加点什么吧
 	</view>

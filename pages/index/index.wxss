@@ -8,7 +8,6 @@ page {
 .index-menu {
 	width: 710rpx;
 	border-radius: 20rpx;
-
 	background: #fff;
 	margin-bottom: 20rpx;
 	margin-top: -50rpx;
@@ -35,6 +34,7 @@ page {
 	width: 100%;
 	margin-bottom: 20rpx;
 	background: #fff;
+	padding-bottom:30rpx
 }
 
 .home-title {

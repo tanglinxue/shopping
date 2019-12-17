@@ -1,0 +1,89 @@
+@import "../../../common/common.wxss";
+page {
+  height: 100%;
+}
+.form-box {
+  width: 100%;
+  background: #fff;
+  margin-top: 20rpx;
+}
+
+.row-wrap {
+  width: 690rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+}
+
+.row-wrap .label {
+  width: 160rpx;
+  color: #000;
+}
+
+.row-wrap .label-right {
+  flex: 1;
+  height: 90rpx;
+  line-height: 90rpx;
+}
+
+.row-wrap .label-right input {
+  height: 100%;
+  font-size: 28rpx;
+  padding-right: 30rpx;
+}
+
+.addr-details {
+  height: auto;
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+}
+
+.addr-details .label {
+  width: 160rpx;
+  color: #000;
+}
+.addr-details .label-right{
+  flex:1
+}
+.addr-details textarea {
+  box-sizing: border-box;
+  width: 100%;
+  overflow: scroll;
+}
+
+.hui {
+  color: #777;
+}
+
+/* 底部按钮 */
+.save-btn{
+  width: 690rpx;
+  height: 80rpx;
+  line-height: 80rpx !important;
+  text-align: center;
+  margin-top: 30rpx;
+  border-radius: 6rpx;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+  font-size: 28rpx;
+}
+
+.save-btn.warn {
+  background-color: #e64340;
+  width: 690rpx;
+  color: #fff;
+}
+.save-btn.warn {
+  background-color: #e64340;
+  color: #fff;
+}
+.save-btn.primary {
+  background-color: #45b97c;
+  color: #fff;
+   width: 690rpx;
+}
+.save-btn.default {
+  border:1rpx solid #eee;
+}

@@ -1,6 +1,6 @@
-import PublicModel from './Public.js'
+import StartModel from './Start.js'
 // 购物车相关接口
-class CartModel extends PublicModel {
+class CartModel extends StartModel {
   //加入购物车
   addShopCart(data= {}) {
     return this.request({
@@ -19,6 +19,13 @@ class CartModel extends PublicModel {
   removeShopCart(data={}){
 	  return this.request({
 	    url: 'del_shopcart',
+	    data
+	  })
+  }
+  //支付订单
+  payOrder(data={}){
+	  return this.request({
+	    url: 'place_order',
 	    data
 	  })
   }

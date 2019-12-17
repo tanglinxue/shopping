@@ -11,6 +11,7 @@
       <view class="show-share-code" bindtap="getcode">
         <image src="../../images/kanjia/share_img.png" />
         <text>生成二维码</text>
+		<button class="pop-box-btn" open-type="openSetting" wx:if='{{!photoState}}'></button>
       </view>
     </view>
   </view>

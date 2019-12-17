@@ -70,7 +70,7 @@
   margin-top: 6rpx;
 }
 
-.show-share-share .pop-box-btn {
+.pop-box-btn {
   position: absolute;
   top: 0;
   left: 0;

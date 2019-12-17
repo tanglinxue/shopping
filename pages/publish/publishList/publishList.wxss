@@ -5,3 +5,9 @@
 	bottom: 0;
 	z-index: 99;
 }
+.container{
+	padding-bottom:120rpx;
+}
+.menu{
+	padding-bottom: 30rpx;
+}

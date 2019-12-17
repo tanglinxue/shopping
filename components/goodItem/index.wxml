@@ -1,0 +1,15 @@
+<view class="a-goods">
+	<view class="img-box">
+		<image src="{{item.head_pic}}" class="img" mode='aspectFill' />
+	</view>
+	<view class="text-box">
+		<view class="arow arow01">
+			<view class="goods-name textElis">{{item.good_name}}</view>
+			<view class="goods-price ">¥ {{item.sell_price}}</view>
+		</view>
+		<view class="arow">
+			<view class="goods-label textElis">{{item.kinds}}</view>
+			<view class="goods-num">x {{item.buyNumber||item.good_num}}</view>
+		</view>
+	</view>
+</view>

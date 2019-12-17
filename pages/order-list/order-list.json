@@ -1,5 +1,8 @@
 {
   "usingComponents": {
-    "navigation": "/components/navigation/navigation"
+    "navigation": "/components/navigation/navigation",
+	"v-good-item":"/components/goodItem/index",
+	"v-dataStatus":"/components/dataStatus/index"
+	
   }
 }

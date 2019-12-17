@@ -1,6 +1,7 @@
 // 商品底部弹窗
 import CartModel from '../../models/Cart.js'
-const cartModel = new CartModel()
+const cartModel = new CartModel();
+const app = getApp()
 Component({
 	/**
 	 * 组件的属性列表
@@ -16,10 +17,20 @@ Component({
 			type: Object,
 			value: {}
 		},
-		// 展示类型
-		showType: {
+		// 1立即购买,2购物车,3都显示
+		showPopupType:{
 			type: Number,
 			value: 1
+		},
+		// 类别数据
+		classic:{
+			type:Array,
+			value:[]
+		},
+		// 类别
+		classic_type:{
+			type:Number,
+			value:1
 		}
 	},
 	/**
@@ -59,33 +70,21 @@ Component({
 				})
 			}
 		},
-		/**
-		 * 加入购物车
-		 */
-		addShopCar: function() {
-			let {
-				good_id,
-				buyNumber
-			} = this.properties.goodsDetail;
-			if (buyNumber < 1) {
-				cartModel.showModal('加入购物车数量不能为0！')
+
+		// 去购买
+		toBuyTap() {
+			let goodsDetail = this.properties.goodsDetail
+			let shopList = [goodsDetail];
+			if (goodsDetail.buyNumber < 1) {
+				cartModel.showModal('购买数量数量不能为0！')
 				return;
 			}
-			cartModel.showLoading('加入购物车中...');
-			cartModel.removeShopCart({
-					good_id
-				})
-				.then(res => {
-					wx.hideLoading()
-					this.closePopupTap();
-					if(res){
-						this.triggerEvent('changeNum', {
-							buyNumber:0
-						})
-						cartModel.showToast('加入购物车成功')
-					}	
 
-				})
-		},
+			app.globalData.buyShopList = shopList
+			this.closePopupTap();
+			wx.navigateTo({
+				url: '/pages/cart/pay-order/pay-order'
+			})
+		}
 	}
 })
