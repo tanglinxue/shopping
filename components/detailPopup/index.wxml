@@ -1,53 +1,65 @@
 <import src="../../templates/jiajian/index.wxml" />
 <view class="show-popup" hidden="{{!showPopup}}">
-  <view class="popup-mask" catchtap="closePopupTap"></view>
-  <view class="popup-contents">
-    <view class="pop-goods-info row-center">
-      <view class="pop-img-box">
-        <image src="{{goodsDetail.head_pic}}" class="goods-thumbnail" mode='aspectFill' />
-      </view>
-      <view class="pop-goods-des">
-        <view class="pop-goods-title">{{goodsDetail.good_name}}</view>
-        <view class="pop-goods-price">¥ {{goodsDetail.sell_price}}</view>
-      </view>
-      <view class="pop-goods-close" catchtap="closePopupTap"></view>
-    </view>
-    <view class='popup-bottom-con'>
-      <!-- 基础类别 -->
-      <view class='popup-cate'>
-        <view class='title'>分类</view>
-        <view class='row-start main'>
-          <block wx:for='{{classic}}' wx:for-item="item" wx:key="property" wx:for-index='index'>
-            <view class='row-start info'>
-              <image mode='aspectFill' src='{{item.classic_img}}'></image>
-              <text>{{item.classic_name}}</text>
-            </view>
-          </block>
-        </view>
-      </view>
-      <!-- 尺码 -->
-      <view class='popup-cate cate-line'>
-        <view class='title'>尺码</view>
-        <view class='row-start main'>
-          <block wx:for='{{classic}}' wx:for-item="item" wx:key="property" wx:for-index='index'>
-            <view class='row-start info2'>
-              <text>{{item.classic_name}}</text>
-            </view>
-          </block>
-        </view>
-      </view>
-      <view class="buy-num-box row-between">
-        <view class="num-label">购买数量</view>
-        <template is="jiajian" data='{{...goodsDetail}}' />
-      </view>
-    </view>
-    <view class='row-between btn-box'>
-      <block wx:if='{{showPopupType==3}}'>
-        <view class="popup-join-btn half-btn" catchtap='toBuyTap'>立即购买</view>
-        <view class="popup-join-btn half-btn black-btn" catchtap='toBuyTap'>加入购物车</view>
-      </block>
-      <view class="popup-join-btn" catchtap='toBuyTap' wx:else>{{showPopupType==1?"立即购买":"加入购物车"}}</view>
-    </view>
+	<view class="popup-mask" catchtap="closePopupTap"></view>
+	<view class="popup-contents">
+		<view class="pop-goods-info row-center">
+			<view class="pop-img-box">
+				<image src="{{classic[0].classic_img}}" class="goods-thumbnail" mode='aspectFill' />
+			</view>
+			<view class="pop-goods-des">
+				<view class="pop-goods-price">￥{{classic[0].classic_sell_prize}}</view>
+				<view class="pop-goods-stock">{{classic[0].classic_stock_num}}</view>
+				<view class="pop-goods-des">{{classic_type==1?"选择分类":classic_type==2?"选择分类颜色":"选择分类尺码"}}</view>
+			</view>
+			<view class="pop-goods-close" catchtap="closePopupTap"></view>
+		</view>
+		<view class='popup-bottom-con'>
+			<!-- 基础类别 -->
+			<view class='popup-cate'>
+				<view class='title'>分类</view>
+				<view class='row-start main'>
+					<block wx:for='{{classic}}' wx:for-item="item" wx:key="property" wx:for-index='index'>
+						<view class='row-start info'>
+							<image mode='aspectFill' src='{{item.classic_img}}'></image>
+							<text>{{item.classic_name}}</text>
+						</view>
+					</block>
+				</view>
+			</view>
+			<!-- 颜色 -->
+			<view class='popup-cate cate-line' wx:if='{{showPopupType==2}}'>
+				<view class='title'>颜色</view>
+				<view class='row-start main'>
+					<block wx:for='{{classic}}' wx:for-item="item" wx:key="property" wx:for-index='index'>
+						<view class='row-start info2'>
+							<text>{{item.classic_name}}</text>
+						</view>
+					</block>
+				</view>
+			</view>
+			<!-- 尺码 -->
+			<view class='popup-cate cate-line' wx:if='{{showPopupType==3}}'>
+				<view class='title'>尺码</view>
+				<view class='row-start main'>
+					<block wx:for='{{classic}}' wx:for-item="item" wx:key="property" wx:for-index='index'>
+						<view class='row-start info2'>
+							<text>{{item.classic_name}}</text>
+						</view>
+					</block>
+				</view>
+			</view>
+			<view class="buy-num-box row-between">
+				<view class="num-label">购买数量</view>
+				<template is="jiajian" data='{{...goodsDetail}}' />
+			</view>
+		</view>
+		<view class='row-between btn-box'>
+			<block wx:if='{{showPopupType==3}}'>
+				<view class="popup-join-btn half-btn" catchtap='toBuyTap'>立即购买</view>
+				<view class="popup-join-btn half-btn black-btn" catchtap='toBuyTap'>加入购物车</view>
+			</block>
+			<view class="popup-join-btn" catchtap='toBuyTap' wx:else>{{showPopupType==1?"立即购买":"加入购物车"}}</view>
+		</view>
 
-  </view>
+	</view>
 </view>

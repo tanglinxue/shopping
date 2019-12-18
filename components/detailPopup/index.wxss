@@ -2,149 +2,159 @@
 @import "../../templates/jiajian/index.wxss";
 
 .show-popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 9999999;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9999999;
 }
 
 .popup-mask {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 5;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 5;
 }
 
 .popup-contents {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #fff;
-  z-index: 6;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #fff;
+	z-index: 6;
 }
 
 .pop-goods-info {
-  padding: 30rpx;
-  width: 100%;
-  box-sizing: border-box;
-  position: relative;
-  border-bottom: 1px solid #f5f5f5;
+	padding: 30rpx;
+	width: 100%;
+	box-sizing: border-box;
+	position: relative;
+	border-bottom: 1px solid #f5f5f5;
 }
 
 .pop-img-box {
-  width: 120rpx;
-  height: 120rpx;
-  margin-right: 26rpx;
+	width: 120rpx;
+	height: 120rpx;
+	margin-right: 26rpx;
 }
 
 .goods-thumbnail {
-  width: 120rpx;
-  height: 120rpx;
+	width: 120rpx;
+	height: 120rpx;
 }
 
 .pop-goods-des {
-  flex: 1;
+	flex: 1;
 }
 
-.pop-goods-title {
-  width: 100%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  font-size: 26rpx;
-  color: #000;
+.pop-goods-stock {
+	width: 100%;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	font-size: 26rpx;
+	color: #000;
 }
 
 .pop-goods-price {
-  font-size: 26rpx;
-  color: #b5272d;
-  margin-top: 20rpx;
+	font-size: 26rpx;
+	color: #b5272d;
 }
 
 .pop-goods-close {
-  width: 36rpx;
-  height: 36rpx;
-  background: url("https://cdn.it120.cc/images/weappshop/popup-close.png") no-repeat center center;
-  position: absolute;
-  background-size: 36rpx auto;
-  right: 30rpx;
-  top: 30rpx;
+	width: 36rpx;
+	height: 36rpx;
+	background: url("https://cdn.it120.cc/images/weappshop/popup-close.png") no-repeat center center;
+	position: absolute;
+	background-size: 36rpx auto;
+	right: 30rpx;
+	top: 30rpx;
 }
 
 .buy-num-box {
-  padding: 30rpx;
-  padding-bottom: 40rpx;
+	padding: 30rpx;
+	padding-bottom: 40rpx;
 }
 
 .num-label {
-  font-size: 26rpx;
-  color: #000;
+	font-size: 26rpx;
+	color: #000;
 }
 
 .popup-join-btn {
-  width: 100%;
-  height: 90rpx;
-  text-align: center;
-  line-height: 90rpx;
-  font-size: 34rpx;
-  color: #fff;
-  background-color: #b5272d;
+	width: 100%;
+	height: 90rpx;
+	text-align: center;
+	line-height: 90rpx;
+	font-size: 34rpx;
+	color: #fff;
+	background-color: #b5272d;
 }
-.popup-join-btn.black-btn{
+
+.popup-join-btn.black-btn {
 	color: #333;
-	background:none
+	background: none
 }
-.popup-join-btn.half-btn{
-	width:50%
+
+.popup-join-btn.half-btn {
+	width: 50%
 }
-.btn-box{
+
+.btn-box {
 	box-shadow: 0rpx 15rpx 15rpx 10rpx;
 }
 
-.popup-bottom-con{
-  max-height:600rpx;
-  width:100%;
-  padding:30rpx;
-  overflow-x: hidden;
-  overflow-y: auto;
-  box-sizing: border-box
+.popup-bottom-con {
+	max-height: 600rpx;
+	width: 100%;
+	padding: 30rpx;
+	overflow-x: hidden;
+	overflow-y: auto;
+	box-sizing: border-box
 }
+
 /* 类别 */
-.cate-line{
-  padding:20rpx 0;
-  border-top:1rpx solid #ededed;
-  border-bottom:1rpx solid #ededed;
+.cate-line {
+	padding: 20rpx 0;
+	border-top: 1rpx solid #ededed;
+	border-bottom: 1rpx solid #ededed;
 }
-.popup-cate .title{
-  margin-bottom: 20rpx;
+
+.popup-cate .title {
+	margin-bottom: 20rpx;
 }
-.popup-cate .main .info{
-  padding:10rpx;
-  border-radius: 8rpx;
-  background:#f5f5f5;
-    margin-bottom: 15rpx;
-    margin-right:20rpx;
-    padding-right:20rpx;
+.popup-cate .main{
+	flex-wrap: wrap;
 }
-.popup-cate .main .info2{
-  padding:10rpx 20rpx;
-  border-radius: 8rpx;
-  background:#f5f5f5;
-    margin-bottom: 15rpx;
-    margin-right:20rpx;
+.popup-cate .main .info {
+	padding: 10rpx;
+	border-radius: 8rpx;
+	background: #f5f5f5;
+	margin-bottom: 15rpx;
+	margin-right: 20rpx;
+	padding-right: 15rpx;
 }
-.popup-cate .main .info image{
-  width:40rpx;
-  height: 40rpx;
-  border-radius: 6rpx;
-  margin-right:5rpx;
+
+.popup-cate .main .info2 {
+	padding: 10rpx 20rpx;
+	border-radius: 8rpx;
+	background: #f5f5f5;
+	margin-bottom: 15rpx;
+	margin-right: 20rpx;
 }
-.popup-cate .main .info text{
-  font-size:24rpx
+
+.popup-cate .main .info image {
+	width: 40rpx;
+	height: 40rpx;
+	border-radius: 6rpx;
+	margin-right: 10rpx;
+}
+
+.popup-cate .main .info text,.popup-cate .main .info2 text {
+	font-size: 24rpx
 }

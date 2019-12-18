@@ -18,24 +18,31 @@ Component({
 			value: {}
 		},
 		// 1立即购买,2购物车,3都显示
-		showPopupType:{
+		showPopupType: {
 			type: Number,
 			value: 1
 		},
 		// 类别数据
-		classic:{
-			type:Array,
-			value:[]
+		classic: {
+			type: Array,
+			value: []
 		},
 		// 类别
-		classic_type:{
-			type:Number,
-			value:1
+		classic_type: {
+			type: Number,
+			value: 1
 		}
 	},
-	/**
-	 * 组件的方法列表
-	 */
+	attached() {
+		this.setData({
+			classic: this.properties.classic
+		})
+	},
+	observers: {
+		'classic': function(val) {
+			
+		}
+	},
 	methods: {
 		// 关闭弹窗
 		closePopupTap() {
@@ -43,7 +50,6 @@ Component({
 				showPopup: false
 			})
 		},
-
 		// 减法
 		numJianTap() {
 			let {
@@ -70,7 +76,6 @@ Component({
 				})
 			}
 		},
-
 		// 去购买
 		toBuyTap() {
 			let goodsDetail = this.properties.goodsDetail
@@ -79,7 +84,6 @@ Component({
 				cartModel.showModal('购买数量数量不能为0！')
 				return;
 			}
-
 			app.globalData.buyShopList = shopList
 			this.closePopupTap();
 			wx.navigateTo({
