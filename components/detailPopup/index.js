@@ -22,11 +22,6 @@ Component({
 			type: Number,
 			value: 1
 		},
-		// 类别数据
-		classic: {
-			type: Array,
-			value: []
-		},
 		// 类别
 		classic_type: {
 			type: Number,
@@ -49,18 +44,13 @@ Component({
 		typeSelectB:{
 			type:Number,
 			value:-1
+		},
+		selectClassData:{
+			type:Object,
+			value:{}
 		}
 	},
-	attached() {
-		this.setData({
-			classic: this.properties.classic
-		})
-	},
-	observers: {
-		'classic': function(val) {
-			
-		}
-	},
+
 	methods: {
 		// 关闭弹窗
 		closePopupTap() {
@@ -111,15 +101,12 @@ Component({
 		//分类选择
 		selectCateA(e){
 			let index = e.currentTarget.dataset.index;
-			this.setData({
-				typeSelectA:index
-			})
+			this.triggerEvent('selectTypeFun', {selectTypeSelectA:index,type:'A'})
 		},
+		// 分类选择B
 		selectCateB(e){
 			let index = e.currentTarget.dataset.index;
-			this.setData({
-				typeSelectB:index
-			})
+			this.triggerEvent('selectTypeFun', {selectTypeSelectB:index,type:'B'})
 		}
 	}
 })

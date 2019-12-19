@@ -93,6 +93,7 @@ Page({
 					let classic_type = newData.classic_type; //类型
 					this.deleteReplace('classics','classic_name',classic)
 					if (classic_type == 2) {
+						// 颜色+分类
 						this.deleteReplace('colors','colour',classic)
 					} else if (classic_type == 3) {
 					
@@ -103,6 +104,7 @@ Page({
 						classic,
 						shopcart_count
 					})
+					this.classicSelectData()
 
 				} else {
 					wx.switchTab({
@@ -131,6 +133,73 @@ Page({
 		this.setData({
 			[name]:arr
 		})
+	},
+	// 选择的数据
+	classicSelectData(){
+		let {classic_type,typeSelectA,typeSelectB,classics,classic}=this.data;
+		if(classic_type==2){
+			// 颜色+分类
+			let {colors} = this.data;
+			let selectClassData = classics[0];
+			if(typeSelectA<0&&typeSelectB<0){
+				selectClassData.des = '请选择 分类 颜色';
+			}	
+			if(typeSelectA>-1&&typeSelectB<0){
+				let selectCate = classics[typeSelectA].classic_name;
+				classic.forEach(item=>{
+					if(item.classic_name==selectCate){
+						selectClassData = item
+					}
+				})
+				selectClassData.des = '请选择 颜色';
+			}
+			if(typeSelectA<0&&typeSelectB>-1){
+				let selectCate = colors[typeSelectB].colour;
+				classic.forEach(item=>{
+					if(item.colour==selectCate){
+						selectClassData = item
+					}
+				})
+				selectClassData.des = '请选择 分类';
+			}
+			if(typeSelectA>-1&&typeSelectB>-1){
+				let selectName = classics[typeSelectA].classic_name;
+				let selectColor = colors[typeSelectB].colour;
+				classic.forEach(item=>{
+					if(item.classic_name==selectName&&item.colour==selectColor){
+						selectClassData = item
+					}
+				})
+				selectClassData.des = `已选:"${selectName}" "${selectColor}"`;
+			}
+			
+			this.setData({
+				selectClassData
+			})
+			
+		}
+	},
+	//设置选择
+	selectTypeFun(e){
+		let {type,selectTypeSelectA,selectTypeSelectB}=e.detail;
+		let {typeSelectA,typeSelectB}=this.data;
+		if(type=='A'){
+			if(typeSelectA>-1&&typeSelectA==selectTypeSelectA){
+				selectTypeSelectA = -1
+			}
+			this.setData({
+				typeSelectA:selectTypeSelectA
+			})
+		}
+		if(type=='B'){
+			if(typeSelectB>-1&&typeSelectB==selectTypeSelectB){
+				selectTypeSelectB = -1
+			}
+			this.setData({
+				typeSelectB:selectTypeSelectB
+			})
+		}
+		this.classicSelectData()
 	},
 	// 改变购买数
 	changeNum(e) {

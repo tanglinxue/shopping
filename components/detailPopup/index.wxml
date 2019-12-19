@@ -4,12 +4,12 @@
 	<view class="popup-contents">
 		<view class="pop-goods-info row-center">
 			<view class="pop-img-box">
-				<image src="{{classic[0].classic_img}}" class="goods-thumbnail" mode='aspectFill' />
+				<image src="{{selectClassData.classic_img}}" class="goods-thumbnail" mode='aspectFill' />
 			</view>
 			<view class="pop-goods-des">
-				<view class="pop-goods-price">￥{{classic[0].classic_sell_prize}}</view>
-				<view class="pop-goods-stock">{{classic[0].classic_stock_num}}</view>
-				<view class="pop-goods-des">{{classic_type==1?"选择分类":classic_type==2?"选择分类颜色":"选择分类尺码"}}</view>
+				<view class="pop-goods-price">￥{{selectClassData.classic_sell_prize}}</view>
+				<view class="pop-goods-stock">{{selectClassData.classic_stock_num}}</view>
+				<view class="pop-goods-des">{{selectClassData.des}}</view>
 			</view>
 			<view class="pop-goods-close" catchtap="closePopupTap"></view>
 		</view>
