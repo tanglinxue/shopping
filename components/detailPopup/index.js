@@ -31,6 +31,24 @@ Component({
 		classic_type: {
 			type: Number,
 			value: 1
+		},
+		// 处理好的数据
+		classics:{
+			type: Array,
+			value: []
+		},
+		// 颜色数据
+		colors:{
+			type: Array,
+			value: []
+		},
+		typeSelectA:{
+			type:Number,
+			value:-1
+		},
+		typeSelectB:{
+			type:Number,
+			value:-1
 		}
 	},
 	attached() {
@@ -88,6 +106,19 @@ Component({
 			this.closePopupTap();
 			wx.navigateTo({
 				url: '/pages/cart/pay-order/pay-order'
+			})
+		},
+		//分类选择
+		selectCateA(e){
+			let index = e.currentTarget.dataset.index;
+			this.setData({
+				typeSelectA:index
+			})
+		},
+		selectCateB(e){
+			let index = e.currentTarget.dataset.index;
+			this.setData({
+				typeSelectB:index
 			})
 		}
 	}

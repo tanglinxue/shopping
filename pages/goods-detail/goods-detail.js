@@ -12,7 +12,9 @@ Page({
 		loadingEnd: false, //是否loading结束
 		photoState: false,
 		reply: false,
-		shopcart_count: 0
+		shopcart_count: 0,
+		typeSelectA:-1,
+		typeSelectB:-1,
 	},
 	onLoad: function(options) {
 		this.setData({
@@ -87,11 +89,17 @@ Page({
 						newData.buyNumMax = newData.stock_num;
 						newData.buyNumMin = 1
 					}
-
-					let classic = newData.classic;
+					let classic = newData.classic; //商品数据
+					let classic_type = newData.classic_type; //类型
+					this.deleteReplace('classics','classic_name',classic)
+					if (classic_type == 2) {
+						this.deleteReplace('colors','colour',classic)
+					} else if (classic_type == 3) {
+					
+					}
 					this.setData({
 						goodsDetail: newData,
-						classic_type: newData.classic_type,
+						classic_type,
 						classic,
 						shopcart_count
 					})
@@ -110,6 +118,19 @@ Page({
 				wx.hideLoading()
 
 			})
+	},
+	// 去重
+	deleteReplace(name,id,classic){
+		let arr = classic.filter((item, index) => {
+			var arrids = []
+			classic.forEach((x, i) => {
+				arrids.push(x[id])
+			})
+			return arrids.indexOf(item[id]) === index
+		})
+		this.setData({
+			[name]:arr
+		})
 	},
 	// 改变购买数
 	changeNum(e) {

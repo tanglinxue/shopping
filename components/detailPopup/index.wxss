@@ -138,6 +138,7 @@
 	margin-bottom: 15rpx;
 	margin-right: 20rpx;
 	padding-right: 15rpx;
+	border:1rpx solid #f5f5f5
 }
 
 .popup-cate .main .info2 {
@@ -146,8 +147,11 @@
 	background: #f5f5f5;
 	margin-bottom: 15rpx;
 	margin-right: 20rpx;
+	border:1rpx solid #f5f5f5
 }
-
+.popup-cate .main .info.active,.popup-cate .main .info2.active{
+	border:1rpx solid #FF9100
+}
 .popup-cate .main .info image {
 	width: 40rpx;
 	height: 40rpx;
@@ -157,4 +161,7 @@
 
 .popup-cate .main .info text,.popup-cate .main .info2 text {
 	font-size: 24rpx
+}
+.popup-cate .main .info.active text,.popup-cate .main .info2.active text {
+	color:#FF9100
 }

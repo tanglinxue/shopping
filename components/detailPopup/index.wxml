@@ -18,8 +18,8 @@
 			<view class='popup-cate'>
 				<view class='title'>分类</view>
 				<view class='row-start main'>
-					<block wx:for='{{classic}}' wx:for-item="item" wx:key="property" wx:for-index='index'>
-						<view class='row-start info'>
+					<block wx:for='{{classics}}' wx:for-item="item" wx:key="property" wx:for-index='index'>
+						<view class='row-start info {{typeSelectA==index?"active":""}}' catchtap='selectCateA' data-index='{{index}}'>
 							<image mode='aspectFill' src='{{item.classic_img}}'></image>
 							<text>{{item.classic_name}}</text>
 						</view>
@@ -27,22 +27,22 @@
 				</view>
 			</view>
 			<!-- 颜色 -->
-			<view class='popup-cate cate-line' wx:if='{{showPopupType==2}}'>
+			<view class='popup-cate cate-line' wx:if='{{classic_type==2}}'>
 				<view class='title'>颜色</view>
 				<view class='row-start main'>
-					<block wx:for='{{classic}}' wx:for-item="item" wx:key="property" wx:for-index='index'>
-						<view class='row-start info2'>
-							<text>{{item.classic_name}}</text>
+					<block wx:for='{{colors}}' wx:for-item="item" wx:key="property" wx:for-index='index'>
+						<view class='row-start info2 {{typeSelectB==index?"active":""}}' catchtap='selectCateB' data-index='{{index}}'>
+							<text>{{item.colour}}</text>
 						</view>
 					</block>
 				</view>
 			</view>
 			<!-- 尺码 -->
-			<view class='popup-cate cate-line' wx:if='{{showPopupType==3}}'>
+			<view class='popup-cate cate-line' wx:if='{{classic_type==3}}'>
 				<view class='title'>尺码</view>
 				<view class='row-start main'>
 					<block wx:for='{{classic}}' wx:for-item="item" wx:key="property" wx:for-index='index'>
-						<view class='row-start info2'>
+						<view class='row-start info2 {{typeSelectB==index?"active":""}}'>
 							<text>{{item.classic_name}}</text>
 						</view>
 					</block>
