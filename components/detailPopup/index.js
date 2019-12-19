@@ -101,11 +101,19 @@ Component({
 		//分类选择
 		selectCateA(e){
 			let index = e.currentTarget.dataset.index;
+			let selectData = this.data.classics[index];
+			if(selectData.canNotSelect){
+				return
+			}
 			this.triggerEvent('selectTypeFun', {selectTypeSelectA:index,type:'A'})
 		},
 		// 分类选择B
 		selectCateB(e){
 			let index = e.currentTarget.dataset.index;
+			let selectData = this.data.colors[index];
+			if(selectData.canNotSelect){
+				return
+			}
 			this.triggerEvent('selectTypeFun', {selectTypeSelectB:index,type:'B'})
 		}
 	}

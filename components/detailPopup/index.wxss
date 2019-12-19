@@ -151,6 +151,9 @@
 .popup-cate .main .info.active,.popup-cate .main .info2.active{
 	border:1rpx solid #FF9100
 }
+.popup-cate .main .info.canNot,.popup-cate .main .info2.canNot{
+	opacity: 0.3;
+}
 .popup-cate .main .info image {
 	width: 40rpx;
 	height: 40rpx;

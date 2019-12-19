@@ -145,20 +145,36 @@ Page({
 				selectClassData.des = '请选择 分类 颜色';
 			}	
 			if(typeSelectA>-1&&typeSelectB<0){
-				let selectCate = classics[typeSelectA].classic_name;
-				classic.forEach(item=>{
-					if(item.classic_name==selectCate){
-						selectClassData = item
-					}
+				let selectCate = classics[typeSelectA];
+				colors.forEach(item=>{
+					item.canNotSelect=true
+					classic.forEach(item2=>{
+						if(item.colour==item2.colour){
+							if(item2.classic_name==selectCate.classic_name){
+								item.canNotSelect=false
+							}
+						}
+					})
+				})
+				this.setData({
+					colors
 				})
 				selectClassData.des = '请选择 颜色';
 			}
 			if(typeSelectA<0&&typeSelectB>-1){
-				let selectCate = colors[typeSelectB].colour;
-				classic.forEach(item=>{
-					if(item.colour==selectCate){
-						selectClassData = item
-					}
+				let selectCate = colors[typeSelectB];
+				classics.forEach(item=>{
+					item.canNotSelect=true
+					classic.forEach(item2=>{
+						if(item.classic_name==item2.classic_name){
+							if(item2.colour==selectCate.colour){
+								item.canNotSelect=false
+							}
+						}
+					})
+				})
+				this.setData({
+					classics
 				})
 				selectClassData.des = '请选择 分类';
 			}

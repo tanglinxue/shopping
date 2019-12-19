@@ -19,7 +19,7 @@
 				<view class='title'>分类</view>
 				<view class='row-start main'>
 					<block wx:for='{{classics}}' wx:for-item="item" wx:key="property" wx:for-index='index'>
-						<view class='row-start info {{typeSelectA==index?"active":""}}' catchtap='selectCateA' data-index='{{index}}'>
+						<view class='row-start info {{typeSelectA==index?"active":""}} {{item.canNotSelect?"canNot":""}}' catchtap='selectCateA' data-index='{{index}}'>
 							<image mode='aspectFill' src='{{item.classic_img}}'></image>
 							<text>{{item.classic_name}}</text>
 						</view>
@@ -31,7 +31,7 @@
 				<view class='title'>颜色</view>
 				<view class='row-start main'>
 					<block wx:for='{{colors}}' wx:for-item="item" wx:key="property" wx:for-index='index'>
-						<view class='row-start info2 {{typeSelectB==index?"active":""}}' catchtap='selectCateB' data-index='{{index}}'>
+						<view class='row-start info2 {{typeSelectB==index?"active":""}} {{item.canNotSelect?"canNot":""}}' catchtap='selectCateB' data-index='{{index}}'>
 							<text>{{item.colour}}</text>
 						</view>
 					</block>
