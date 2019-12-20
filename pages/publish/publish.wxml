@@ -61,15 +61,14 @@
 			<view class='left-text'>销售价格</view>
 			<view class='right-part row-center'>
 				<input bindinput="inputEvent" class='right-input' placeholder="请输入销售价格" type='digit' data-name='sell_price' value='{{sell_price}}'
-				 maxlength="5" placeholder-class="hoverClass" />
+				 maxlength="8" placeholder-class="hoverClass" />
 				<view class="unit">￥</view>
 			</view>
 		</view>
 		<view class='row-center list'>
 			<view class='left-text'>原本价格</view>
 			<view class='right-part row-center'>
-				<input bindinput="inputEvent" class='right-input' placeholder="请输入原本价格" type='digit' data-name='original_price'
-				 value='{{original_price}}' placeholder-class="hoverClass" />
+				<input bindinput="inputEvent" class='right-input' placeholder="请输入原本价格" type='digit' data-name='original_price' maxlength="8" value='{{original_price}}' placeholder-class="hoverClass" />
 				<view class="unit">￥</view>
 			</view>
 		</view>

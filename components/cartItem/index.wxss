@@ -50,6 +50,7 @@
 	color: #fff;
 	position: absolute;
 	right:-120rpx;
+  top:0;
 	bottom:0
 }
 .goods-kinds{

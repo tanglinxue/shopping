@@ -13,8 +13,8 @@ Page({
 		photoState: false,
 		reply: false,
 		shopcart_count: 0,
-		typeSelectA:-1,
-		typeSelectB:-1,
+		typeSelectA: -1,
+		typeSelectB: -1,
 	},
 	onLoad: function(options) {
 		this.setData({
@@ -25,6 +25,11 @@ Page({
 	},
 	onShow() {
 		if (this.data.loadingEnd) {
+			this.setData({
+				typeSelectA:-1,
+				typeSelectB:-1
+			})
+			publishModel.showLoading('加载商品详情中')
 			this.render()
 		}
 		publishModel.getUserStatus('writePhotosAlbum')
@@ -78,25 +83,28 @@ Page({
 							newData[key] = data[key]
 						}
 					}
-					if (!newData.stock_num || newData.is_shelf == 2) {
-						// 没有库存或者下线
-						newData.buyNumber = 0;
-						newData.buyNumMax = 0;
-						newData.buyNumMin = 0
-					} else {
-						//有库存并上线
-						newData.buyNumber = 1;
-						newData.buyNumMax = newData.stock_num;
-						newData.buyNumMin = 1
-					}
 					let classic = newData.classic; //商品数据
+					classic.forEach(item => {
+						let stock_num = item.classic_stock_num;
+						if (!stock_num || stock_num == '0') {
+							item.buyNumber = 0;
+							item.buyNumMax = 0;
+							item.buyNumMin = 0
+						} else {
+							item.buyNumber = 1;
+							item.buyNumMax = stock_num;
+							item.buyNumMin = 1
+						}
+					})
 					let classic_type = newData.classic_type; //类型
-					this.deleteReplace('classics','classic_name',classic)
+					// 分类数据
+					this.deleteReplace('classics', 'classic_name', classic)
 					if (classic_type == 2) {
 						// 颜色+分类
-						this.deleteReplace('colors','colour',classic)
+						this.deleteReplace('colors', 'colour', classic)
 					} else if (classic_type == 3) {
-					
+						// 尺码+分类
+						this.deleteReplace('sizes', 'size', classic)
 					}
 					this.setData({
 						goodsDetail: newData,
@@ -104,8 +112,8 @@ Page({
 						classic,
 						shopcart_count
 					})
+					// 选择的数据
 					this.classicSelectData()
-
 				} else {
 					wx.switchTab({
 						url: '/pages/index/index',
@@ -122,106 +130,218 @@ Page({
 			})
 	},
 	// 去重
-	deleteReplace(name,id,classic){
+	deleteReplace(name, id, classic) {
 		let arr = classic.filter((item, index) => {
-			var arrids = []
+			let arrids = []
 			classic.forEach((x, i) => {
 				arrids.push(x[id])
 			})
 			return arrids.indexOf(item[id]) === index
 		})
+		arr.forEach(item => {
+			item.canNotSelect = true;
+			classic.forEach(item2 => {
+				if (item[id] == item2[id]) {
+					let stock_num = item2.classic_stock_num;
+					if (stock_num != '0') {
+						item.canNotSelect = false
+					}
+				}
+			})
+		})
+		if (id == 'size') {
+			arr.sort(function(a, b) {
+				return a.size - b.size;
+			})
+		}
+
 		this.setData({
-			[name]:arr
+			[name]: arr
 		})
 	},
 	// 选择的数据
-	classicSelectData(){
-		let {classic_type,typeSelectA,typeSelectB,classics,classic}=this.data;
-		if(classic_type==2){
-			// 颜色+分类
-			let {colors} = this.data;
-			let selectClassData = classics[0];
-			if(typeSelectA<0&&typeSelectB<0){
-				selectClassData.des = '请选择 分类 颜色';
-			}	
-			if(typeSelectA>-1&&typeSelectB<0){
-				let selectCate = classics[typeSelectA];
-				colors.forEach(item=>{
-					item.canNotSelect=true
-					classic.forEach(item2=>{
-						if(item.colour==item2.colour){
-							if(item2.classic_name==selectCate.classic_name){
-								item.canNotSelect=false
-							}
-						}
-					})
-				})
-				this.setData({
-					colors
-				})
-				selectClassData.des = '请选择 颜色';
-			}
-			if(typeSelectA<0&&typeSelectB>-1){
-				let selectCate = colors[typeSelectB];
-				classics.forEach(item=>{
-					item.canNotSelect=true
-					classic.forEach(item2=>{
-						if(item.classic_name==item2.classic_name){
-							if(item2.colour==selectCate.colour){
-								item.canNotSelect=false
-							}
-						}
-					})
-				})
-				this.setData({
-					classics
-				})
+	classicSelectData() {
+		let {
+			classic,
+			classic_type,
+			classics,
+			typeSelectA,
+			typeSelectB
+		} = this.data;
+		// 默认选择数据
+		let selectClassData = classic[0];
+		if (classic_type == 1) {
+			if (typeSelectA < 0) {
+				// 都没选
 				selectClassData.des = '请选择 分类';
 			}
-			if(typeSelectA>-1&&typeSelectB>-1){
+			if (typeSelectA > -1) {
+				// 已经选择
+				let selectName = classics[typeSelectA].classic_name;
+				let selectCate = classics[typeSelectA];
+				selectClassData = selectCate;
+				selectClassData.des = `已选:"${selectName}"`;
+			}
+		} else if (classic_type == 2) {
+			// 颜色+分类
+			let {
+				colors
+			} = this.data;
+			if (typeSelectA < 0 && typeSelectB < 0) {
+				// 都没选
+				selectClassData.des = '请选择 分类 颜色';
+				this.resetSelectFun('colors', colors, 'colour')
+				this.resetSelectFun('classics', classics, 'classic_name')
+			}
+			if (typeSelectA > -1 && typeSelectB < 0) {
+				// 只选了分类
+				let selectCate = classics[typeSelectA];
+				selectClassData = selectCate;
+				this.canNotSelectFun('colors', colors, selectCate, 'colour', 'classic_name')
+				this.resetSelectFun('classics', classics, 'classic_name')
+				selectClassData.des = '请选择 颜色';
+			}
+			if (typeSelectA < 0 && typeSelectB > -1) {
+				// 只选择了颜色
+				let selectCate = colors[typeSelectB];
+				selectClassData = selectCate;
+				this.canNotSelectFun('classics', classics, selectCate, 'classic_name', 'colour')
+				this.resetSelectFun('colors', colors, 'colour')
+				selectClassData.des = '请选择 分类';
+			}
+			if (typeSelectA > -1 && typeSelectB > -1) {
 				let selectName = classics[typeSelectA].classic_name;
 				let selectColor = colors[typeSelectB].colour;
-				classic.forEach(item=>{
-					if(item.classic_name==selectName&&item.colour==selectColor){
+				this.canNotSelectFun('colors', colors, classics[typeSelectA], 'colour', 'classic_name')
+				this.canNotSelectFun('classics', classics, colors[typeSelectB], 'classic_name', 'colour')
+				classic.forEach(item => {
+					if (item.classic_name == selectName && item.colour == selectColor) {
 						selectClassData = item
 					}
 				})
 				selectClassData.des = `已选:"${selectName}" "${selectColor}"`;
 			}
-			
-			this.setData({
-				selectClassData
-			})
-			
+		} else if (classic_type == 3) {
+			// 尺码+分类
+			let {
+				sizes
+			} = this.data;
+			if (typeSelectA < 0 && typeSelectB < 0) {
+				// 都没选
+				selectClassData.des = '请选择 分类 尺码';
+				this.resetSelectFun('sizes', sizes, 'size')
+				this.resetSelectFun('classics', classics, 'classic_name')
+			}
+			if (typeSelectA > -1 && typeSelectB < 0) {
+				// 只选了分类
+				let selectCate = classics[typeSelectA];
+				selectClassData = selectCate;
+				this.canNotSelectFun('sizes', sizes, selectCate, 'size', 'classic_name');
+				this.resetSelectFun('classics', classics, 'classic_name')
+				selectClassData.des = '请选择 尺码';
+			}
+			if (typeSelectA < 0 && typeSelectB > -1) {
+				// 只选择了尺码
+				let selectCate = sizes[typeSelectB];
+				selectClassData = selectCate;
+				this.canNotSelectFun('classics', classics, selectCate, 'classic_name', 'size')
+				this.resetSelectFun('sizes', sizes, 'size')
+				selectClassData.des = '请选择 分类';
+			}
+			if (typeSelectA > -1 && typeSelectB > -1) {
+				let selectName = classics[typeSelectA].classic_name;
+				let selectSize = sizes[typeSelectB].size;
+				this.canNotSelectFun('sizes', sizes, classics[typeSelectA], 'size', 'classic_name')
+				this.canNotSelectFun('classics', classics, sizes[typeSelectB], 'classic_name', 'size')
+				classic.forEach(item => {
+					if (item.classic_name == selectName && item.size == selectSize) {
+						selectClassData = item
+					}
+				})
+				selectClassData.des = `已选:"${selectName}" "${selectSize}"`;
+			}
 		}
+		this.setData({
+			selectClassData
+		})
+	},
+	//恢复原样
+	resetSelectFun(name, setCon, type) {
+		let classic = this.data.classic;
+		setCon.forEach(item => {
+			item.canNotSelect = true;
+			classic.forEach(item2 => {
+				if (item[type] == item2[type]) {
+					let stock_num = item2.classic_stock_num;
+					if (stock_num != '0') {
+						item.canNotSelect = false
+					}
+				}
+			})
+		})
+		this.setData({
+			[name]: setCon
+		})
+	},
+	// 设置不可点击
+	canNotSelectFun(name, setCon, selectCate, type1, type2) {
+		let classic = this.data.classic;
+		setCon.forEach(item => {
+			item.canNotSelect = true
+			classic.forEach(item2 => {
+				if (item[type1] == item2[type1]) {
+					if (item2[type2] == selectCate[type2]) {
+						let stock_num = item2.classic_stock_num;
+						if (stock_num != '0') {
+							item.canNotSelect = false
+						}
+					}
+				}
+			})
+
+
+		})
+		this.setData({
+			[name]: setCon
+		})
 	},
 	//设置选择
-	selectTypeFun(e){
-		let {type,selectTypeSelectA,selectTypeSelectB}=e.detail;
-		let {typeSelectA,typeSelectB}=this.data;
-		if(type=='A'){
-			if(typeSelectA>-1&&typeSelectA==selectTypeSelectA){
+	selectTypeFun(e) {
+		let {
+			type,
+			selectTypeSelectA,
+			selectTypeSelectB
+		} = e.detail;
+		let {
+			typeSelectA,
+			typeSelectB
+		} = this.data;
+		if (type == 'A') {
+			if (typeSelectA > -1 && typeSelectA == selectTypeSelectA) {
 				selectTypeSelectA = -1
 			}
 			this.setData({
-				typeSelectA:selectTypeSelectA
+				typeSelectA: selectTypeSelectA
 			})
 		}
-		if(type=='B'){
-			if(typeSelectB>-1&&typeSelectB==selectTypeSelectB){
+		if (type == 'B') {
+			if (typeSelectB > -1 && typeSelectB == selectTypeSelectB) {
 				selectTypeSelectB = -1
 			}
 			this.setData({
-				typeSelectB:selectTypeSelectB
+				typeSelectB: selectTypeSelectB
 			})
 		}
 		this.classicSelectData()
 	},
+
 	// 改变购买数
 	changeNum(e) {
 		let buyNumber = e.detail.buyNumber;
+		let selectClassData = this.data.selectClassData;
+		selectClassData.buyNumber = buyNumber
 		this.setData({
-			'goodsDetail.buyNumber': buyNumber
+			selectClassData
 		})
 	},
 	// 控制底部弹窗
@@ -324,7 +444,10 @@ Page({
 	// 重新计算数量
 	addNum() {
 		this.setData({
-			shopcart_count: this.data.shopcart_count + 1
+			typeSelectA:-1,
+			typeSelectB:-1,
+			showPopup:false
 		})
+		this.render()
 	}
 })

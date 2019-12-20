@@ -23,25 +23,6 @@ Component({
 				type
 			})
 		},
-		/**
-		 * 加入购物车
-		 */
-		addShopCar: function() {
-			let {
-				good_id
-			} = this.properties.goodsDetail;
-			cartModel.showLoading('加入购物车中...');
-			cartModel.addShopCart({
-					good_id
-				})
-				.then(res => {
-					wx.hideLoading()
-					if (res) {
-						cartModel.showToast('加入购物车成功');
-						this.triggerEvent('addNum')
-					}
-				})
-		},
 		// 去购物车
 		goShopCar() {
 			wx.switchTab({

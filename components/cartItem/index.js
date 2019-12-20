@@ -71,7 +71,7 @@ Component({
 			cartModel.showModal('确定要移除该商品吗?','温馨提示',true,()=>{
 				cartModel.showLoading('移除商品中...');
 				let good_ids = JSON.stringify([good_id])
-				cartModel.removeShopCart({good_id:good_ids})
+				cartModel.removeShopCart({cart_ids:good_ids})
 					.then(res=>{
 						wx.hideLoading()
 						if(res){

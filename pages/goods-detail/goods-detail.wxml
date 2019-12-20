@@ -21,7 +21,7 @@
 	<view class='goods-cate-box' catchtap='openDetailPopup'>
 		<view class='goods-cate-title row-start'>
 			<view class='text1'>选择</view>
-			<view class='text2'><text></text><text>{{classic_type==1?"分类":classic_type==2?"分类 颜色":"分类 尺寸"}}</text></view>
+			<view class='text2'>{{selectClassData.des}}</view>
 		</view>
 		<view class='goods-cate-con row-start'>
 			<view class='goods-cate-image row-start'>
@@ -51,10 +51,10 @@
 		<image src="/images/share.png" />
 	</view>
 	<!-- 底部 -->
-	<v-good-footer catchtobuy='controlPopup' goodsDetail='{{goodsDetail}}' shopcart_count='{{shopcart_count}}' catchaddNum='addNum' />
+	<v-good-footer catchtobuy='controlPopup' goodsDetail='{{goodsDetail}}' shopcart_count='{{shopcart_count}}'  />
 	<!-- 购物底部悬浮 -->
-	<v-detail-popup showPopup='{{showPopup}}' goodsDetail='{{goodsDetail}}' catchclosePopup='controlPopup' catchchangeNum='changeNum'
-	 showPopupType='{{showPopupType}}' classic_type='{{classic_type}}' classics='{{classics}}' colors='{{colors}}' typeSelectA='{{typeSelectA}}' typeSelectB='{{typeSelectB}}' selectClassData='{{selectClassData}}' catchselectTypeFun='selectTypeFun'/>
+	<v-detail-popup showPopup='{{showPopup}}' catchclosePopup='controlPopup' catchchangeNum='changeNum'
+	 showPopupType='{{showPopupType}}' classic_type='{{classic_type}}' classics='{{classics}}' colors='{{colors}}' sizes='{{sizes}}' typeSelectA='{{typeSelectA}}' typeSelectB='{{typeSelectB}}' selectClassData='{{selectClassData}}' catchselectTypeFun='selectTypeFun' goodsDetail='{{goodsDetail}}' catchaddNum='addNum'/>
 	<!-- 分享弹窗 -->
 	<v-share-poupu sharePopup='{{sharePopup}}' catchcloseShare='getShareBox' catchgetCode='getCode' photoState='{{photoState}}' />
 	<v-ecrode-popup showErocode='{{showErocode}}' catchcloseCode='closeCode' codeImg='{{codeImg}}' />

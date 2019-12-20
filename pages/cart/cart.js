@@ -25,6 +25,8 @@ Page({
 					if (res) {
 						let shopList = res.list;
 						shopList.forEach(item => {
+							item.subgood_id=item.good_id;
+							item.good_id = item.cart_id;
 							if (!item.stock_num || item.is_shelf == 2) {
 								// 没有库存或者下线
 								item.buyNumber = 0;
@@ -32,7 +34,7 @@ Page({
 								item.buyNumMin = 0
 							} else {
 								//有库存并上线
-								item.buyNumber = 1;
+								item.buyNumber = item.good_num;
 								item.buyNumMax = item.stock_num;
 								item.buyNumMin = 1
 							}
@@ -153,7 +155,7 @@ Page({
 		cartModel.showModal('确定要移除这些商品吗?', '温馨提示', true, () => {
 			cartModel.showLoading('移除商品中...');
 			cartModel.removeShopCart({
-					good_id: good_ids
+					cart_ids: good_ids
 				})
 				.then(res => {
 					wx.hideLoading()

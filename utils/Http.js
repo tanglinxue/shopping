@@ -33,8 +33,8 @@ class HTTP extends Methods {
 			header.token = userInfo.user_token
 		}
 		// 测试
-		data.user_id='osoT25ewNV82cww5F43JYQgbJwqw';
-		header.token = '4a88e57c8bb3b8961b6cc7fc44672127'
+		// data.user_id='osoT25ewNV82cww5F43JYQgbJwqw';
+		// header.token = '4a88e57c8bb3b8961b6cc7fc44672127'
 		// 测试
 		wx.request({
 			url: config.api_base_url + url,
