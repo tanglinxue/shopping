@@ -1,13 +1,33 @@
 <navigation id='Navigation' show-icon="{{true}}" title="商品详情" show-title="{{true}}" class=""></navigation>
 <view class='column-center container' wx:if='{{loadingEnd}}'>
 	<!-- banner -->
-	<v-banner banners='{{goodsDetail.bannerPics}}' fromDetail='{{true}}' />
+	<!-- banner -->
+	<view class="swiper-container">
+		<swiper class="swiper_box"  interval="6000" duration="800" bindchange="swiperchange" circular="circular">
+			
+			<block wx:for="{{goodsDetail.bannerPics}}" wx:key="property">
+				<block wx:if='{{item.type}}'>
+					<swiper-item>
+						<video id="video_main" class="video_main" src="{{item.src}}" enable-play-gesture='true' controls="true" poster='{{goodsDetail.head_pic}}'></video>
+					</swiper-item>
+				</block>
+				<swiper-item data-id='{{item.good_id}}' catchtap="jumpTap" wx:else>
+					<image src="{{item.head_pic||item.prizeImg}}" class="slide-image" mode='aspectFill' />
+				</swiper-item>
+			</block>
+		</swiper>
+		<view class="dots">
+			<block wx:for="{{goodsDetail.bannerPics}}" wx:key="property">
+				<view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+			</block>
+		</view>
+	</view>
 	<!-- 商品信息 -->
 	<view class='goods-info'>
 		<view class='goods-title'>{{goodsDetail.good_name}}</view>
 		<view class='row-between goods-con'>
 			<view class='left-text'>销售价:
-				<text class='price'>￥{{goodsDetail.sell_price}}</text><text class='origin-price'>{{goodsDetail.original_price}}</text>
+				<text class='price'>￥{{goodsDetail.sell_price}}</text><text class='origin-price' wx:if='{{goodsDetail.original_price>0}}'>{{goodsDetail.original_price}}</text>
 			</view>
 			<view class='right-text'>库存: {{goodsDetail.stock_num}}</view>
 		</view>
@@ -19,7 +39,7 @@
 	</view>
 	<!-- 类别信息 -->
 	<view class='goods-cate-box' catchtap='openDetailPopup'>
-		<view class='goods-cate-title row-start'>
+		<view class='goods-cate-title row-start-a'>
 			<view class='text1'>选择</view>
 			<view class='text2'>{{selectClassData.des}}</view>
 		</view>
@@ -36,12 +56,13 @@
 	<view class='goods-detail' wx:if='{{goodsDetail.detailData}}'>
 		<view class='goods-detail-title'>商品介绍</view>
 		<view class='goods-detail-con'>
-			<block wx:for="{{goodsDetail.detailData}}" wx:for-item="item" wx:key="property">
+			<block wx:for="{{goodsDetail.detailData}}" wx:for-item="item" wx:key="property" wx:for-index='index'>
 				<view class='goods-detail-text' wx:if='{{item.type=="text"}}'>
 					<block wx:for="{{item.textAreaCon}}" wx:for-item="itemNext" wx:key="property">
 						<text class='insert-text' selectable>{{!itemNext?"":itemNext}}</text>
 					</block>
 				</view>
+				<video id="video_{{index}}" class="video" src="{{item.src}}"  wx:if='{{item.type=="video"}}'  enable-play-gesture='true' controls="true"></video>
 				<image src='{{item.img}}' mode="widthFix" class="goods-detail-image" wx:if='{{item.type=="img"}}'></image>
 			</block>
 		</view>
@@ -54,7 +75,7 @@
 	<v-good-footer catchtobuy='controlPopup' goodsDetail='{{goodsDetail}}' shopcart_count='{{shopcart_count}}'  />
 	<!-- 购物底部悬浮 -->
 	<v-detail-popup showPopup='{{showPopup}}' catchclosePopup='controlPopup' catchchangeNum='changeNum'
-	 showPopupType='{{showPopupType}}' classic_type='{{classic_type}}' classics='{{classics}}' colors='{{colors}}' sizes='{{sizes}}' typeSelectA='{{typeSelectA}}' typeSelectB='{{typeSelectB}}' selectClassData='{{selectClassData}}' catchselectTypeFun='selectTypeFun' goodsDetail='{{goodsDetail}}' catchaddNum='addNum'/>
+	 showPopupType='{{showPopupType}}' classic_type='{{classic_type}}' classics='{{classics}}' colors='{{colors}}' sizes='{{sizes}}' typeSelectA='{{typeSelectA}}' typeSelectB='{{typeSelectB}}' selectClassData='{{selectClassData}}' catchselectTypeFun='selectTypeFun' goodsDetail='{{goodsDetail}}' catchaddNum='addNum' catchprevImg='prevImg'/>
 	<!-- 分享弹窗 -->
 	<v-share-poupu sharePopup='{{sharePopup}}' catchcloseShare='getShareBox' catchgetCode='getCode' photoState='{{photoState}}' />
 	<v-ecrode-popup showErocode='{{showErocode}}' catchcloseCode='closeCode' codeImg='{{codeImg}}' />

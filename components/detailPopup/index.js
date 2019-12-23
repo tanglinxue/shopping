@@ -7,9 +7,9 @@ Component({
 	 * 组件的属性列表
 	 */
 	properties: {
-		goodsDetail:{
-			type:Object,
-			value:{}
+		goodsDetail: {
+			type: Object,
+			value: {}
 		},
 		// 是否显示弹窗
 		showPopup: {
@@ -27,32 +27,32 @@ Component({
 			value: 1
 		},
 		// 处理好的数据
-		classics:{
+		classics: {
 			type: Array,
 			value: []
 		},
 		// 颜色数据
-		colors:{
+		colors: {
 			type: Array,
 			value: []
 		},
 		// 尺码数据
-		sizes:{
+		sizes: {
 			type: Array,
 			value: []
 		},
-		typeSelectA:{
-			type:Number,
-			value:-1
+		typeSelectA: {
+			type: Number,
+			value: -1
 		},
-		typeSelectB:{
-			type:Number,
-			value:-1
+		typeSelectB: {
+			type: Number,
+			value: -1
 		},
 		// 选择的数据
-		selectClassData:{
-			type:Object,
-			value:{}
+		selectClassData: {
+			type: Object,
+			value: {}
 		}
 	},
 
@@ -87,50 +87,57 @@ Component({
 				this.triggerEvent('changeNum', {
 					buyNumber
 				})
+			}else{
+				cartModel.showModal('购买数量超出范围！')
 			}
 		},
 		// 去购买
 		toBuyTap(e) {
 			let type = e.currentTarget.dataset.type;
-			let {selectClassData,typeSelectA,typeSelectB,classic_type} = this.properties;
+			let {
+				selectClassData,
+				typeSelectA,
+				typeSelectB,
+				classic_type
+			} = this.properties;
 			// 分类
-			if(classic_type==1){
-				if(typeSelectA<0){
+			if (classic_type == 1) {
+				if (typeSelectA < 0) {
 					cartModel.showModal(selectClassData.des)
 					return
 				}
 			}
 			// 组合
-			if(classic_type==2||classic_type==3){
-				if(typeSelectA<0||typeSelectB<0){
+			if (classic_type == 2 || classic_type == 3) {
+				if (typeSelectA < 0 || typeSelectB < 0) {
 					cartModel.showModal(selectClassData.des)
 					return
 				}
 			}
-			if(type==1){
+			if (type == 1) {
 				// 购买
 				if (selectClassData.buyNumber < 1) {
 					cartModel.showModal('购买数量不能为0！')
 					return;
 				}
 				let buyShopItem = {
-					subgood_id:this.properties.goodsDetail.good_id,
+					subgood_id: this.properties.goodsDetail.good_id,
 					classic_type,
-					good_name:this.properties.goodsDetail.good_name,
-					good_num:selectClassData.buyNumber,
-					sell_price:selectClassData.classic_sell_prize,
-					head_pic:selectClassData.classic_img,
-					kinds:selectClassData.classic_name,
-					freight:selectClassData.freight,
-					cart_classic:selectClassData.classic_name
+					good_name: this.properties.goodsDetail.good_name,
+					good_num: selectClassData.buyNumber,
+					sell_price: selectClassData.classic_sell_prize,
+					head_pic: selectClassData.classic_img,
+					kinds: selectClassData.classic_name,
+					freight: selectClassData.freight,
+					cart_classic: selectClassData.classic_name
 				}
-				if(classic_type==2){
-					buyShopItem.kinds = buyShopItem.kinds+';'+selectClassData.colour;
-					buyShopItem.cart_colour=selectClassData.colour
+				if (classic_type == 2) {
+					buyShopItem.kinds = buyShopItem.kinds + ';' + selectClassData.colour;
+					buyShopItem.cart_colour = selectClassData.colour
 				}
-				if(classic_type==3){
-					buyShopItem.kinds = buyShopItem.kinds+';'+selectClassData.size;
-					buyShopItem.cart_size=selectClassData.size
+				if (classic_type == 3) {
+					buyShopItem.kinds = buyShopItem.kinds + ';' + selectClassData.size;
+					buyShopItem.cart_size = selectClassData.size
 				}
 				let shopList = [buyShopItem];
 				app.globalData.buyShopList = shopList
@@ -138,7 +145,7 @@ Component({
 				wx.navigateTo({
 					url: '/pages/cart/pay-order/pay-order'
 				})
-			}else if(type==2){
+			} else if (type == 2) {
 				if (selectClassData.buyNumber < 1) {
 					cartModel.showModal('加入购物车数量不能为0！')
 					return;
@@ -147,51 +154,72 @@ Component({
 				let {
 					good_id
 				} = this.properties.goodsDetail;
-				let {buyNumber,classic_name} = selectClassData;
+				let {
+					buyNumber,
+					classic_name
+				} = selectClassData;
 				let params = {
 					good_id,
-					good_num:buyNumber,
-					cart_classic:classic_name
+					good_num: buyNumber,
+					cart_classic: classic_name
 				}
-				if(classic_type==2){
-					params.cart_colour=selectClassData.colour
-				}else if(classic_type==3){
-					params.cart_size= selectClassData.size
-				}	
+				if (classic_type == 2) {
+					params.cart_colour = selectClassData.colour
+				} else if (classic_type == 3) {
+					params.cart_size = selectClassData.size
+				}
 				cartModel.showLoading('加入购物车中...');
 				cartModel.addShopCart(params)
 					.then(res => {
 						wx.hideLoading()
 						if (res) {
 							cartModel.showToast('加入购物车成功');
-							this.triggerEvent('addNum')						
+							this.triggerEvent('addNum')
 						}
 					})
 			}
-			
+
 		},
 		//分类选择
-		selectCateA(e){
+		selectCateA(e) {
 			let index = e.currentTarget.dataset.index;
 			let selectData = this.data.classics[index];
-			if(selectData.canNotSelect){
+			if (selectData.canNotSelect) {
 				return
 			}
-			this.triggerEvent('selectTypeFun', {selectTypeSelectA:index,type:'A'})
+			this.triggerEvent('selectTypeFun', {
+				selectTypeSelectA: index,
+				type: 'A'
+			})
 		},
 		// 分类选择B
-		selectCateB(e){
+		selectCateB(e) {
 			let index = e.currentTarget.dataset.index;
-			let {classic_type} = this.properties;
+			let {
+				classic_type
+			} = this.properties;
 			let selectData = this.data.colors[index];
-			if(classic_type==3){
+			if (classic_type == 3) {
 				selectData = this.data.sizes[index];
 			}
-			
-			if(selectData.canNotSelect){
+
+			if (selectData.canNotSelect) {
 				return
 			}
-			this.triggerEvent('selectTypeFun', {selectTypeSelectB:index,type:'B'})
+			this.triggerEvent('selectTypeFun', {
+				selectTypeSelectB: index,
+				type: 'B'
+			})
+		},
+		// 看图
+		prevImg() {
+			let img = this.properties.selectClassData.classic_img;
+			this.triggerEvent('prevImg')
+			wx.previewImage({
+				current: img,
+				urls: [img],
+				success: function() {},
+			});
 		}
 	}
 })

@@ -1,8 +1,8 @@
 <navigation id='Navigation' show-title='true' title="购物车"></navigation>
 <view class='column-center'>
 	<block wx:if='{{shopList.length}}'>
-		<view catchtap="finishTap" class="top-edit-btn" wx:if='{{editStatus}}'>完成</view>
-		<view catchtap="editTap" class="top-edit-btn" wx:else>编辑</view>
+		<view catchtap="finishTap" class="top-edit-btn" wx:if='{{editStatus}}' style='top:{{topHeight}}px'>完成</view>
+		<view catchtap="editTap" class="top-edit-btn" style='top:{{topHeight}}px' wx:else>编辑</view>
 	</block>
 	<block wx:if='{{shopList.length}}'>
 		<view class='container column-center'>

@@ -47,9 +47,11 @@
 	width: 160rpx;
 	height: 160rpx;
 }
-
-.pop-goods-des {
+.pop-goods-desBox{
 	flex: 1;
+}
+.pop-goods-des {
+  width:480rpx;
   font-size: 24rpx
 }
 

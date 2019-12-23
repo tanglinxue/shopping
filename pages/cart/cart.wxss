@@ -37,6 +37,7 @@ page{
 }
 .goodsList{
 	width: 100%;
+  overflow: hidden;
 	background-color: #fff;
 }
 

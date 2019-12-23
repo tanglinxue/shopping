@@ -16,6 +16,15 @@ Page({
 		})
 		this.render()
 	},
+  onLoad(){
+    if (!app.globalData.statusBarHeight) {
+      startModel.getSystemInfo();
+    }
+    let { statusBarHeight, titleBarHeight } = app.globalData;
+    this.setData({
+      topHeight: statusBarHeight+16
+    })
+  },
 	render() {
 		// 购物车查询
 		cartModel.showLoading('加载购物车列表中');
@@ -101,7 +110,8 @@ Page({
 			// 数量改变
 			shopList.forEach(item => {
 				if (item.good_id == good_id) {
-					item.buyNumber = buyNumber
+					item.buyNumber = buyNumber;
+          item.good_num = buyNumber;
 				}
 			})
 		} else if (type == 'delete') {

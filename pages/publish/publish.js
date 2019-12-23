@@ -48,7 +48,8 @@ Page({
 		}], //类别3
 		classic:[],
 		classic_type: 1,
-		classicItemIndex: 0
+		classicItemIndex: 0,
+		video_url:''//视频地址
 	},
 	onLoad(options) {
 		app.globalData.backCutImg = null;
@@ -212,6 +213,16 @@ Page({
 				}
 			})
 		}
+		let detailData = this.data.detailData;
+		if(detailData.length){
+			detailData.forEach((item,index)=>{
+				if(item.type=="video"){
+					let id = 'video_'+index;
+					 wx.createVideoContext(id).stop();
+				}
+			})
+		}
+		wx.createVideoContext('video_main').stop();
 	},
 	// 增加banner图片
 	addPic() {
@@ -307,7 +318,8 @@ Page({
 			is_banner,
 			decimal,
 			classic,
-			classic_type
+			classic_type,
+			video_url
 		} = this.data;
 		let category_id = category_info[category_index].category_id;
 		let params = {
@@ -323,7 +335,8 @@ Page({
 			is_shelf,
 			is_banner,
 			decimal,
-			classic_type
+			classic_type,
+			video_url
 		}
 		bannerPics = bannerPics.filter(item => {
 			return item.active
@@ -523,5 +536,41 @@ Page({
 		this.setData({
 			[name]:classic
 		})	
+	},
+	// 上传视频
+	uploadVideoTap(){
+		wx.chooseVideo({
+			sourceType: ['album', 'camera'],
+			compressed: true,
+			maxDuration: 60,
+			camera: 'back',
+			success: res => {
+				console.log(res);
+				if (res.duration > 30) {
+					publishModel.showToast('请上传小于30秒的视频')
+					return
+				}
+				publishModel.showLoading('上传视频中')
+				let src = res.tempFilePath;
+				publishModel.uploadFile(src).then(
+					res => {
+						wx.hideLoading()
+						this.setData({
+							video_url:res
+						})
+					}
+				)
+		
+			},
+			fail: res => {
+				console.log(res);
+			}
+		})
+	},
+	// 删除视频
+	deleteVideo(){
+		this.setData({
+			video_url:''
+		})
 	}
 })

@@ -1,10 +1,15 @@
 <!-- banner -->
 <view class="swiper-container">
-	<swiper class="swiper_box" autoplay="true" interval="6000" duration="800"
-	 bindchange="swiperchange" circular="circular">
+	<swiper class="swiper_box" autoplay="true" interval="6000" duration="800" bindchange="swiperchange" circular="circular">
+		
 		<block wx:for="{{banners}}" wx:key="property">
-			<swiper-item data-id='{{item.good_id}}' catchtap="jumpTap">
-				<image src="{{item.head_pic||item.prizeImg}}" class="slide-image" mode='aspectFill'/>
+			<block wx:if='{{item.type}}'>
+				<swiper-item>
+					<video id="video_main" class="video_main" src="{{item.src}}" enable-play-gesture='true' controls="true"></video>
+				</swiper-item>
+			</block>
+			<swiper-item data-id='{{item.good_id}}' catchtap="jumpTap" wx:else>
+				<image src="{{item.head_pic||item.prizeImg}}" class="slide-image" mode='aspectFill' />
 			</swiper-item>
 		</block>
 	</swiper>

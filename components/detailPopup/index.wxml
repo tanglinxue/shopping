@@ -4,12 +4,12 @@
 	<view class="popup-contents">
 		<view class="pop-goods-info row-center">
 			<view class="pop-img-box">
-				<image src="{{selectClassData.classic_img}}" class="goods-thumbnail" mode='aspectFill' />
+				<image src="{{selectClassData.classic_img}}" class="goods-thumbnail" mode='aspectFill' catchtap='prevImg'/>
 			</view>
-			<view class="pop-goods-des">
-				<view class="pop-goods-price">￥{{selectClassData.classic_sell_prize}}<text wx:if='{{selectClassData.classic_original_prize!=0}}'>{{selectClassData.classic_original_prize}}</text></view>
-				<view class="pop-goods-stock">{{selectClassData.classic_stock_num}}</view>
-				<view class="pop-goods-des">{{selectClassData.des}}</view>
+			<view class="pop-goods-desBox">
+				<view class="pop-goods-price" >￥{{selectClassData.classic_sell_prize}}<text wx:if='{{selectClassData.classic_original_prize!=0}}'>{{selectClassData.classic_original_prize}}</text></view>
+				<view class="pop-goods-stock">库存{{selectClassData.classic_stock_num}}件</view>
+				<view class="pop-goods-des textElis">{{selectClassData.des}}</view>
 			</view>
 			<view class="pop-goods-close" catchtap="closePopupTap"></view>
 		</view>
@@ -19,7 +19,7 @@
 				<view class='title'>分类</view>
 				<view class='row-start main'>
 					<block wx:for='{{classics}}' wx:for-item="item" wx:key="property" wx:for-index='index'>
-						<view class='row-start info {{typeSelectA==index?"active":""}} {{item.canNotSelect?"canNot":""}}' catchtap='selectCateA'
+						<view class='row-start-a info {{typeSelectA==index?"active":""}} {{item.canNotSelect?"canNot":""}}' catchtap='selectCateA'
 						 data-index='{{index}}'>
 							<image mode='aspectFill' src='{{item.classic_img}}'></image>
 							<text>{{item.classic_name}}</text>
@@ -67,8 +67,6 @@
 				<view class="popup-join-btn half-btn" catchtap='toBuyTap' data-type='1'>立即购买</view>
 				<view class="popup-join-btn half-btn black-btn" catchtap='toBuyTap' data-type='2'>加入购物车</view>
 			</block>
-
 		</view>
-
 	</view>
 </view>

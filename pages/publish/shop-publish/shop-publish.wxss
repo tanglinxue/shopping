@@ -85,8 +85,9 @@ progress {
 .insert-icon-box {
   width: 700rpx;
   position: absolute;
-  top: -100rpx;
+  top: -150rpx;
   right: 0;
+  flex-wrap: wrap
 }
 
 .insert-item {
@@ -111,4 +112,10 @@ progress {
   position: fixed;
   left: 0;
   bottom: 0;
+}
+
+/* 视频 */
+.video{
+	width:100%;
+	margin-bottom: 30rpx;
 }

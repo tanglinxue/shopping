@@ -4,7 +4,7 @@ Component({
 		fromDetail: {
 			type: Boolean,
 			value: false
-		}
+		},
 	},
 	data: {
 		swiperCurrent: 0, //滑动索引

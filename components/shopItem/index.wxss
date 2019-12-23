@@ -21,7 +21,7 @@
 }
 
 .goods-title {
-	font-size: 28rpx;
+	font-size: 32rpx;
 	color: #000;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -31,6 +31,7 @@
 }
 .goods-kinds{
 	margin-bottom: 10rpx;
+  color:#999
 }
 
 .goods-price {

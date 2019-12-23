@@ -12,15 +12,18 @@
 		<block wx:for="{{orderList}}" wx:for-item="orderItem" wx:key="property" wx:for-index='index'>
 			<view class='orderItem' catchtap='goBuy' data-index='{{index}}'>
 				<block wx:for="{{orderItem.good_detail}}" wx:for-item="item" wx:key="property">
-					<v-good-item item='{{item}}'/>
+					<v-good-item item='{{item}}' />
 				</block>
-				<view class='total'>共{{orderItem.total_num}}件商品 合计￥:{{orderItem.amount}}</view>
-				<view class='total' wx:if='{{type==2||type==3}}'>{{orderItem.express_company}} {{orderItem.deliver_order}}</view>
+				<view class='total'>共{{orderItem.total_num}}件商品 合计:￥{{orderItem.amount}}</view>
+				<block wx:if='{{type==2||type==3}}'>
+					<view class='total' wx:if='{{orderItem.express_company||orderItem.deliver_order}}'>{{orderItem.express_company}}
+						{{orderItem.deliver_order}}</view>
+				</block>
 			</view>
 		</block>
 	</view>
 	<block wx:if='{{loadingEnd}}'>
-		<v-dataStatus haveData='{{orderList.length}}' loadEnd='{{total_pages==page}}' title3='暂无订单数据'
-		title1='↓ 下拉加载更多订单 ↓' title2='订单已加载完毕'/>
+		<v-dataStatus haveData='{{orderList.length}}' loadEnd='{{total_pages==page}}' title3='暂无订单数据' title1='↓ 下拉加载更多订单 ↓'
+		 title2='订单已加载完毕' />
 	</block>
 </view>

@@ -17,6 +17,22 @@
 		</view>
 	</view>
 	<view class='shopDetail mgb30'>
+		<view class='shopDetailTitle'>上传视频</view>
+		<view class='video-box'>
+			<block wx:if='{{video_url}}'>
+				<video id="video_main" class="video_main" src="{{video_url}}" enable-play-gesture='true' controls="true"></video>
+				<view class='changeVideo' catchtap="uploadVideoTap">更换视频</view>
+			</block>
+			<image catchtap="uploadVideoTap" src="https://tp.datikeji.com/shop_mall/15740778471281/RQbfyJ5ypETYa5TDbfZwdBJ4HOPqSCHFGuY1qlva.jpeg"
+			 class='video_img' wx:else></image>
+
+		</view>
+		<view class='delete-video-box' wx:if='{{video_url}}'>
+			<text catchtap='deleteVideo'>↑ 删除该视频 ↑</text>
+		</view>
+	</view>
+	<view class='shopDetail mgb30'>
+
 		<view class='shopDetailTitle'>商品图文介绍</view>
 		<view wx:if='{{detailData&&detailData.length}}' catchtap='jumptap'>
 			<view class='detail-box'>
@@ -27,6 +43,9 @@
 						</view>
 						<view class='insert-text-box' wx:if='{{item.type==="text"}}'>
 							<text class='insert-text' wx:for="{{item.textAreaCon}}" wx:for-item="itemNext" wx:key="property">{{itemNext?itemNext:""}}</text>
+						</view>
+						<view class='insertImg-box' wx:if='{{item.type==="video"}}'>
+							<video class="video" src="{{item.src}}" id="video_{{index}}" enable-play-gesture='true' controls="true"></video>
 						</view>
 					</view>
 				</block>
@@ -68,7 +87,8 @@
 		<view class='row-center list'>
 			<view class='left-text'>原本价格</view>
 			<view class='right-part row-center'>
-				<input bindinput="inputEvent" class='right-input' placeholder="请输入原本价格" type='digit' data-name='original_price' maxlength="8" value='{{original_price}}' placeholder-class="hoverClass" />
+				<input bindinput="inputEvent" class='right-input' placeholder="请输入原本价格" type='digit' data-name='original_price'
+				 maxlength="8" value='{{original_price}}' placeholder-class="hoverClass" />
 				<view class="unit">￥</view>
 			</view>
 		</view>
@@ -140,7 +160,7 @@
 									<view class="unit">￥</view>
 								</view>
 							</view>
-							
+
 							<view class='row-center cate-list' wx:if='{{classic_type==2}}'>
 								<view class='left-text'>颜色</view>
 								<view class='right-part'>
@@ -169,7 +189,7 @@
 					</view>
 				</view>
 			</block>
-			<view class='add-cate-box column-center' wx:if='{{classic.length<20}}' catchtap='addCate'>
+			<view class='add-cate-box column-center' wx:if='{{classic.length<50}}' catchtap='addCate'>
 				<image src='https://tp.datikeji.com/a/15471216753325/CZq0wWPAIp5sEKyQu6zjCxDDW7bwVbS3eVADUM32.png' class='add-pic'></image>
 				<text class='add-text'>添加分类</text>
 			</view>

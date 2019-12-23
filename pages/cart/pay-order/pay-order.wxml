@@ -47,8 +47,8 @@
       <view class="right-text">+ ¥ {{yunPrice}}</view>
     </view>
     <view class="row-box" wx:if='{{express_company}}'>
-      <view class="row-label">{{express_company}}</view>
-      <view class="right-text">{{deliver_order}}</view>
+      <text class="row-label" selectable='true'>{{express_company}}</text>
+      <text class="right-text" selectable='true'>{{deliver_order}}</text>
     </view>
   </view>
   <view class="jiesuan-box">

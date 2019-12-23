@@ -11,6 +11,9 @@
           <progress percent="{{item.percent}}" />
         </view>
       </view>
+	  <view class='insertImg-box' wx:if='{{item.type=="video"}}'>
+			 <video id="video" class="video" src="{{item.src}}" id="video_{{index}}" enable-play-gesture='true' controls="true"></video>
+	  </view>
       <view class="topimgBox">
         <image class="img" src="/images/a63.png" wx:if='{{index>0}}' catchtap='upTap' data-index='{{index}}'></image>
         <image class="img" src="/images/a64.png" wx:if='{{index<insertArr.length-1}}' catchtap='bottomTap' data-index='{{index}}'></image>
@@ -29,6 +32,10 @@
     <view class="row-start insert-item" hover-class='black-hover' catchtap='uploadTap'>
       <image class="insert-icon" src="/images/a51.png"></image>
       插入图片
+    </view>
+     <view class="row-start insert-item" hover-class='black-hover' catchtap='uploadfile'>
+      <image class="insert-icon" src="/images/a51.png"></image>
+      插入视频
     </view>
   </view>
 </view>

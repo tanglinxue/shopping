@@ -105,6 +105,44 @@ Page({
 			publishModel.showToast('图片最多插入九张')
 		}
 	},
+	uploadfile: function() { //选择视频或者拍摄视频
+
+		wx.chooseVideo({
+			sourceType: ['album', 'camera'],
+			compressed: true,
+			maxDuration: 60,
+			camera: 'back',
+			success: res => {
+				console.log(res);
+				if (res.duration > 30) {
+					publishModel.showToast('请上传小于30秒的视频')
+					return
+				}
+				publishModel.showLoading('上传视频中')
+				let src = res.tempFilePath;
+				publishModel.uploadFile(src).then(
+					res => {
+						let insertArr = this.data.insertArr;
+						wx.hideLoading()
+						insertArr.push({
+							type: 'video',
+							src: res
+						})
+						this.setData({
+							insertArr,
+							insertState: false,
+							first: false
+						})
+					}
+				)
+
+			},
+			fail: res => {
+				console.log(res);
+			}
+		})
+
+	},
 	//上传图片到网络
 	uploadNet(src) {
 		let insertArr = this.data.insertArr;
@@ -201,16 +239,32 @@ Page({
 	completeTap() {
 		let insertArr = this.data.insertArr;
 		if (insertArr && insertArr.length) {
-			let newArr = insertArr.map(item => {
-				if (item.type === 'img' && item.percent == 100) {
+			let newArr = insertArr.filter(item => {
+				if (item.type =='img' && item.percent == 100) {
 					return item
-				} else if (item.type === 'text') {
-					item.textAreaCon = item.textAreaCon.split('\n').join('&hc')
+				} else if (item.type == 'video') {
 					return item
+				} else if (item.type == 'text') {
+					if(item.textAreaCon){
+						item.textAreaCon = item.textAreaCon.split('\n').join('&hc')
+						return item
+					}	
 				}
 			})
 			app.globalData.detailData = newArr;
 			publishModel.navBack();
 		}
+	},
+	onHide: function() {
+		let detailData = this.data.insertArr;
+		if (detailData.length) {
+			detailData.forEach((item, index) => {
+				if (item.type == "video") {
+					let id = 'video_' + index;
+					wx.createVideoContext(id).stop();
+				}
+			})
+		}
+		
 	}
 })

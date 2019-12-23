@@ -23,7 +23,11 @@
 	align-items: center;
 	/*垂直居中*/
 }
-
+.row-start-a {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
 /* 竖向 */
 
 .column-center {

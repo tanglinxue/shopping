@@ -15,6 +15,7 @@ Page({
 		shopcart_count: 0,
 		typeSelectA: -1,
 		typeSelectB: -1,
+		swiperCurrent: 0, //滑动索引
 	},
 	onLoad: function(options) {
 		this.setData({
@@ -24,13 +25,21 @@ Page({
 		this.render()
 	},
 	onShow() {
+		
 		if (this.data.loadingEnd) {
-			this.setData({
-				typeSelectA:-1,
-				typeSelectB:-1
-			})
-			publishModel.showLoading('加载商品详情中')
-			this.render()
+			if(!this.data.notRender){
+				this.setData({
+					typeSelectA: -1,
+					typeSelectB: -1
+				})
+				publishModel.showLoading('加载商品详情中')
+				this.render()
+			}else{
+				this.setData({
+					notRender:false
+				})
+			}
+			
 		}
 		publishModel.getUserStatus('writePhotosAlbum')
 			.then(res => {
@@ -62,7 +71,7 @@ Page({
 			})
 	},
 	// 获取商品详情
-	render() {
+	render(type) {
 		const good_id = this.data.good_id;
 		publishModel.getGoodDetail({
 				good_id
@@ -75,6 +84,12 @@ Page({
 					for (let key in data) {
 						if (key == 'pic' && data[key]) {
 							newData.bannerPics = JSON.parse(data[key])
+							if( data['video_url']){
+								newData.bannerPics.unshift({
+									type:'video',
+									src:data['video_url']
+								})
+							}
 						} else if (key == 'detail' && data[key]) {
 							newData.detailData = JSON.parse(data[key])
 						} else if (key == 'classic' && data[key]) {
@@ -119,7 +134,9 @@ Page({
 						url: '/pages/index/index',
 					})
 				}
-
+				if(type&&type=='refresh'){
+					wx.stopPullDownRefresh()
+				}
 				if (!this.data.loadingEnd) {
 					this.setData({
 						loadingEnd: true
@@ -128,6 +145,12 @@ Page({
 				wx.hideLoading()
 
 			})
+	},
+	//banner滑动
+	swiperchange: function(e) {
+		this.setData({
+			swiperCurrent: e.detail.current
+		})
 	},
 	// 去重
 	deleteReplace(name, id, classic) {
@@ -444,10 +467,40 @@ Page({
 	// 重新计算数量
 	addNum() {
 		this.setData({
-			typeSelectA:-1,
-			typeSelectB:-1,
-			showPopup:false
+			typeSelectA: -1,
+			typeSelectB: -1,
+			showPopup: false
 		})
-		this.render()
-	}
+		setTimeout(() => {
+			this.render()
+		}, 2000)
+	},
+	onHide:function(){
+		let detailData = this.data.goodsDetail.detailData;
+		
+		if(detailData.length){
+			detailData.forEach((item,index)=>{
+				if(item.type=="video"){
+					let id = 'video_'+index;
+					 wx.createVideoContext(id).stop();
+				}
+			})
+		}
+		wx.createVideoContext('video_main').stop();
+	},
+	prevImg(){
+		this.setData({
+			notRender:true
+		})
+	},
+	// 上啦刷新
+	onPullDownRefresh() {
+		publishModel.showLoading('刷新数据中');
+		this.setData({
+			typeSelectA: -1,
+			typeSelectB: -1
+		})
+		publishModel.showLoading('加载商品详情中')
+		this.render('refresh')
+	},
 })

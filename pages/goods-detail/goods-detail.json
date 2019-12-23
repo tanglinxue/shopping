@@ -1,4 +1,5 @@
 {
+	"enablePullDownRefresh": true,
   "usingComponents": {
     "navigation": "/components/navigation/navigation",
     "v-banner": "/components/banner/index",
