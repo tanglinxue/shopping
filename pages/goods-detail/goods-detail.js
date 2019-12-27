@@ -25,21 +25,21 @@ Page({
 		this.render()
 	},
 	onShow() {
-		
+
 		if (this.data.loadingEnd) {
-			if(!this.data.notRender){
+			if (!this.data.notRender) {
 				this.setData({
 					typeSelectA: -1,
 					typeSelectB: -1
 				})
 				publishModel.showLoading('加载商品详情中')
 				this.render()
-			}else{
+			} else {
 				this.setData({
-					notRender:false
+					notRender: false
 				})
 			}
-			
+
 		}
 		publishModel.getUserStatus('writePhotosAlbum')
 			.then(res => {
@@ -84,10 +84,10 @@ Page({
 					for (let key in data) {
 						if (key == 'pic' && data[key]) {
 							newData.bannerPics = JSON.parse(data[key])
-							if( data['video_url']){
+							if (data['video_url']) {
 								newData.bannerPics.unshift({
-									type:'video',
-									src:data['video_url']
+									type: 'video',
+									src: data['video_url']
 								})
 							}
 						} else if (key == 'detail' && data[key]) {
@@ -134,7 +134,7 @@ Page({
 						url: '/pages/index/index',
 					})
 				}
-				if(type&&type=='refresh'){
+				if (type && type == 'refresh') {
 					wx.stopPullDownRefresh()
 				}
 				if (!this.data.loadingEnd) {
@@ -475,22 +475,22 @@ Page({
 			this.render()
 		}, 2000)
 	},
-	onHide:function(){
+	onHide: function() {
 		let detailData = this.data.goodsDetail.detailData;
-		
-		if(detailData.length){
-			detailData.forEach((item,index)=>{
-				if(item.type=="video"){
-					let id = 'video_'+index;
-					 wx.createVideoContext(id).stop();
+
+		if (detailData.length) {
+			detailData.forEach((item, index) => {
+				if (item.type == "video") {
+					let id = 'video_' + index;
+					wx.createVideoContext(id).stop();
 				}
 			})
 		}
 		wx.createVideoContext('video_main').stop();
 	},
-	prevImg(){
+	prevImg() {
 		this.setData({
-			notRender:true
+			notRender: true
 		})
 	},
 	// 上啦刷新

@@ -29,6 +29,12 @@ Page({
 				res => {
 					if (res) {
 						let orderList = res.list;
+						orderList.forEach(item => {
+							item.good_detail.forEach(sItem=>{
+								sItem.subgood_id=sItem.good_id;
+							})
+							
+						});
 						if (page > 1) {
 							orderList = this.data.orderList.concat(orderList)
 						}

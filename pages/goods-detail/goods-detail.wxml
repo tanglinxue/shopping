@@ -1,10 +1,9 @@
 <navigation id='Navigation' show-icon="{{true}}" title="商品详情" show-title="{{true}}" class=""></navigation>
 <view class='column-center container' wx:if='{{loadingEnd}}'>
 	<!-- banner -->
-	<!-- banner -->
 	<view class="swiper-container">
-		<swiper class="swiper_box"  interval="6000" duration="800" bindchange="swiperchange" circular="circular">
-			
+		<swiper class="swiper_box" interval="6000" duration="800" bindchange="swiperchange" circular="circular">
+
 			<block wx:for="{{goodsDetail.bannerPics}}" wx:key="property">
 				<block wx:if='{{item.type}}'>
 					<swiper-item>
@@ -62,7 +61,8 @@
 						<text class='insert-text' selectable>{{!itemNext?"":itemNext}}</text>
 					</block>
 				</view>
-				<video id="video_{{index}}" class="video" src="{{item.src}}"  wx:if='{{item.type=="video"}}'  enable-play-gesture='true' controls="true"></video>
+				<video id="video_{{index}}" class="video" src="{{item.src}}" wx:if='{{item.type=="video"}}' enable-play-gesture='true'
+				 controls="true"></video>
 				<image src='{{item.img}}' mode="widthFix" class="goods-detail-image" wx:if='{{item.type=="img"}}'></image>
 			</block>
 		</view>
@@ -72,10 +72,12 @@
 		<image src="/images/share.png" />
 	</view>
 	<!-- 底部 -->
-	<v-good-footer catchtobuy='controlPopup' goodsDetail='{{goodsDetail}}' shopcart_count='{{shopcart_count}}'  />
+	<v-good-footer catchtobuy='controlPopup' goodsDetail='{{goodsDetail}}' shopcart_count='{{shopcart_count}}' />
 	<!-- 购物底部悬浮 -->
-	<v-detail-popup showPopup='{{showPopup}}' catchclosePopup='controlPopup' catchchangeNum='changeNum'
-	 showPopupType='{{showPopupType}}' classic_type='{{classic_type}}' classics='{{classics}}' colors='{{colors}}' sizes='{{sizes}}' typeSelectA='{{typeSelectA}}' typeSelectB='{{typeSelectB}}' selectClassData='{{selectClassData}}' catchselectTypeFun='selectTypeFun' goodsDetail='{{goodsDetail}}' catchaddNum='addNum' catchprevImg='prevImg'/>
+	<v-detail-popup showPopup='{{showPopup}}' catchclosePopup='controlPopup' catchchangeNum='changeNum' showPopupType='{{showPopupType}}'
+	 classic_type='{{classic_type}}' classics='{{classics}}' colors='{{colors}}' sizes='{{sizes}}' typeSelectA='{{typeSelectA}}'
+	 typeSelectB='{{typeSelectB}}' selectClassData='{{selectClassData}}' catchselectTypeFun='selectTypeFun' goodsDetail='{{goodsDetail}}'
+	 catchaddNum='addNum' catchprevImg='prevImg' />
 	<!-- 分享弹窗 -->
 	<v-share-poupu sharePopup='{{sharePopup}}' catchcloseShare='getShareBox' catchgetCode='getCode' photoState='{{photoState}}' />
 	<v-ecrode-popup showErocode='{{showErocode}}' catchcloseCode='closeCode' codeImg='{{codeImg}}' />

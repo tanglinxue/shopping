@@ -13,7 +13,8 @@ Page({
 		haveAddress: false,
 		firstEnter: true,
 		type: 1,
-		endStatus: false
+		endStatus: false,
+		userStatus: false, //是否授权
 	},
 	onShow() {
 		// 不是第一次就加载地址
@@ -31,6 +32,7 @@ Page({
 				endStatus: true
 			})
 		}
+		this.getUserStatus()
 		// 设置商品列表及价格
 		// 待支付
 		if (app.globalData.buyShopObject) {
@@ -61,6 +63,52 @@ Page({
 			this.computed(goodsList)
 			app.globalData.buyShopList = null;
 			this.render()
+		}
+	},
+	// 获取用户授权状态
+	getUserStatus() {
+		cartModel.getUserStatus('userInfo').
+		then(res => this.setData({
+			userStatus: res
+		}))
+	},
+	// 用户进行授权
+	bindGetUserInfo(e) {
+		if (e.detail.errMsg == "getUserInfo:ok") {
+			this.setData({
+				userStatus: true
+			})
+			cartModel.getUserInfo()
+				.then(res => {
+					let {
+						encryptedData,
+						iv
+					} = res;
+					let {
+						country,
+						province,
+						city
+					} = res.userInfo;
+					let address = {
+						country,
+						province,
+						city
+					};
+					address = JSON.stringify(address)
+					let {
+						session_key
+					} = app.globalData.userInfo;
+					let params = {
+						encryptedData,
+						iv,
+						address,
+						session_key
+					};
+					return cartModel.authorUser(params)
+				})
+				.then(res => {
+					//this.createOrder()
+				})
 		}
 	},
 	// 计算价格
@@ -183,6 +231,7 @@ Page({
 			cartModel.showModal('请先设置您的收货地址！')
 			return
 		}
+		console.log(goodsList)
 		let good_info = goodsList.map(item => {
 			let {
 				buyNumber,
@@ -192,10 +241,11 @@ Page({
 				cart_classic,
 				classic_type
 			} = item;
+			
 			let newItem = {
 				good_num: buyNumber,
 				good_name,
-				good_id:subgood_id,
+				good_id: subgood_id,
 				sell_price,
 				cart_classic
 			}
@@ -207,6 +257,7 @@ Page({
 			}
 			return newItem
 		})
+		console.log(good_info)
 		good_info = JSON.stringify(good_info)
 		cartModel.showLoading('发起支付中')
 		let params = {
